@@ -1,0 +1,990 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="utf-8">
+        <title>연봉계산기</title>
+        <link href="../static/assets/css/common-sv-202005121458.css" rel="stylesheet" type="text/css">
+        <link rel="stylesheet" type="text/css" href="../static/assets/css/tool.css">
+        <link rel="shortcut icon" type="image/x-icon" href="../static/favicon.ico" />        
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="manifest" href="site.webmanifest">
+		<!-- CSS here -->
+            <link rel="stylesheet" href="../static/assets/css/bootstrap.min2.css">
+            <link rel="stylesheet" href="../static/assets/css/owl.carousel.min.css">
+            <link rel="stylesheet" href="../static/assets/css/flaticon.css">
+            <link rel="stylesheet" href="../static/assets/css/price_rangs.css">
+            <link rel="stylesheet" href="../static/assets/css/slicknav.css">
+            <link rel="stylesheet" href="../static/assets/css/animate.min.css">
+            <link rel="stylesheet" href="../static/assets/css/magnific-popup.css">
+            <link rel="stylesheet" href="../static/assets/css/fontawesome-all.min.css">
+            <link rel="stylesheet" href="../static/assets/css/themify-icons.css">
+            <link rel="stylesheet" href="../static/assets/css/slick.css">
+            <link rel="stylesheet" href="../static/assets/css/nice-select2.css">
+            <link rel="stylesheet" href="../static/assets/css/style2.css">
+
+        <script src="../static/assets/js/jquery-1.10.2.min.js"></script>
+        <script type="text/javascript" src="../static/assets/js/dslog.js?ver=1.1" id="dslog_tag"></script>
+        <script type="text/javascript">
+            window.dsValDic = {};
+            window.dsTypeDic = {};
+            window.dsHelper = {
+                registVal: function (key, value) {
+                    window.dsValDic[key] = value;
+                },
+                getVal: function (key) {
+                    return window.dsValDic[key];
+                },
+                removeVal: function (key) {
+                    delete(window.dsValDic[key]);
+                },
+                clearVal: function () {
+                    window.dsValDic = {}
+                },
+                registType: function (type) {
+                    window.dsTypeDic[type] = type;
+                },
+                removeType: function (type) {
+                    delete(window.dsTypeDic[type]);
+                },
+                clearType: function (type) {
+                    window.disTypeDic = {};
+                }
+            };
+        </script>
+    </head>
+    <body>
+        <!-- Preloader Start -->
+        <div id="preloader-active">
+            <div class="preloader d-flex align-items-center justify-content-center">
+                <div class="preloader-inner position-relative">
+                    <div class="preloader-circle"></div>
+                    <div class="preloader-img pere-text">
+                        <img src="../static/logoper.png" alt="">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Preloader Start -->
+        <header>
+            <!-- Header Start -->
+           <div class="header-area header-transparrent" >
+               <div class="headder-top header-sticky">
+                    <div class="container">
+                        <div class="row align-items-center">
+                            <div class="col-lg-3 col-md-2">
+                                <!-- Logo -->
+                                <div class="logo">
+                                    <a href="/"><img src="../static/bridge.png" alt=""></a>
+                                </div>  
+                            </div>
+                            <div class="col-lg-9 col-md-9">
+                                <div class="menu-wrapper">
+                                    <!-- Main-menu -->
+                                    <div class="main-menu">
+                                        <nav class="d-none d-lg-block">
+                                            <ul id="navigation">
+                                                <li><a href="/">Home</a></li>
+                                                <li><a href="/recruit">Find Jobs </a></li>
+                                                <li><a href="#">Help</a>
+                                                    <ul class="submenu">
+                                                        <li><a href="/hangulcheck">글자수 세기</a></li>
+                                                        <!--li><a href="/hakjomcount">학점 계산기</a></li-->
+                                                        <li><a href="/salarycalculator">연봉 계산기</a></li>
+                                                        <li><a href="/futureyearcalculate">미래 연봉 계산기</a></li>
+                                                        <li><a href="/changescore">어학 점수 변환기</a></li>
+                                                    </ul>
+                                                </li>
+                                                <li><a href="#">MyPage</a>
+                                                    <ul class="submenu">
+                                                        {% if session['usertype'] == "person" %}
+                                                        <li><a href="/myprecruit">my recruit</a></li>
+                                                        <li><a href="/personalinfo">my personal info</a></li>
+                                                        {% elif session['usertype'] == "company" %}
+                                                        <li><a href="/mycrecruit">my recruit</a></li>
+                                                        <li><a href="/companyinfo">my company's info</a></li>
+                                                        {% endif %}
+                                                    </ul>
+                                                </li>
+                                                <li><a href="/qna">QnA</a></li>
+                                            </ul>
+                                        </nav>
+                                    </div>          
+                                    <!-- Header-btn -->
+                                    <div class="header-btn d-none f-right d-lg-block">
+                                        {%  if session['logged_in'] %}
+                                        <a href="/logout" class="btn head-btn2">Log out</a>
+                                        <a href="/unjoin" class="btn head-btn2">Unjoin</a>
+                                        {% else %}
+                                        <a href="/plogin" class="btn head-btn2">Individual</a>
+                                        <a href="/clogin" class="btn head-btn2">Enterprise</a>
+                                        {% endif %}
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Mobile Menu -->
+                            <div class="col-12">
+                                <div class="mobile_menu d-block d-lg-none"></div>
+                            </div>
+                        </div>
+                    </div>
+               </div>
+           </div>
+            <!-- Header End -->
+        </header>
+        <br>
+        <br>
+
+    <nav style="">
+        <!-- Header // -->
+        <div class="slider-area ">
+            <div class="single-slider section-overly slider-height2 d-flex align-items-center" data-background="../static/assets/img/hero/background3.png">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-xl-12">
+                            <div  class="hero-cap text-center">
+                                <h2>연봉계산기</h2>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+            <div id="container">
+                <div class="gjContainer svcuSubTool" id="secSvcu">
+                    <div class="gjContent">
+                        <div class="goodjobnews-tools">
+                            <input type="hidden" id="hidMemChk" value="0"> <article class="artBx first">
+                                <div class="secInner">
+                                    <div style="margin-top:100px;margin-bottom:50px;margin-left:10px;"class="hdBx">
+                                        
+                                    </div>
+                                    <div style="border: 1px solid gainsboro"class="bx bxLine incomeCalBx clear">
+                                        <div class="inputP">
+                                            <h3 class="tit">현재(희망)연봉 입력</h3>
+                                            <div class="inputGrp">
+                                                <fieldset>
+                                                    <legend class="skip">연봉 계산 입력양식</legend>
+                                                    <ul>
+                                                        <li class="calCell">
+                                                            <strong class="calLb">연봉/월급 선택</strong>
+                                                            <div
+                                                                class="calFrm">
+                                                                <!--// 체크박스 체크시 class chk 추가 -->
+                                                                <span class="calChkBx chk devTypeSalarytypedata" data-saletype="year"><input type="checkbox" name="salaryTyp" id="annTypLb"><label for="annTypLb">
+                                                                        <i class="toolBtnIco calChk"></i>연봉</label>
+                                                                </span>
+                                                                <span class="calChkBx devTypeSalarytypedata" data-saletype="mon"><input type="checkbox" name="salaryTyp" id="monTypLb"><label for="monTypLb">
+                                                                        <i class="toolBtnIco calChk"></i>월급</label>
+                                                                </span>
+                                                            </div>
+                                                        </li>
+                                                        <li class="calCell">
+                                                            <strong class="calLb">퇴직금<button type="button" class="tipBtn openTtpTip" data-target="toolRetireLy">
+                                                                    <i class="toolBtnIco tipBtnIco"></i>
+                                                                </button>
+                                                            </strong>
+                                                            <div
+                                                                class="calFrm">
+                                                                <!--// 체크박스 체크시 class chk 추가 -->
+                                                                <span class="calChkBx chk devTypeRetiretypedata" data-retire="0"><input type="checkbox" name="" id="incTypLb"><label for="incTypLb">
+                                                                        <i class="toolBtnIco calChk"></i>별도</label>
+                                                                </span>
+                                                                <span class="calChkBx devTypeRetiretypedata" data-retire="1"><input type="checkbox" name="" id="notIncTypLb"><label for="notIncTypLb">
+                                                                        <i class="toolBtnIco calChk"></i>포함</label>
+                                                                </span>
+                                                            </div>
+                                                            <!--// 퇴직금 레이어 -->
+                                                            <div class="toolLyType" id="toolRetireLy" tabindex="-1">
+                                                                <div class="lyCnt">
+                                                                    <dl>
+                                                                        <dt>퇴직금 별도란?</dt>
+                                                                        <dd>
+                                                                            <ul>
+                                                                                <li>연봉 계약서 금액에 퇴직금이 포함되지 않는 경우입니다.</li>
+                                                                                <li>월급은 연봉/12로 지급됩니다.</li>
+                                                                            </ul>
+                                                                        </dd>
+                                                                        <dt>퇴직금 포함이란?</dt>
+                                                                        <dd>
+                                                                            <ul>
+                                                                                <li>연봉 계약서 금액에 퇴직금이 포함된 경우입니다.</li>
+                                                                                <li>월급은 연봉/13으로 지급됩니다.</li>
+                                                                                <li>실제예상월급 계산 시, 연봉/13 월급을 기준으로 계산합니다.</li>
+                                                                            </ul>
+                                                                        </dd>
+                                                                    </dl>
+                                                                </div>
+                                                                <p class="lyBtn">
+                                                                    <button type="button" class="toolBtnIco closeBtnIco closeTtpTip">
+                                                                        <span class="blind">퇴직금 별도 레이어 닫기</span>
+                                                                    </button>
+                                                                </p>
+                                                            </div>
+                                                            <!-- 퇴직금 레이어 //-->
+                                                        </li>
+                                                        <li class="calCell">
+                                                            <label class="calLb" for="taxFreeLb">비과세액<span class="subLb">(식대포함)</span>
+                                                                <button type="button" class="tipBtn openTtpTip" data-target="toolTaxLy">
+                                                                    <i class="toolBtnIco tipBtnIco"></i>
+                                                                </button>
+                                                            </label>
+                                                            <div class="calFrm">
+                                                                <p class="calTxtBx">
+                                                                    <input type="text" name="" value="100,000" id="taxFreeLb" maxlength="10">
+                                                                    <span class="unit">원</span>
+                                                                    <em class="ezVal">10만원</em>
+                                                                </p>
+                                                                <p class="calErrMsg" data-msg="비과세는 월급보다 적어야 합니다.">&nbsp;</p>
+                                                            </div>
+                                                            <!--// 비과세액 레이어 -->
+                                                            <div class="toolLyType" id="toolTaxLy" tabindex="-1">
+                                                                <div class="lyCnt">
+                                                                    <dl>
+                                                                        <dt>비과세액이란?</dt>
+                                                                        <dd>
+                                                                            <ul>
+                                                                                <li>월 소득액에서 세금을 공제하지 않는 금액입니다. 급여액에서 비과세액을 뺀 후, 나머지 금액에 세금을 적용합니다.</li>
+                                                                                <li>식대 10만원이 기본이며, 직접 수정가능합니다.</li>
+                                                                                <li>실비변상적인 급여, 비과세 되는 식사대, 출산/보육 수당, 기타 비과세 되는 소득, 국외근로소득, 생산직 근로자 등의 야간근로수당, 외국인 근로자에 대한 과세특례 등이 해당됩니다.</li>
+                                                                            </ul>
+                                                                        </dd>
+                                                                    </dl>
+                                                                </div>
+                                                                <p class="lyBtn">
+                                                                    <button type="button" class="toolBtnIco closeBtnIco closeTtpTip">
+                                                                        <span class="blind">비과세액 레이어 닫기</span>
+                                                                    </button>
+                                                                </p>
+                                                            </div>
+                                                            <!-- 비과세액 레이어 //-->
+                                                        </li>
+                                                        <li class="calCell">
+                                                            <label class="calLb" for="supportLb">부양가족수<span class="subLb">(본인포함)</span>
+                                                                <button type="button" class="tipBtn openTtpTip" data-target="toolSupportLy">
+                                                                    <i class="toolBtnIco tipBtnIco"></i>
+                                                                </button>
+                                                            </label>
+                                                            <div class="calFrm">
+                                                                <p class="calTxtBx">
+                                                                    <input type="text" name="" value="1" id="supportLb" maxlength="3">
+                                                                    <span class="unit">명</span>
+                                                                </p>
+                                                                <p class="calErrMsg" data-msg="12명 이상부터는 11명 기준으로 계산됩니다.">&nbsp;</p>
+                                                            </div>
+                                                            <!--// 부양가족수 레이어 -->
+                                                            <div class="toolLyType" id="toolSupportLy" tabindex="-1">
+                                                                <div class="lyCnt">
+                                                                    <dl>
+                                                                        <dt>부양가족수란?</dt>
+                                                                        <dd>
+                                                                            <ul>
+                                                                                <li>기본공제대상자(본인 포함)에 해당하는 부양가족의 수를 입력합니다.</li>
+                                                                                <li>단, 연간 소득금액이 100만원을 초과하는 경우에는 해당되지 않습니다.</li>
+                                                                            </ul>
+                                                                        </dd>
+                                                                    </dl>
+                                                                </div>
+                                                                <p class="lyBtn">
+                                                                    <button type="button" class="toolBtnIco closeBtnIco closeTtpTip">
+                                                                        <span class="blind">부양가족수 레이어 닫기</span>
+                                                                    </button>
+                                                                </p>
+                                                            </div>
+                                                            <!-- 부양가족수 레이어 //-->
+                                                        </li>
+                                                        <li class="calCell annCell">
+                                                            <label class="calLb" for="annIncome">연봉</label>
+                                                            <div class="calFrm">
+                                                                <p class="calTxtBx">
+                                                                    <span class="calPholder">예) 24,000,000</span>
+                                                                    <input type="text" name="" value="" id="annIncome" maxlength="13">
+                                                                    <span class="unit">원</span>
+                                                                    <em class="ezVal"></em>
+                                                                </p>
+                                                                <p class="calErrMsg" data-msg="1,000원 이상 입력해 주세요."></p>
+                                                            </div>
+                                                        </li>
+                                                         <div class="btnGp clear" >
+                                                        <button class="tplBtn tplBtn_1 tplBtnBlue svcBtnMm devTypeBtnCalculate" type="button">
+                                                            <span >계산하기</span>
+                                                        </button>
+                                                      
+                                                    </div>
+                                                    </ul>
+                                                   
+                                                </fieldset>
+                                            </div>
+                                        </div>
+                                        <!-- 입력 //-->
+                                        <!--// 월 실수령액 -->
+                                        <div class="outputP" id="devTypeResult">
+                                            <h3 class="tit">세금 공제한 월 실수령액</h3>
+                                            <ul>
+                                                <li class="calRpt">
+                                                    <strong class="rptLb">예상 소득액(월)</strong>
+                                                    <span class="rptVal" id="ResultSalaryTotal">0<span class="unit">원</span>
+                                                    </span>
+                                                </li>
+                                                <li class="calRpt">
+                                                    <strong class="rptLb">공제액 합계</strong>
+                                                    <span class="rptVal" id="devTypeResultDeductTotal">0<span class="unit">원</span>
+                                                    </span>
+                                                    <ul class="calRptDtl">
+                                                        <li class="calDtl">
+                                                            <strong class="dtlLb">국민연금<button type="button" class="tipBtn openTtpTip" data-target="toolAnnutyLy">
+                                                                    <i class="toolBtnIco tipBtnIco"></i>
+                                                                </button>
+                                                            </strong>
+                                                            <span class="dtlVal devTypeAnnuty">0<span class="unit">원</span>
+                                                            </span>
+                                                            <!--// 국민연금 레이어 -->
+                                                            <div class="toolLyType" id="toolAnnutyLy" tabindex="-1">
+                                                                <div class="lyCnt">
+                                                                    <dl>
+                                                                        <dt>국민연금이란?</dt>
+                                                                        <dd>
+                                                                            <ul>
+                                                                                <li>월 소득액(비과세액 제외)에서 4.5%를 공제합니다.</li>
+                                                                                <li>
+                                                                                    근로자, 기업 각각 4.5%씩 부담합니다.
+                                                                                </li>
+                                                                                <li>월 최저금액 28만원, 최고금액 449만원으로 과세합니다.</li>
+                                                                            </ul>
+                                                                        </dd>
+                                                                    </dl>
+                                                                </div>
+                                                                <p class="lyBtn">
+                                                                    <button type="button" class="toolBtnIco closeBtnIco closeTtpTip">
+                                                                        <span class="blind">국민연금 레이어 닫기</span>
+                                                                    </button>
+                                                                </p>
+                                                            </div>
+                                                            <!-- 국민연금 레이어 //-->
+                                                        </li>
+                                                        <li class="calDtl">
+                                                            <strong class="dtlLb">건강보험<button type="button" class="tipBtn openTtpTip" data-target="toolHinsurLy">
+                                                                    <i class="toolBtnIco tipBtnIco"></i>
+                                                                </button>
+                                                            </strong>
+                                                            <span class="dtlVal devTypeHinsur">0<span class="unit">원</span>
+                                                            </span>
+                                                            <!--// 건강보험 레이어 -->
+                                                            <div class="toolLyType" id="toolHinsurLy" tabindex="-1">
+                                                                <div class="lyCnt">
+                                                                    <dl>
+                                                                        <dt>건강보험이란?</dt>
+                                                                        <dd>
+                                                                            <ul>
+                                                                                <li>월 소득액(비과세액 제외)에서 3.06%를 공제합니다.</li>
+                                                                                <li>근로자, 기업 각각 3.06%씩 부담합니다.</li>
+                                                                                <li>최저금액 28만원, 최고금액 7,810만원으로 과세합니다.</li>
+                                                                            </ul>
+                                                                        </dd>
+                                                                    </dl>
+                                                                </div>
+                                                                <p class="lyBtn">
+                                                                    <button type="button" class="toolBtnIco closeBtnIco closeTtpTip">
+                                                                        <span class="blind">건강보험 레이어 닫기</span>
+                                                                    </button>
+                                                                </p>
+                                                            </div>
+                                                            <!-- 건강보험 레이어 //-->
+                                                        </li>
+                                                        <li class="calDtl">
+                                                            <strong class="dtlLb">장기요양<button type="button" class="tipBtn openTtpTip" data-target="toolNinsurLy">
+                                                                    <i class="toolBtnIco tipBtnIco"></i>
+                                                                </button>
+                                                            </strong>
+                                                            <span class="dtlVal devTypeNinsur">0<span class="unit">원</span>
+                                                            </span>
+                                                            <!--// 장기요양 레이어 -->
+                                                            <div class="toolLyType" id="toolNinsurLy" tabindex="-1">
+                                                                <div class="lyCnt">
+                                                                    <dl>
+                                                                        <dt>장기요양보험이란?</dt>
+                                                                        <dd>
+                                                                            <ul>
+                                                                                <li>건강보험금액에서 6.55%를 공제합니다.</li>
+                                                                            </ul>
+                                                                        </dd>
+                                                                    </dl>
+                                                                </div>
+                                                                <p class="lyBtn">
+                                                                    <button type="button" class="toolBtnIco closeBtnIco closeTtpTip">
+                                                                        <span class="blind">건강보험 레이어 닫기</span>
+                                                                    </button>
+                                                                </p>
+                                                            </div>
+                                                            <!-- 장기요양 레이어 //-->
+                                                        </li>
+                                                        <li class="calDtl">
+                                                            <strong class="dtlLb">고용보험<button type="button" class="tipBtn openTtpTip" data-target="toolEinsurLy">
+                                                                    <i class="toolBtnIco tipBtnIco"></i>
+                                                                </button>
+                                                            </strong>
+                                                            <span class="dtlVal devTypeEinsur">0<span class="unit">원</span>
+                                                            </span>
+                                                            <!--// 고용보험 레이어 -->
+                                                            <div class="toolLyType" id="toolEinsurLy" tabindex="-1" style="display: none;">
+                                                                <div class="lyCnt">
+                                                                    <dl>
+                                                                        <dt>고용보험보험이란?</dt>
+                                                                        <dd>
+                                                                            <ul>
+                                                                                <li>월 소득액(비과세액 제외)에서 0.65%를 공제합니다.</li>
+                                                                            </ul>
+                                                                        </dd>
+                                                                    </dl>
+                                                                </div>
+                                                                <p class="lyBtn">
+                                                                    <button type="button" class="toolBtnIco closeBtnIco closeTtpTip">
+                                                                        <span class="blind">고용보험 레이어 닫기</span>
+                                                                    </button>
+                                                                </p>
+                                                            </div>
+                                                            <!-- 고용보험 레이어 //-->
+                                                        </li>
+                                                        <li class="calDtl">
+                                                            <strong class="dtlLb">소득세<button type="button" class="tipBtn openTtpTip" data-target="toolIncmTaxLy">
+                                                                    <i class="toolBtnIco tipBtnIco"></i>
+                                                                </button>
+                                                            </strong>
+                                                            <span class="dtlVal devTypeIncmTax">0<span class="unit">원</span>
+                                                            </span>
+                                                            <!--// 소득세 레이어 -->
+                                                            <div class="toolLyType" id="toolIncmTaxLy" tabindex="-1">
+                                                                <div class="lyCnt">
+                                                                    <dl>
+                                                                        <dt>소득세란?</dt>
+                                                                        <dd>
+                                                                            <ul>
+                                                                                <li>급여와 부양가족수에 따라 국세청의 근로소득 간이세액표 자료를 기준으로 공제합니다.</li>
+                                                                            </ul>
+                                                                        </dd>
+                                                                    </dl>
+                                                                </div>
+                                                                <p class="lyBtn">
+                                                                    <button type="button" class="toolBtnIco closeBtnIco closeTtpTip">
+                                                                        <span class="blind">소득세 레이어 닫기</span>
+                                                                    </button>
+                                                                </p>
+                                                            </div>
+                                                            <!-- 소득세 레이어 //-->
+                                                        </li>
+                                                        <li class="calDtl">
+                                                            <strong class="dtlLb">지방소득세<button type="button" class="tipBtn openTtpTip" data-target="toolLIncmTaxLy">
+                                                                    <i class="toolBtnIco tipBtnIco"></i>
+                                                                </button>
+                                                            </strong>
+                                                            <span class="dtlVal devTypeLIncmTax">0<span class="unit">원</span>
+                                                            </span>
+                                                            <!--// 지방소득세 레이어 -->
+                                                            <div class="toolLyType" id="toolLIncmTaxLy" tabindex="-1">
+                                                                <div class="lyCnt">
+                                                                    <dl>
+                                                                        <dt>지방소득세란?</dt>
+                                                                        <dd>
+                                                                            <ul>
+                                                                                <li>소득세의 10%를 공제합니다.</li>
+                                                                            </ul>
+                                                                        </dd>
+                                                                    </dl>
+                                                                </div>
+                                                                <p class="lyBtn">
+                                                                    <button type="button" class="toolBtnIco closeBtnIco closeTtpTip">
+                                                                        <span class="blind">지방소득세 레이어 닫기</span>
+                                                                    </button>
+                                                                </p>
+                                                            </div>
+                                                            <!-- 지방소득세 레이어 //-->
+                                                        </li>
+                                                    </ul>
+                                                </li>
+                                            </ul>
+                                            <div class="finaljRptBx clear">
+                                                <strong class="dtlLb">예상 실수령액(월)<button type="button" class="tipBtn openTtpTip" data-target="toolATaxIncmLy">
+                                                        <i class="toolBtnIco tipBtnIco"></i>
+                                                    </button>
+                                                </strong>
+                                                <span class="dtlVal" id="ResultTaxSalaryTotal">0<span class="unit">원</span>
+                                                </span>
+                                                <span class="ezVal"></span>
+                                                <!--// 예상 실수령액 레이어 -->
+                                                <div class="toolLyType" id="toolATaxIncmLy" tabindex="-1">
+                                                    <div class="lyCnt">
+                                                        <dl>
+                                                            <dt>예상 실수령액이란?</dt>
+                                                            <dd>
+                                                                <ul>
+                                                                    <li>소득세의 10%를 공제합니다.</li>
+                                                                </ul>
+                                                            </dd>
+                                                        </dl>
+                                                    </div>
+                                                    <p class="lyBtn">
+                                                        <button type="button" class="toolBtnIco closeBtnIco closeTtpTip">
+                                                            <span class="blind">예상 실수령액 레이어 닫기</span>
+                                                        </button>
+                                                    </p>
+                                                </div>
+                                                <!-- 예상 실수령액 레이어 //-->
+                                            </div>
+                                        </div>
+                                        <!-- 월 실수령액 //-->
+                                    </div>
+                                </div>
+                            </article>
+                            <!-- 연봉계산기 : 20171208 //-->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <ins class="adsbygoogle adsbygoogle-noablate" data-adsbygoogle-status="done" style="display: none !important;">
+            <ins id="aswift_0_expand" style="display:inline-table;border:none;height:0px;margin:0;padding:0;position:relative;visibility:visible;width:0px;background-color:transparent;">
+                <ins id="aswift_0_anchor" style="display:block;border:none;height:0px;margin:0;padding:0;position:relative;visibility:visible;width:0px;background-color:transparent;">
+                </ins>
+            </ins>
+        </ins>
+        <script src="../static/assets/js/jquery-1.10.2.min.js"></script>
+        <script src="../static/assets/js/underscore.min.js"></script>
+        <script src="../static/assets/js/jk.pc.min.js?2020063014"></script>
+        <script src="../static/assets/js/jk.common.min.js?2020063014"></script>
+        <script type="text/javascript" src="../static/assets/js/LoginLayer.js?date=2020063014"></script>
+        <script src="../static/assets/js/SalaryResultCalculator.js?date=2020063014"></script>
+        <script src="../static/assets/js/jk.user.common.min.js?date=2020063014"></script>
+        <script>
+            $(document).ready(function () {
+                cal = new JobkoreaSalaryResultCalculator({
+                    SalaryType: $(".devTypeSalarytypedata.chk").data('saletype'), //
+                    Salary: $("#annIncome").val(), // 연봉/월금
+                    TaxFree: $("#taxFreeLb").val(), // 과세액
+                    FamilyNumbers: $("#supportLb").val()
+                });
+                $('input#taxFreeLb').on('focusin', function () {
+                    $(this).data('val', $(this).val());
+                });
+                // 비과세액 입력
+                var onKeyuptaxFreeLb = function (e) {
+                    var $this = $(e.currentTarget);
+                    var result = $this.val();
+                    var annIncome = cal.toNumber($("#annIncome").val()) * 1;
+                    var $errMsg = $this.closest('.calFrm').find('.calErrMsg');
+                    result = cal.toNumber(result) * 1;
+                    var msg = cal.NumberToString(result);
+                    if (msg == '0') {
+                        msg = "";
+                    }
+                    if (msg != '') {
+                        msg = msg + '원';
+                    }
+                    $this.siblings("em.ezVal").text(msg);
+                    $this.val(cal.toPrice(result));
+                    var $errMsg = $this.closest('.calFrm').find('.calErrMsg');
+                    if (annIncome != "") {
+                        if (result > annIncome) {
+                            $errMsg.text($errMsg.data('msg'));
+                        } else {
+                            $errMsg.text('');
+                        }
+                    }
+                };
+                // 부양가족수 입력
+                var onKeyupSupportLb = function (e) {
+                    var $this = $(e.currentTarget);
+                    var $errMsg = $this.closest('.calFrm').find('.calErrMsg');
+                    var result = cal.toNumber($this.val());
+                    if (result > cal
+                            .context
+                            .Options
+                            .MaxFamily) {
+                        $errMsg.text($errMsg.data('msg'));
+                    } else {
+                        $errMsg.text('');
+                    }
+                    if (result == 0 || $this.val() == "") {
+                        result = 1;
+                    }
+                    $this.val(cal.toPrice(result));
+                }
+                // 연봉입력
+                var onKeyupAnnIncome = function (e) {
+                    var $this = $(e.currentTarget);
+                    var result = $this.val();
+                    result = cal.toNumber(result);
+                    var msg = cal.NumberToString(result);
+                    if (msg != "") {
+                        msg += '원';
+                    }
+                    $this.siblings("em.ezVal").text(msg);
+                    $this.val(cal.toPrice(result));
+                    var taxFree = cal.toNumber($("#taxFreeLb").val()) * 1;
+                    var $errMsg = $("#taxFreeLb").closest('.calFrm').find('.calErrMsg');
+                    if (result < taxFree && $this.val() != "") {
+                        $errMsg.text($errMsg.data('msg'));
+                    } else {
+                        $errMsg.text('');
+                    }
+                    var $errMsg2 = $this.closest('.calFrm').find('.calErrMsg');
+                    if (result < 1000 && $this.val() != "") {
+                        $errMsg2.text($errMsg2.data('msg'));
+                    } else {
+                        $errMsg2.text('');
+                    }
+                };
+                // 연봉 계산
+                var onClickCalculate = function (e) {
+                    var $taxFree = $("#taxFreeLb");
+                    var $annIncome = $("#annIncome");
+                    var $support = $("#supportLb");
+                    var taxFree = cal.toNumber($taxFree.val()) * 1; //
+                    var annIncome = cal.toNumber($annIncome.val()) * 1;
+                    var support = cal.toNumber($support.val()) * 1;
+                    if (annIncome == 0 || annIncome == '') {
+                        var beforeMesg = $annIncome
+                            .closest('.calFrm')
+                            .find('.calErrMsg')
+                            .data('msg');
+                        var errMesg = $(".inputP .annCell label.calLb").text() + '을 입력해주세요';
+                        $annIncome
+                            .closest('.calFrm')
+                            .find('.calErrMsg')
+                            .data('msg', errMesg);
+                        $annIncome
+                            .closest('.calFrm')
+                            .find('.calErrMsg')
+                            .html(errMesg);
+                        alert(errMesg);
+                        $annIncome
+                            .closest('.calFrm')
+                            .find('.calErrMsg')
+                            .data('msg', beforeMesg);
+                        return false;
+                    }
+                    if (annIncome < taxFree) {
+                        var errMesg = $taxFree
+                            .closest('.calFrm')
+                            .find('.calErrMsg')
+                            .data('msg');
+                        alert(errMesg);
+                        return;
+                    }
+                    if (annIncome < 1000) {
+                        var errMesg = $annIncome
+                            .closest('.calFrm')
+                            .find('.calErrMsg')
+                            .data('msg');
+                        alert(errMesg);
+                        return;
+                    }
+                    if (support > cal
+                            .context
+                            .Options
+                            .MaxFamily) {
+                        var errMesg = $support
+                            .closest('.calFrm')
+                            .find('.calErrMsg')
+                            .data('msg');
+                        alert(errMesg);
+                    }
+                    new JobkoreaSalaryResultCalculator({
+                        SalaryType: $(".devTypeSalarytypedata.chk").data('saletype'), //
+                        Salary: $("#annIncome").val(), // 연봉/월금
+                        TaxFree: $("#taxFreeLb").val(), // 과세액
+                        FamilyNumbers: $("#supportLb").val()
+                    });
+                };
+                var onClickTabs = function (e) {
+                    var $this = $(e.currentTarget);
+                    $(".devTypeSalarytypedata").removeClass("chk");
+                    $this.addClass("chk");
+                    var saletype = $this.data('saletype');
+                    if (saletype == 'year') {
+                        $(".inputP .annCell label.calLb").html('연봉');
+                        $(".inputGrp li:eq(1)").show();
+                    } else {
+                        $(".inputP .annCell label.calLb").html('월급');
+                        $(".inputGrp li:eq(1)").hide();
+                    }
+                };
+                var onClickRetiretypedata = function (e) {
+                    var $this = $(e.currentTarget);
+                    $(".devTypeRetiretypedata").removeClass("chk");
+                    $this.addClass("chk");
+                    var retire = $(".devTypeRetiretypedata.chk").data('retire');
+                    cal
+                        .context
+                        .Options
+                        .IncludeRetriePrice = false;
+                    if (retire == 1) {
+                        cal
+                            .context
+                            .Options
+                            .IncludeRetriePrice = true;
+                    }
+                }
+                var onMouseoverTooltip = function (e) {
+                    var $this = $(e.currentTarget);
+                    var id = $this.data('target');
+                    $("#" + id).show();
+                }
+                var onMouseoutTooltip = function (e) {
+                    var $this = $(e.currentTarget);
+                    var id = $this.data('target');
+                    $("#" + id).hide();
+                }
+                var onClickReset = function (e) {
+                    var tagwon = "<span class=\"unit\">원</span>";
+                    $(".devTypeSalarytypedata:eq(0)").trigger("click");
+                    $(".devTypeRetiretypedata:eq(0)").trigger("click");
+                    $("#supportLb").val("1");
+                    $("#devTypeResultDeductTotal").html('0' + tagwon);
+                    $("#ResultSalaryTotal").html('0' + tagwon);
+                    $("#taxFreeLb").val("100,000").trigger("keyup");
+                    $("#devTypeResult .calRpt .rptVal,.dtlVal")
+                        .html('0' + tagwon)
+                        $("#ResultTaxSalaryTotal")
+                        .html('0' + tagwon)
+                        .siblings('span.ezVal')
+                        .text('');
+                    $("input#annIncome")
+                        .val('')
+                        .siblings('em.ezVal')
+                        .text('');
+                    $(".inputGrp p.calErrMsg").text('');
+                }
+                $(document).on("keyup", "#taxFreeLb", onKeyuptaxFreeLb);
+                $(document).on("change", "#taxFreeLb", onKeyuptaxFreeLb);
+                $(document).on("keyup", "#annIncome", onKeyupAnnIncome);
+                $(document).on("change", "#annIncome", onKeyupAnnIncome);
+                // $(document).on("keyup", "#supportLb", onKeyupSupportLb);
+                $(document).on("change", "#supportLb", onKeyupSupportLb);
+                $(document).on("click", ".devTypeBtnCalculate", onClickCalculate);
+                $(document).on("click", ".devTypeSalarytypedata", onClickTabs)
+                $(document).on("click", ".devTypeRetiretypedata", onClickRetiretypedata);
+                $(document).on("click", "button.calBtnReset", onClickReset);
+                $(document).on("mouseover", "button.openTtpTip", onMouseoverTooltip);
+                $(document).on("mouseout", "button.openTtpTip", onMouseoutTooltip);
+                // placeholder
+                $("input[type=text]").each(function () {
+                    var _this = $(this);
+                    var hasPholder = _this.prev(".calPholder");
+                    var hasVal = _this.val();
+                    if (hasPholder.length > 0) {
+                        _this.on({
+                            focusin: function () {
+                                if (hasVal == "") {
+                                    _this.prev(".calPholder").hide();
+                                }
+                            },
+                            focusout: function () {
+                                hasVal = $.trim(_this.val());
+                                if (hasVal == "") {
+                                    _this.prev(".calPholder").show();
+                                }
+                            }
+                        });
+                    };
+                    hasPholder.on("click", function (e) {
+                        _this.focus();
+                        e.stopPropagation();
+                    });
+                });
+                // 관심기업
+                $(".buttonFavorites").on("click", function (e) {
+                    if ($(this).data("memSys") != "") {
+                        _preventDefault(e);
+                        goFavor(e, this, $(this).data("memSys"));
+                    }
+                });
+                // cal.Calculate();
+            });
+            var _preventDefault = function (e) {
+                if (e.preventDefault) {
+                    e.preventDefault();
+                } else {
+                    e.stop();
+                };
+                e.returnValue = false;
+                e.stopPropagation();
+            }
+        </script>
+
+        <script type="text/javascript">
+            var DS_UID_Value = ''
+            var DSID_Value = ''
+            if (window._dslog) {
+                if (DS_UID_Value != "" && DSID_Value != "") {
+                    window._dslog.setDSID(DSID_Value);
+                } else {
+                    window._dslog.setUID(DS_UID_Value);
+                }
+                window._dslog.dispatch();
+            } else {
+                var dslog_tag = document.getElementById('dslog_tag');
+                if (dslog_tag != null && dslog_tag != undefined) {
+                    dslog_tag.onload = dslog_tag.onreadystatechange = function () {
+                        dslog_tag.onload = dslog_tag.onreadystatechange = null;
+                        window._dslog.setUIDCookie('');
+                        window._dslog.dispatch()
+                    }
+                }
+            }
+        </script>
+        </nav>
+    </body>
+    <br><br><br>
+    <footer>
+        <!-- Footer Start-->
+        <div class="footer-area footer-bg footer-padding" style="text-align:center;">
+            <div class="container">
+                <div class="row d-flex justify-content-between">
+                    <div class="col-xl-3 col-lg-3 col-md-4 col-sm-6">
+                       <div class="single-footer-caption mb-50">
+                        
+                            <div class="footer-tittle">
+                                <h4>About Us</h4>
+                                <ul style="font-size: 15px; font-weight: 800;">
+                                    <li><a href="#">LeeDooyoung</a></li>
+                                    <li><a href="#">HanJuhyeon</a></li>
+                                    <li><a href="#">KimHangil</a></li>
+                                    <li><a href="#">JoengEunmi</a></li>
+                                    <li><a href="#">JeongDonghwa</a></li>
+                                </ul>
+                            </div>
+                      
+
+                       </div>
+                    </div>
+                    <div class="col-xl-3 col-lg-3 col-md-4 col-sm-5">
+                        <div class="single-footer-caption mb-50">
+                            <div class="footer-tittle">
+                                <h4>Contact Info</h4>
+                                <ul>
+                                    <li>
+                                    <p style="font-size: 15px;font-weight: 400;">Address : 금천구 가산동 371-28</p>
+                                    </li>
+                                    <li style="font-size: 15px;font-weight: 800;"><a href="#">Phone : 010-2906-2942</a></li>
+                                    <li style="font-size: 15px;font-weight: 800;"><a href="#">Email : saelly1@naver.com</a></li>
+                                </ul>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="col-xl-3 col-lg-3 col-md-4 col-sm-5">
+                        <div class="single-footer-caption mb-50">
+                            <div class="footer-tittle">
+                                <h4>Important Link</h4>
+                                <ul>
+                                    <li style="font-size: 15px;font-weight: 800;"><a href="http://192.168.0.112:5000">Home</a></li>
+                                    <li style="font-size: 15px;font-weight: 800;"><a href="http://192.168.0.112:5000/recruit">Find Jobs</a></li>
+                                    <li style="font-size: 15px;font-weight: 800;"><a href="#">Help</a></li>
+                                    <li style="font-size: 15px;font-weight: 800;"><a href="#">QnA</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-3 col-lg-3 col-md-4 col-sm-5">
+                        <div class="single-footer-caption mb-50">
+                            <div class="footer-tittle">
+                                <h4>Newsletter</h4>
+                                <div class="footer-pera footer-pera2">
+                                 <p style="font-size: 15px;font-weight: 400;">Contact to 'Bridge'</p>
+                             </div>
+                             <!-- Form -->
+                             
+                            </div>
+                        </div>
+                    </div>
+                </div>
+               <!--  -->
+               <div class="row footer-wejed justify-content-between">
+                    <div class="col-xl-3 col-lg-3 col-md-4 col-sm-6">
+                        <!-- logo -->
+                        <div class="footer-logo mb-20">
+                        <a href="/"><img src="../static/bridgefoot.png" alt=""></a>
+                        </div>
+                    </div>
+                    <div class="col-xl-3 col-lg-3 col-md-4 col-sm-5">
+                    <div class="footer-tittle-bottom" style="margin-top:10px;">
+                        <span>5000+</span>
+                        <p style="font-size: 15px;font-weight: 500;">Talented Enterprises</p>
+                    </div>
+                    </div>
+                    <div class="col-xl-3 col-lg-3 col-md-4 col-sm-5">
+                        <div class="footer-tittle-bottom" style="margin-top:10px;">
+                            <span>451</span>
+                            <p style="font-size: 15px;font-weight: 500;">Talented Enterprises</p>
+                        </div>
+                    </div>
+                    <div class="col-xl-3 col-lg-3 col-md-4 col-sm-5">
+                        <!-- Footer Bottom Tittle -->
+                        <div class="footer-tittle-bottom" style="margin-top:10px;">
+                            <span>568</span>
+                            <p style="font-size: 15px;font-weight: 500;">Talented Enterprises</p>
+                        </div>
+                    </div>
+               </div>
+            </div>
+        </div>
+        <!-- footer-bottom area -->
+        <div class="footer-bottom-area footer-bg">
+            <div class="container">
+                <div class="footer-border">
+                     <div class="row d-flex justify-content-between align-items-center">
+                         <div class="col-xl-10 col-lg-10 ">
+                             
+                         </div>
+                         <div class="col-xl-2 col-lg-2">
+                             <div class="footer-social f-right">
+                                 <a href="#"><i class="fab fa-facebook-f"></i></a>
+                                 <a href="#"><i class="fab fa-twitter"></i></a>
+                                 <a href="#"><i class="fas fa-globe"></i></a>
+                                 <a href="#"><i class="fab fa-behance"></i></a>
+                             </div>
+                         </div>
+                     </div>
+                </div>
+            </div>
+        </div>
+        <!-- Footer End-->
+    </footer>
+
+    <!--js-->
+    <!-- All JS Custom Plugins Link Here here -->
+    <script src="../static/assets/js/vendor/modernizr-3.5.0.min.js"></script>
+    <!-- Jquery, Popper, Bootstrap -->
+    <script src="../static/assets/js/vendor/jquery-1.12.4.min.js"></script>
+    <script src="../static/assets/js/popper.min.js"></script>
+    <script src="../static/assets/js/bootstrap.min.js"></script>
+    <!-- Jquery Mobile Menu -->
+    <script src="../static/assets/js/jquery.slicknav.min.js"></script>
+
+    <!-- Jquery Slick , Owl-Carousel Plugins -->
+    <script src="../static/assets/js/owl.carousel.min.js"></script>
+    <script src="../static/assets/js/slick.min.js"></script>
+    <script src="../static/assets/js/price_rangs.js"></script>
+    
+    <!-- One Page, Animated-HeadLin -->
+    <script src="../static/assets/js/wow.min.js"></script>
+    <script src="../static/assets/js/animated.headline.js"></script>
+    <script src="../static/assets/js/jquery.magnific-popup.js"></script>
+
+    <!-- Scrollup, nice-select, sticky -->
+    <script src="../static/assets/js/jquery.scrollUp.min.js"></script>
+    <script src="../static/assets/js/jquery.nice-select.min.js"></script>
+    <script src="../static/assets/js/jquery.sticky.js"></script>
+    
+    <!-- contact js -->
+    <script src="../static/assets/js/contact.js"></script>
+    <script src="../static/assets/js/jquery.form.js"></script>
+    <script src="../static/assets/js/jquery.validate.min.js"></script>
+    <script src="../static/assets/js/mail-script.js"></script>
+    <script src="../static/assets/js/jquery.ajaxchimp.min.js"></script>
+    
+    <!-- Jquery Plugins, main Jquery -->	
+    <script src="../static/assets/js/plugins.js"></script>
+    <script src="../static/assets/js/main.js"></script>
+    <!--Slide js-->
+</html>

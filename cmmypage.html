@@ -1,0 +1,688 @@
+<!doctype html>
+<html class="no-js" lang="zxx">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+         <link rel="shortcut icon" type="image/x-icon" href="../static/favicon.ico" />
+    <title>Broker</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="manifest" href="site.webmanifest">
+
+		<!-- CSS here -->
+            <link rel="stylesheet" href="../static/assets/css/bootstrap.min2.css">
+            <link rel="stylesheet" href="../static/assets/css/owl.carousel.min.css">
+            <link rel="stylesheet" href="../static/assets/css/flaticon.css">
+            <link rel="stylesheet" href="../static/assets/css/price_rangs.css">
+            <link rel="stylesheet" href="../static/assets/css/slicknav.css">
+            <link rel="stylesheet" href="../static/assets/css/animate.min.css">
+            <link rel="stylesheet" href="../static/assets/css/magnific-popup.css">
+            <link rel="stylesheet" href="../static/assets/css/fontawesome-all.min.css">
+            <link rel="stylesheet" href="../static/assets/css/themify-icons.css">
+            <link rel="stylesheet" href="../static/assets/css/slick.css">
+            <link rel="stylesheet" href="../static/assets/css/nice-select2.css">
+            <link rel="stylesheet" href="../static/assets/css/style2.css">
+            
+
+   </head>
+
+   <body>
+    <!-- Preloader Start -->
+    <div id="preloader-active">
+        <div class="preloader d-flex align-items-center justify-content-center">
+            <div class="preloader-inner position-relative">
+                <div class="preloader-circle"></div>
+                <div class="preloader-img pere-text">
+                    <img src="../static/logoper.png" alt="">
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Preloader Start -->
+    <header>
+        <!-- Header Start -->
+       <div class="header-area header-transparrent">
+           <div class="headder-top header-sticky">
+                <div class="container">
+                    <div class="row align-items-center">
+                        <div class="col-lg-3 col-md-2">
+                            <!-- Logo -->
+                            <div class="logo">
+                                <a href="/"><img src="../static/bridge.png" alt=""></a>
+                            </div>  
+                        </div>
+                        <div class="col-lg-9 col-md-9">
+                            <div class="menu-wrapper">
+                                <!-- Main-menu -->
+                                <div class="main-menu">
+                                    <nav class="d-none d-lg-block">
+                                        <ul id="navigation">
+                                            <li><a href="/">Home</a></li>
+                                            <li><a href="/recruit">Find Jobs </a></li>
+                                            <li><a href="#">Help</a>
+                                            	<ul class="submenu">
+                                                    <li><a href="/hangulcheck">글자수 세기</a></li>
+                                                    <!--li><a href="/hakjomcount">학점 계산기</a></li-->
+                                                    <li><a href="/salarycalculator">연봉 계산기</a></li>
+                                                    <li><a href="/futureyearcalculate">미래 연봉 계산기</a></li>
+                                                    <li><a href="/changescore">어학 점수 변환기</a></li>
+                                                </ul>
+                                            </li>
+                                            <li><a href="#">MyPage</a>
+                                                <ul class="submenu">
+                                                    {% if session['usertype'] == "person" %}
+                                                    <li><a href="/myprecruit">MY RECRUIT</a></li>
+                                                    <li><a href="/personalinfo">MY PERSONAL INFO</a></li>
+                                                    {% elif session['usertype'] == "company" %}
+                                                    <li><a href="/mycrecruit">MY RECRUIT</a></li>
+                                                    <li><a href="/companyinfo">MY COMPANY'S INFO</a></li>
+                                                    {% endif %}
+                                                </ul>
+                                            </li>
+                                            <li><a href="/qna">QnA</a></li>
+                                        </ul>
+                                    </nav>
+                                </div>          
+                                <!-- Header-btn -->
+                                <div class="header-btn d-none f-right d-lg-block">
+                                	<a href="/logout" class="btn head-btn2">Log out</a>  
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Mobile Menu -->
+                        <div class="col-12">
+                            <div class="mobile_menu d-block d-lg-none"></div>
+                        </div>
+                    </div>
+                </div>
+           </div>
+       </div>
+        <!-- Header End -->
+    </header>
+    <!-- Hero Area Start-->
+    <div class="slider-area ">
+       <div class="single-slider section-overly slider-height2 d-flex align-items-center" data-background="../static/assets/img/hero/background3.png">
+           <div class="container">
+               <div class="row">
+                   <div class="col-xl-12">
+                       <div class="hero-cap text-center">
+                           <h2 >MY Company's Info</h2>
+                       </div>
+                   </div>
+               </div>
+           </div>
+       </div>
+    </div>
+    <!-- Hero Area End -->
+    <!--================Blog Area =================-->
+    <body>
+   <div class="container">
+        <br></br>  
+        <form action="/companyinfo" method="post">
+        <div class="form-group" id="divName">
+            <label for="inputName" class="col-lg-2 control-label">대표자명</label>
+            <div class="col-lg-10">
+                <input type="text" value="{{user.cpresident}}" name="cpresident" id="president"class="form-control notSpecialCharacters" data-rule-required="true" placeholder="대표자명을 입력하세요." maxlength="15">
+            </div>
+        </div>
+
+        <div class="form-group" id="divId">
+            <label for="inputId" class="col-lg-2 control-label">아이디</label>
+            <div class="col-lg-10">
+                <input type="text" disabled value="{{user.cid}}" name="cid" id="id" class="form-control onlyAlphabetAndNumber" data-rule-required="true" placeholder="20자이내의 알파벳, 언더스코어(_), 숫자만 입력 가능합니다." maxlength="20">
+            </div>
+        </div>
+
+        <div class="form-group" id="divPassword">
+            <label for="inputPassword" class="col-lg-2 control-label">패스워드</label>
+            <div class="col-lg-10">
+                <input type="password" name="cpassword" id="password" class="form-control" data-rule-required="true" placeholder="패스워드" maxlength="20" required>
+            </div>
+        </div>
+
+        <div class="form-group" id="divPasswordCheck">
+            <label for="inputPasswordCheck" class="col-lg-2 control-label">패스워드 확인</label>
+            <div class="col-lg-10">
+                <input type="password" class="form-control" id="passwordCheck" data-rule-required="true" placeholder="패스워드 확인" maxlength="20">
+            </div>
+        </div>
+
+        <div class="form-group" id="divNumber">
+            <label for="inputJumin" class="col-lg-2 control-label">사업자 번호</label>
+            <div class="col-lg-10">
+                <input type="text" value="{{user.cnumber}}" disabled name="cnumber" id="number" class="form-control onlyNumber" size="10" maxlength="10" placeholder="-를 제외하고 숫자만 입력하세요.">                       
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="inputGender" class="col-lg-2 control-label">기업형태</label>
+            <div class="col-lg-10">
+                <select class="form-control" name="ctype" id="ctype">
+                    <option value="{{user.ctype}}">{{user.ctype}}</option>
+                    <option value="대기업">대기업</option>
+                    <option value="매출1000대기업">매출1000대기업</option>
+                    <option value="공사/공기업">공사/공기업</option>
+                    <option value="중견기업">중견기업</option>
+                    <option value="중소기업">중소기업</option>
+                    <option value="외국계기업">외국계기업</option>
+                </select>
+            </div>
+        </div>
+        
+        <div class="form-group" id="divInfo">
+            <label for="inputInfo" class="col-lg-2 control-label">회사소개</label>
+            <div class="col-lg-10">
+                <input type="text" name="cinfo" value="{{user.cinfo}}" id="info" class="form-control notSpecialCharacters" data-rule-required="true" placeholder="간단하게 회사를 소개해주세요. (ex.반도체 생산제조)" maxlength="20">
+            </div>
+        </div>
+
+        <div class="form-group" id="divPhoneNumber">
+            <label for="inputPhoneNumber" class="col-lg-2 control-label">회사 번호</label>
+            <div class="col-lg-10">
+                <input type="tel" value="{{user.cphone}}" name="cphone" id="phoneNumber" class="form-control onlyNumber" data-rule-required="true" placeholder="-를 제외하고 숫자만 입력하세요." maxlength="11">
+            </div>
+        </div>
+
+        <div class="form-group" id="divFaxNumber">
+            <label for="inputPhoneNumber" class="col-lg-2 control-label">팩스 번호</label>
+            <div class="col-lg-10">
+                <input type="tel" value="{{user.cfax}}" name="cfax" id="faxNumber" class="form-control onlyNumber" data-rule-required="true" placeholder="-를 제외하고 숫자만 입력하세요." maxlength="15">
+            </div>
+        </div>
+
+        <div class="form-group" id="divAddress">
+            <label for="input" class="col-lg-2 control-label">회사 주소</label>
+            <div class="col-lg-10">
+                <select class="form-control" name="caddress" id="address">
+                    <option value="{{user.caddress}}">{{user.caddress}}</option>
+                    <option value="서울특별시">서울특별시</option>
+                    <option value="경기도">경기도</option>
+                    <option value="강원도">강원도</option>
+                    <option value="충청북도">충청북도</option>
+                    <option value="충청남도">충청남도</option>
+                    <option value="전라북도">전라북도</option>
+                    <option value="전라남도">전라남도</option>
+                    <option value="경상북도">경상북도</option>
+                    <option value="경상남도">경상남도</option>
+                    <option value="부산광역시">부산광역시</option>
+                    <option value="대구광역시">대구광역시</option>
+                    <option value="인천광역시">인천광역시</option>
+                    <option value="광주광역시">광주광역시</option>
+                    <option value="대전광역시">대전광역시</option>
+                    <option value="울산광역시">울산광역시</option>
+                    <option value="세종특별자치시">세종특별자치시</option>
+                    <option value="제주도특별자치도">제주도특별자치도</option>
+                </select>
+            </div>
+        </div>
+        <br></br>
+        <div class="form-group">
+            <div class="col-lg-offset-2 col-lg-10" >
+                <button type="submit" class="btn btn-primary" style="float:right;">Change</button>
+                
+            </div>
+            
+        </div>
+	</form>
+	<br>
+	<br>
+	<br>
+	</div>	
+    </body>
+    <script>
+        
+        $(function(){
+            //모달을 전역변수로 선언
+            var modalContents = $(".modal-contents");
+            var modal = $("#defaultModal");
+            
+            $('.onlyAlphabetAndNumber').keyup(function(event){
+                if (!(event.keyCode >=37 && event.keyCode<=40)) {
+                    var inputVal = $(this).val();
+                    $(this).val($(this).val().replace(/[^_a-z0-9]/gi,'')); //_(underscore), 영어, 숫자만 가능
+                }
+            });
+            
+            $('.notSpecialCharacters').keyup(function(event){
+                re = /[~!@\#$%^&*\()\-=+_']/gi; 
+                var temp=$(this).val();
+                if(re.test(temp)){ //특수문자가 포함되면 삭제하여 값으로 다시셋팅
+                $(this).val(temp.replace(re,"")); }
+
+            });
+
+            $(".onlyHangul").keyup(function(event){
+                if (!(event.keyCode >=37 && event.keyCode<=40)) {
+                    var inputVal = $(this).val();
+                    $(this).val(inputVal.replace(/[a-z0-9]/gi,''));
+                }
+            });
+        
+            $(".onlyNumber").keyup(function(event){
+                if (!(event.keyCode >=37 && event.keyCode<=40)) {
+                    var inputVal = $(this).val();
+                    $(this).val(inputVal.replace(/[^0-9]/gi,''));
+                }
+            });
+            
+            //------- 검사하여 상태를 class에 적용
+            $('#president').keyup(function(event){
+                
+                var divName = $('#divName');
+                
+                if($.trim($('#pesident').val())==""){
+                    divName.removeClass("has-success");
+                    divName.addClass("has-error");
+                }else{
+                    divName.removeClass("has-error");
+                    divName.addClass("has-success");
+                }
+            });    
+            
+               
+            $('#id').keyup(function(event){
+                
+                var divId = $('#divId');
+                
+                if($('#id').val()==""){
+                    divId.removeClass("has-success");
+                    divId.addClass("has-error");
+                }else{
+                    divId.removeClass("has-error");
+                    divId.addClass("has-success");
+                }
+            });
+            
+
+            $('#password').keyup(function(event){
+                
+                var divPassword = $('#divPassword');
+                
+                if($('#password').val()==""){
+                    divPassword.removeClass("has-success");
+                    divPassword.addClass("has-error");
+                }else{
+                    divPassword.removeClass("has-error");
+                    divPassword.addClass("has-success");
+                }
+            });
+            
+
+            $('#passwordCheck').keyup(function(event){
+                
+                var passwordCheck = $('#passwordCheck').val();
+                var password = $('#password').val();
+                var divPasswordCheck = $('#divPasswordCheck');
+                
+                if((passwordCheck=="") || (password!=passwordCheck)){
+                    divPasswordCheck.removeClass("has-success");
+                    divPasswordCheck.addClass("has-error");
+                }else{
+                    divPasswordCheck.removeClass("has-error");
+                    divPasswordCheck.addClass("has-success");
+                }
+            });
+            
+            
+            $('#number').keyup(function(event){
+                
+                var divNumber = $('#divNumber');
+                
+                if($.trim($('#number').val())==""){
+                    divNumber.removeClass("has-success");
+                    divNumber.addClass("has-error");
+                }else{
+                    divNumber.removeClass("has-error");
+                    divNumber.addClass("has-success");
+                }
+            });
+            
+            $('#phoneNumber').keyup(function(event){
+                
+                var divPhoneNumber = $('#divPhoneNumber');
+                
+                if($.trim($('#phoneNumber').val())==""){
+                    divPhoneNumber.removeClass("has-success");
+                    divPhoneNumber.addClass("has-error");
+                }else{
+                    divPhoneNumber.removeClass("has-error");
+                    divPhoneNumber.addClass("has-success");
+                }
+            });
+            
+            $('#faxNumber').keyup(function(event){
+                
+                var divFaxNumber = $('#divFaxNumber');
+                
+                if($.trim($('#faxNumber').val())==""){
+                    divPhoneNumber.removeClass("has-success");
+                    divPhoneNumber.addClass("has-error");
+                }else{
+                    divPhoneNumber.removeClass("has-error");
+                    divPhoneNumber.addClass("has-success");
+                }
+            });
+            
+            
+            //------- validation 검사
+            $( "form" ).submit(function( event ) {
+                
+                var provision = $('#provision');
+                var memberInfo = $('#memberInfo');
+                var divName = $('#divName');
+                var divId = $('#divId');
+                var divPassword = $('#divPassword');
+                var divPasswordCheck = $('#divPasswordCheck');
+                var divNumber = $('#divNumber');                       
+                var divPhoneNumber = $('#divPhoneNumber');
+                var divFaxNumber =$('#divFaxNumber');
+                
+                //회원가입약관
+                if($('#provisionYn:checked').val()=="N"){
+                    modalContents.text("회원가입약관에 동의하여 주시기 바랍니다."); //모달 메시지 입력
+                    modal.modal('show'); //모달 띄우기
+                    
+                    provision.removeClass("has-success");
+                    provision.addClass("has-error");
+                    $('#provisionYn').focus();
+                    return false;
+                }else{
+                    provision.removeClass("has-error");
+                    provision.addClass("has-success");
+                }
+                
+                //개인정보취급방침
+                if($('#memberInfoYn:checked').val()=="N"){
+                    modalContents.text("개인정보취급방침에 동의하여 주시기 바랍니다.");
+                    modal.modal('show');
+                    
+                    memberInfo.removeClass("has-success");
+                    memberInfo.addClass("has-error");
+                    $('#memberInfoYn').focus();
+                    return false;
+                }else{
+                    memberInfo.removeClass("has-error");
+                    memberInfo.addClass("has-success");
+                }
+                
+
+                //대표자명 검사
+                if($('#president').val()==""){
+                    modalContents.text("대표자명을 입력하여 주시기 바랍니다.");
+                    modal.modal('show');
+                    
+                    divName.removeClass("has-success");
+                    divName.addClass("has-error");
+                    $('#president').focus();
+                    return false;
+                }else{
+                    divName.removeClass("has-error");
+                    divName.addClass("has-success");
+                }
+
+                //아이디 검사
+                if($('#id').val()==""){
+                    modalContents.text("아이디를 입력하여 주시기 바랍니다.");
+                    modal.modal('show');
+                    
+                    divId.removeClass("has-success");
+                    divId.addClass("has-error");
+                    $('#id').focus();
+                    return false;
+                }else{
+                    divId.removeClass("has-error");
+                    divId.addClass("has-success");
+                }
+                
+                //패스워드 검사
+                if($('#password').val()==""){
+                    modalContents.text("패스워드를 입력하여 주시기 바랍니다.");
+                    modal.modal('show');
+                    
+                    divPassword.removeClass("has-success");
+                    divPassword.addClass("has-error");
+                    $('#password').focus();
+                    return false;
+                }else{
+                    divPassword.removeClass("has-error");
+                    divPassword.addClass("has-success");
+                }
+                
+                //패스워드 확인
+                if($('#passwordCheck').val()==""){
+                    modalContents.text("패스워드 확인을 입력하여 주시기 바랍니다.");
+                    modal.modal('show');
+                    
+                    divPasswordCheck.removeClass("has-success");
+                    divPasswordCheck.addClass("has-error");
+                    $('#passwordCheck').focus();
+                    return false;
+                }else{
+                    divPasswordCheck.removeClass("has-error");
+                    divPasswordCheck.addClass("has-success");
+                }
+                
+                //패스워드 비교
+                if($('#password').val()!=$('#passwordCheck').val() || $('#passwordCheck').val()==""){
+                    modalContents.text("패스워드가 일치하지 않습니다.");
+                    modal.modal('show');
+                    
+                    divPasswordCheck.removeClass("has-success");
+                    divPasswordCheck.addClass("has-error");
+                    $('#passwordCheck').focus();
+                    return false;
+                }else{
+                    divPasswordCheck.removeClass("has-error");
+                    divPasswordCheck.addClass("has-success");
+                }
+                
+                //사업자번호
+                if($('#number').val()==""){
+                    modalContents.text("사업자번호를 입력하여 주시기 바랍니다.");
+                    modal.modal('show');
+                    
+                    divNumber.removeClass("has-success");
+                    divNumber.addClass("has-error");
+                    $('#number').focus();
+                    return false;
+                }else{
+                    divNumber.removeClass("has-error");
+                    divNumber.addClass("has-success");
+                }
+                
+                
+            
+                
+                //휴대폰 번호
+                if($('#phoneNumber').val()==""){
+                    modalContents.text("휴대폰 번호를 입력하여 주시기 바랍니다.");
+                    modal.modal('show');
+                    
+                    divPhoneNumber.removeClass("has-success");
+                    divPhoneNumber.addClass("has-error");
+                    $('#phoneNumber').focus();
+                    return false;
+                }else{
+                    divPhoneNumber.removeClass("has-error");
+                    divPhoneNumber.addClass("has-success");
+                }
+
+                //팩스 번호
+                if($('#faxNumber').val()==""){
+                    modalContents.text("팩스번호를 입력하여 주시기 바랍니다.");
+                    modal.modal('show');
+                    
+                    divFaxNumber.removeClass("has-success");
+                    divFaxNumber.addClass("has-error");
+                    $('#faxNumber').focus();
+                    return false;
+                }else{
+                    divFaxNumber.removeClass("has-error");
+                    divFaxNumber.addClass("has-success");
+                }
+                
+            
+            });
+            
+        });
+        
+        
+    </script>
+    <!--================ Blog Area end =================-->
+    <footer>
+        <!-- Footer Start-->
+        <div class="footer-area footer-bg footer-padding" style="text-align:center;">
+            <div class="container">
+                <div class="row d-flex justify-content-between">
+                    <div class="col-xl-3 col-lg-3 col-md-4 col-sm-6">
+                       <div class="single-footer-caption mb-50">
+                        
+                            <div class="footer-tittle">
+                                <h4>About Us</h4>
+                                <ul style="font-size: 15px; font-weight: 800;">
+                                    <li><a href="#">LeeDooyoung</a></li>
+                                    <li><a href="#">HanJuhyeon</a></li>
+                                    <li><a href="#">KimHangil</a></li>
+                                    <li><a href="#">JoengEunmi</a></li>
+                                    <li><a href="#">JeongDonghwa</a></li>
+                                </ul>
+                            </div>
+                      
+
+                       </div>
+                    </div>
+                    <div class="col-xl-3 col-lg-3 col-md-4 col-sm-5">
+                        <div class="single-footer-caption mb-50">
+                            <div class="footer-tittle">
+                                <h4>Contact Info</h4>
+                                <ul>
+                                    <li>
+                                    <p style="font-size: 15px;font-weight: 400;">Address : 금천구 가산동 371-28</p>
+                                    </li>
+                                    <li style="font-size: 15px;font-weight: 800;"><a href="#">Phone : 010-2906-2942</a></li>
+                                    <li style="font-size: 15px;font-weight: 800;"><a href="#">Email : saelly1@naver.com</a></li>
+                                </ul>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="col-xl-3 col-lg-3 col-md-4 col-sm-5">
+                        <div class="single-footer-caption mb-50">
+                            <div class="footer-tittle">
+                                <h4>Important Link</h4>
+                                <ul>
+                                    <li style="font-size: 15px;font-weight: 800;"><a href="http://192.168.0.112:5000">Home</a></li>
+                                    <li style="font-size: 15px;font-weight: 800;"><a href="http://192.168.0.112:5000/recruit">Find Jobs</a></li>
+                                    <li style="font-size: 15px;font-weight: 800;"><a href="#">Help</a></li>
+                                    <li style="font-size: 15px;font-weight: 800;"><a href="#">QnA</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-3 col-lg-3 col-md-4 col-sm-5">
+                        <div class="single-footer-caption mb-50">
+                            <div class="footer-tittle">
+                                <h4>Newsletter</h4>
+                                <div class="footer-pera footer-pera2">
+                                 <p style="font-size: 15px;font-weight: 400;">Contact to 'Bridge'</p>
+                             </div>
+                             <!-- Form -->
+                             
+                            </div>
+                        </div>
+                    </div>
+                </div>
+               <!--  -->
+               <div class="row footer-wejed justify-content-between">
+                    <div class="col-xl-3 col-lg-3 col-md-4 col-sm-6">
+                        <!-- logo -->
+                        <div class="footer-logo mb-20">
+                        <a href="/"><img src="../static/bridgefoot.png" alt=""></a>
+                        </div>
+                    </div>
+                    <div class="col-xl-3 col-lg-3 col-md-4 col-sm-5">
+                    <div class="footer-tittle-bottom" style="margin-top:10px;">
+                        <span>5000+</span>
+                        <p style="font-size: 15px;font-weight: 500;">Talented Enterprises</p>
+                    </div>
+                    </div>
+                    <div class="col-xl-3 col-lg-3 col-md-4 col-sm-5">
+                        <div class="footer-tittle-bottom" style="margin-top:10px;">
+                            <span>451</span>
+                            <p style="font-size: 15px;font-weight: 500;">Talented Enterprises</p>
+                        </div>
+                    </div>
+                    <div class="col-xl-3 col-lg-3 col-md-4 col-sm-5">
+                        <!-- Footer Bottom Tittle -->
+                        <div class="footer-tittle-bottom" style="margin-top:10px;">
+                            <span>568</span>
+                            <p style="font-size: 15px;font-weight: 500;">Talented Enterprises</p>
+                        </div>
+                    </div>
+               </div>
+            </div>
+        </div>
+        <!-- footer-bottom area -->
+        <div class="footer-bottom-area footer-bg">
+            <div class="container">
+                <div class="footer-border">
+                     <div class="row d-flex justify-content-between align-items-center">
+                         <div class="col-xl-10 col-lg-10 ">
+                             
+                         </div>
+                         <div class="col-xl-2 col-lg-2">
+                             <div class="footer-social f-right">
+                                 <a href="#"><i class="fab fa-facebook-f"></i></a>
+                                 <a href="#"><i class="fab fa-twitter"></i></a>
+                                 <a href="#"><i class="fas fa-globe"></i></a>
+                                 <a href="#"><i class="fab fa-behance"></i></a>
+                             </div>
+                         </div>
+                     </div>
+                </div>
+            </div>
+        </div>
+        <!-- Footer End-->
+    </footer>
+    
+ <!-- JS here -->
+     
+         <!-- All JS Custom Plugins Link Here here -->
+       <script src="../static/assets/js/vendor/modernizr-3.5.0.min.js"></script>
+         <!-- Jquery, Popper, Bootstrap -->
+         <script src="../static/assets/js/vendor/jquery-1.12.4.min.js"></script>
+       <script src="../static/assets/js/popper.min.js"></script>
+       <script src="../static/assets/js/bootstrap.min.js"></script>
+       <!-- Jquery Mobile Menu -->
+       <script src="../static/assets/js/jquery.slicknav.min.js"></script>
+ 
+         <!-- Jquery Slick , Owl-Carousel Plugins -->
+       <script src="../static/assets/js/owl.carousel.min.js"></script>
+       <script src="../static/assets/js/slick.min.js"></script>
+       <script src="../static/assets/js/price_rangs.js"></script>
+       <!-- Date Picker -->
+       <script src="../static/assets/js/gijgo.min.js"></script>
+         <!-- One Page, Animated-HeadLin -->
+       <script src="../static/assets/js/wow.min.js"></script>
+         <script src="../static/assets/js/animated.headline.js"></script>
+       <script src="../static/assets/js/jquery.magnific-popup.js"></script>
+ 
+         <!-- Scrollup, nice-select, sticky -->
+       <script src="../static/assets/js/jquery.scrollUp.min.js"></script>
+       <script src="../static/assets/js/jquery.nice-select.min.js"></script>
+         <script src="../static/assets/js/jquery.sticky.js"></script>
+       
+       <!-- contact js -->
+       <script src="../static/assets/js/contact.js"></script>
+       <script src="../static/assets/js/jquery.form.js"></script>
+       <script src="../static/assets/js/jquery.validate.min.js"></script>
+       <script src="../static/assets/js/mail-script.js"></script>
+       <script src="../static/assets/js/jquery.ajaxchimp.min.js"></script>
+         
+         <!-- Jquery Plugins, main Jquery -->	
+       <script src="../static/assets/js/plugins.js"></script>
+       <script src="../static/assets/js/main.js"></script>
+         
+ </body>
+ </html>
+		

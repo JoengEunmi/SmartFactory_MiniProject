@@ -1,0 +1,281 @@
+<!Doctype html>
+<html lang="ko">
+<head>
+<link rel="shortcut icon" type="image/x-icon" href="../static/favicon.ico" />
+    <title>Broker</title>
+<meta charset="utf-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta http-equiv="expires" content="0">
+<meta http-equiv="pragma" content="no-cache">
+<meta http-equiv="cache-control" content="no-cache">
+<script src="../static/cov/jquery-2.1.1.min.js"></script>
+
+<script src="../static/cov/jquery.form.js" charset="utf-8"></script>
+<script src="../static/cov/jquery.fileDownload.js"></script>
+<link rel="stylesheet" href="../static/cov/notosanskr.css"/>
+<link rel="stylesheet" href="../static/cov/font-awesome.min.css"/>
+<link rel="stylesheet" href="../static/cov/applicant.css"/>
+<link rel="stylesheet" href="../static/cov/skin.css"/>
+<link rel="stylesheet" href="../static/cov/infographic.css"/>
+<script src="../static/cov/jquery.midas.linkedForm.js"></script>
+<script src="../static/cov/midas.customUI.js"></script>
+<script src="../static/cov/D.js"></script>
+<script src="../static/cov/Form.min.js"></script>
+<script src="../static/cov/fileUploadValidater.js"></script>
+<script src="../static/cov/applicantCommon.js"></script>
+<script src="../static/cov/loginValidator.min.js"></script>
+<link rel="../static/cov/stylesheet" href="jquery.mCustomScrollbar.css"/>
+<script src="../static/cov/jquery.mCustomScrollbar.concat.min.js"></script>
+<script src="../static/cov/Dates.min.js"></script>
+<link rel="stylesheet" href="../static/cov/Dates.min.css"/>
+
+<script src="../static/cov/postcodify-3.3.0.js"></script>
+<script src="../static/cov/midas.address.js"></script>
+<!-- 코드 -->
+<script src="../static/cov/MRS2CodeDefinition.js"></script>
+<link rel="stylesheet" href="../static/cov/noticePopup.css"/>
+<link rel="stylesheet" href="../static/cov/noticePopup.css"/>
+</head>
+<body class="type-11">
+<div id="wrap">
+	
+	<form id="frm" method="post" data-step="2" data-type="save" action="/recruitmodi/{{recruit.rid}}" enctype="multipart/form-data">
+		<header id="header">
+		<h1 class="recruitNoticeTitle">새로운 공고 작성하기</h1>
+		</header>
+		<input class="hidden" value="{{cuser.ctype}}" name="ctype">
+		<div id="wrapResume">
+			<section class="writeResume" data-code="11">
+			<header>
+			<h1 class="h1">기본정보 </h1>
+			</header>
+			<div class="subject">
+				<h2 class="h2 required">&emsp;회사명</h2>
+				<div class="row in-span no-margin">
+					<div class="span per100">
+						<span class="text">{{cuser.cid}}</span>
+					</div>
+				</div>
+			</div>
+			<div class="subject">
+				<h2 class="h2 required">&emsp;대표자명</h2>
+				<div class="row in-span no-margin">
+					<div class="span per100">
+						<span class="text">{{cuser.cpresident}}</span>
+					</div>
+				</div>
+			</div>
+			</section>
+
+
+
+
+			<section class="writeResume" data-code="13">
+			<header>
+			<h1 class="h1">세부정보</h1>
+			</header>
+			<div class="subject photo">
+                <h2 class="h2 ">회사로고 등록 (권장사이즈 : 가로 240px X 세로 160px 혹은 가로 6 : 세로 4 비율)</h2>
+                <div id="wrapPhoto" class="wrapPhoto F">
+                    <label>
+                        <input type="file" name="rlogo" value="" data-type="photo">
+                    </label>
+                    <img src="" width="240" height="160" alt="" id="photo">
+                </div>
+                <div class="row">
+                    <div class="wrapGuide photo">
+                        <div class="guide">
+                        </div>
+					</div>
+                    <div class="btn-group">
+                        <input type="text" class="hidden" name="" value="">
+                        <input type="file" class="btn" name='rlogo' data-type='photo' data-button="addPhoto">사진등록
+                            <button type="button" class="btn btn-ng" data-button="removePhoto">삭제</button>
+                    </div>
+                </div>
+            </div>
+			<div class="subject">
+				<h2 class="h2 required">&emsp;회사주소</h2>
+				
+                <div class="row in-span half-margin">
+                    <label class="span per15 title" for="addressName">주소명</label>
+                    <label class="span per80">
+                    <input type="text" class="text" maxlength="64" name="addressName" id="addressName" value="{{cuser.caddress}}" disabled>
+                    </label>
+                </div>
+			</div>
+			<div class="subject">
+				<h2 class="h2 required">&emsp;연락처</h2>
+				<div class="row in-span no-margin">
+					<label class="span per15 title" for="">핸드폰번호</label>
+					<div class="span per85">
+						<span class="text">{{cuser.cphone}}</span>
+					</div>
+				</div>
+				<div class="row in-span half-margin">
+					<label class="span per15 title" for="">Fax 번호</label>
+					<div class="span per85">
+						<span class="text">{{cuser.cfax}}</span>
+					</div>
+				</div>
+			</div>
+		</section>
+		
+
+
+		<section class="writeResume" data-code="140">
+		<header>
+		<h1 class="h1">공고 세부사항</h1>
+		</header>
+	
+		<div class="subject">
+			<h2 class="h2 required">&emsp;공고명</h2>						
+				<input type="text" class="text" maxlength="60" name="rtitle" id="highName" placeholder="20XX년도 상반기 OOOO 신입사원 모집" value="{{recruit.rtitle}}" required>							
+		</div>
+		<div class="subject">
+			<h2 class="h2 required">&emsp;모집기간</h2>
+			<div class="row in-span no-margin"style="width:1000px">
+				<label class="span per35 date">
+				<input type="date" data-dates="StartDate:YM highschool graduationCriteriaDate" name="rstartdate" title="시작일" value="{{recruit.rstartdate|datetimeformat}}" required class="text date start" placeholder="시작일" data-rel-target="highschool">
+				<input type="date" data-dates="FinalDate:END" name="rfinaldate" title="마감일" value="{{recruit.rfinaldate|datetimeformat}}" required class="text date end" placeholder="마감일" data-rel-target="highschool">
+				</label>
+			</div>
+		</div>
+		<!-- <div class="subject">
+			<h2 class="h2 required">&emsp;모집분야</h2>
+			<div class="row in-span no-margin">
+				<div class="span per50 radio" data-rel-id="highschool">				
+					<label>
+					<input type="radio" name="highschool.graduationTypeCode" value="" checked="">
+					<span class="label">신입</span>
+					</label>
+					<label>
+					<input type="radio" name="highschool.graduationTypeCode" value="01">
+					<span class="label">경력</span>
+					</label>
+					<label>
+						<input type="radio" name="highschool.graduationTypeCode" value="01">
+						<span class="label">신입/경력</span>
+						</label>
+					<label>
+					<input type="radio" name="highschool.graduationTypeCode" value="02">
+					<span class="label">계약</span>
+					</label>
+					<label>
+					<input type="radio" name="highschool.graduationTypeCode" value="04">
+					<span class="label">인턴</span>
+					</label>
+				</div>
+			</div>
+		</div> -->
+
+		<div class="subject">
+			<h2 class="h2 required">&emsp;근무지</h2>
+					<div class="subject" data-wrap="major">
+						<div class="row in-span no-margin">
+							<label class="span per35 select">
+							<select name="rarea" data-rel-target="college[0].collegeMajor[0]" required data-rel-id="college[0].collegeMajor[0].majorCategoryCode" data-rel-type="with" data-rel-value="125,126,127,128">
+								<option value="{{recruit.rarea}}">{{recruit.rarea}}</option>
+			                    <option value="서울특별시">서울특별시</option>
+			                    <option value="경기도">경기도</option>
+			                    <option value="강원도">강원도</option>
+			                    <option value="충청북도">충청북도</option>
+			                    <option value="충청남도">충청남도</option>
+			                    <option value="전라북도">전라북도</option>
+			                    <option value="전라남도">전라남도</option>
+			                    <option value="경상북도">경상북도</option>
+			                    <option value="경상남도">경상남도</option>
+			                    <option value="부산광역시">부산광역시</option>
+			                    <option value="대구광역시">대구광역시</option>
+			                    <option value="인천광역시">인천광역시</option>
+			                    <option value="광주광역시">광주광역시</option>
+			                    <option value="대전광역시">대전광역시</option>
+			                    <option value="울산광역시">울산광역시</option>
+			                    <option value="세종특별자치시">세종특별자치시</option>
+			                    <option value="제주도특별자치도">제주도특별자치도</option>
+							</select>
+							</label>
+						</div>						
+					</div>
+		</div>			
+
+		
+		
+		<div class="subject">
+			<h2 class="h2 required">&emsp;채용분야</h2>				
+				<input type="text" class="text" maxlength="100" name="rfield" id="rfield" value="{{recruit.rfield}}" required>
+		</div>
+		<div class="subject">
+			<h2 class="h2 required">&emsp;채용내용</h2>
+					<div class="row in-span no-margin">
+						<div class="span per100">
+							<textarea class="textarea4" maxlength="1000" name="rcontent" id="rtask"  placeholder="해당 항목에 대한 내용을 1000자 이내로 기재해주세요." required>{{recruit.rcontent}}</textarea>						
+						</div>
+					</div>
+		</div>
+		</section>
+		
+			
+		
+    
+
+		<section class="writeResume" data-code="140">
+		<header>
+		<h1 class="h1">자기소개서 항목</h1>
+		</header>
+		<div class="subject">
+			<h2 class="h2 required">&emsp;1번 항목</h2>
+			<div class="row in-span no-margin">
+				<input type="text" class="text" maxlength="200" name="rQ1" id="rq1" placeholder="성장과정, 성격의 장단점, 입사포부, 입사동기등등...(1000자)" value="{{recruit.rQ1}}" required>
+				<div class="row in-span half-margin">
+					</div>
+			</div>
+		</div><div class="subject">
+			<h2 class="h2 required">&emsp;2번 항목</h2>
+			<div class="row in-span no-margin">
+				<input type="text" class="text" maxlength="200" name="rQ2" id="rq2" placeholder="성장과정, 성격의 장단점, 입사포부, 입사동기등등...(1000자)" value="{{recruit.rQ2}}" required>
+				<div class="row in-span half-margin">
+					</div>
+			</div>
+		</div><div class="subject">
+			<h2 class="h2 required">&emsp;3번 항목</h2>
+			<div class="row in-span no-margin">
+				<input type="text" class="text" maxlength="200" name="rQ3" id="rq3" placeholder="성장과정, 성격의 장단점, 입사포부, 입사동기등등...(1000자)" value="{{recruit.rQ3}}" required>
+				<div class="row in-span half-margin">
+					</div>
+			</div>
+		</div><div class="subject">
+			<h2 class="h2 required">&emsp;4번 항목</h2>
+			<div class="row in-span no-margin">
+				<input type="text" class="text" maxlength="200" name="rQ4" id="rq4" placeholder="성장과정, 성격의 장단점, 입사포부, 입사동기등등...(1000자)" value="{{recruit.rQ4}}" required>
+				<div class="row in-span half-margin">
+					</div>
+			</div>
+		</div>
+		</section>
+	</div>		
+
+ <div id="wrapSessionArea">
+        <div id="sessionArea" class="sessionArea">
+            <div class="btnGroup">
+                <button type="submit" data-step="2" class="btn btn-great" style="float: right;">완료</button>
+            </div>
+        </div>
+</div>
+
+
+
+     
+</form>
+
+
+<script src="popUp.js"></script>
+<script src="timeline.js"></script>
+<script src="modalAgreement.js"></script>
+<script src="writeResume.js"></script>
+<script src="writeResumeTemplate.js"></script>
+<script src="writeResumeTimer.js"></script>
+</div>
+<!--//wrap-->
+</body>
+</html>

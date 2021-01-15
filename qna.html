@@ -1,0 +1,322 @@
+<!doctype html>
+<html class="no-js" lang="zxx">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+         <link rel="shortcut icon" type="image/x-icon" href="../static/favicon.ico" />
+    <title>Bridge - QnA</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="manifest" href="site.webmanifest">
+
+		<!-- CSS here -->
+            <link rel="stylesheet" href="../static/assets/css/bootstrap.min2.css">
+            <link rel="stylesheet" href="../static/assets/css/owl.carousel.min.css">
+            <link rel="stylesheet" href="../static/assets/css/flaticon.css">
+            <link rel="stylesheet" href="../static/assets/css/price_rangs.css">
+            <link rel="stylesheet" href="../static/assets/css/slicknav.css">
+            <link rel="stylesheet" href="../static/assets/css/animate.min.css">
+            <link rel="stylesheet" href="../static/assets/css/magnific-popup.css">
+            <link rel="stylesheet" href="../static/assets/css/fontawesome-all.min.css">
+            <link rel="stylesheet" href="../static/assets/css/themify-icons.css">
+            <link rel="stylesheet" href="../static/assets/css/slick.css">
+            <link rel="stylesheet" href="../static/assets/css/nice-select2.css">
+            <link rel="stylesheet" href="../static/assets/css/style2.css">
+            <link rel="stylesheet" href="../static/styleqna.css">
+   		<script type="text/javascript">
+   		function func(){
+   			ff.action = "/qna/write";
+   			ff.submit();
+   		}
+           </script>
+      
+   </head>
+
+   <body>
+    <!-- Preloader Start -->
+    <div id="preloader-active">
+        <div class="preloader d-flex align-items-center justify-content-center">
+            <div class="preloader-inner position-relative">
+                <div class="preloader-circle"></div>
+                <div class="preloader-img pere-text">
+                    <img src="../static/logoper.png" alt="">
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Preloader Start -->
+    <header>
+        <!-- Header Start -->
+       <div class="header-area header-transparrent">
+           <div class="headder-top header-sticky">
+                <div class="container">
+                    <div class="row align-items-center">
+                        <div class="col-lg-3 col-md-2">
+                            <!-- Logo -->
+                            <div class="logo">
+                                <a href="/"><img src="../static/bridge.png" alt=""></a>
+                            </div>  
+                        </div>
+                        <div class="col-lg-9 col-md-9">
+                            <div class="menu-wrapper">
+                                <!-- Main-menu -->
+                                <div class="main-menu">
+                                    <nav class="d-none d-lg-block">
+                                        <ul id="navigation">
+                                            <li><a href="/">Home</a></li>
+                                            <li><a href="/recruit">Find a Jobs </a></li>
+                                            <li><a href="#">Help</a>
+                                            	<ul class="submenu">
+                                                    <li><a href="/hangulcheck">글자수 세기</a></li>
+                                                    <!--li><a href="/hakjomcount">학점 계산기</a></li-->
+                                                    <li><a href="/salarycalculator">연봉 계산기</a></li>
+                                                    <li><a href="/futureyearcalculate">미래 연봉 계산기</a></li>
+                                                    <li><a href="/changescore">어학 점수 변환기</a></li>
+                                                </ul>
+                                            </li>
+                                            <li><a href="#">MyPage</a>
+                                                <ul class="submenu">
+                                                    {% if session['usertype'] == "person" %}
+                                                    <li><a href="/myprecruit">MY RECRUIT</a></li>
+                                                    <li><a href="/personalinfo">MY PERSONAL INFO</a></li>
+                                                    {% elif session['usertype'] == "company" %}
+                                                    <li><a href="/mycrecruit">MY RECRUIT</a></li>
+                                                    <li><a href="/companyinfo">MY COMPANY'S INFO</a></li>
+                                                    {% endif %}
+                                                </ul>
+                                            </li>
+                                            <li><a href="/qna">QnA</a></li>
+                                        </ul>
+                                    </nav>
+                                </div>          
+                                <!-- Header-btn -->
+                                <div class="header-btn d-none f-right d-lg-block">
+                                    {%  if session['logged_in'] %}
+                                	<a href="/logout" class="btn head-btn2">Log out</a>
+                                    <a href="/unjoin" class="btn head-btn2">Unjoin</a>
+                                	{% else %}
+                                    <a href="/plogin" class="btn head-btn2">Individual</a>
+                                    <a href="/clogin" class="btn head-btn2">Enterprise</a>
+                                    {% endif %}
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Mobile Menu -->
+                        <div class="col-12">
+                            <div class="mobile_menu d-block d-lg-none"></div>
+                        </div>
+                    </div>
+                </div>
+           </div>
+       </div>
+        <!-- Header End -->
+    </header>
+    <main style="margin-bottom:50px;">
+
+        <div class="slider-area ">
+            <div class="single-slider section-overly slider-height2 d-flex align-items-center" data-background="../static/assets/img/hero/background3.png">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-xl-12">
+                            <div  class="hero-cap text-center">
+                                <h2>QnA</h2>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    <div class=container >
+    
+    <div class="board_list_wrap">
+        <div class="board_list">
+            <div class="board_list_head">
+                <div class="num">번호</div>
+                <div class="tit">제목</div>
+                <div class="writer">글쓴이</div>
+                <div class="date">작성일</div>
+                <div class="view">조회</div>
+            </div>
+            <div class="board_list_body" style="border-top: 2px solid #feb413;">
+            	{% for qa in qna %}
+                <div class="item">
+                    
+                    <div class="num" type="text" name="qnum">{{qa.qid}}</div>
+                    <div class="tit"><a href="/qna/{{qa.qid}}">{{qa.qtitle}}</a></div>
+                    <div class="writer">{{qa.pid}}</div>
+                    <div class="date">{{qa.qdate|datetimeformat}}</div>
+                    <div class="view">{{qa.qread}}</div>
+                    
+                </div>
+                {% endfor %}
+            </div>
+        </div> 
+        
+        <div class="container">
+		<form name="ff" style="margin-top:20px;">
+			<input type="button" class="btn1" value="글쓰기" onClick="func()">
+		</form>
+        </div>
+
+       
+    </div>
+    </div>
+       
+      
+
+    </main>
+    <footer>
+        <!-- Footer Start-->
+        <div class="footer-area footer-bg footer-padding" style="text-align:center;">
+            <div class="container">
+                <div class="row d-flex justify-content-between">
+                    <div class="col-xl-3 col-lg-3 col-md-4 col-sm-6">
+                       <div class="single-footer-caption mb-50">
+                        
+                            <div class="footer-tittle">
+                                <h4>About Us</h4>
+                                <ul style="font-size: 15px;font-weight: 800;">
+                                    <li><a href="#">LeeDooyoung</a></li>
+                                    <li><a href="#">HanJuhyeon</a></li>
+                                    <li><a href="#">KimHangil</a></li>
+                                    <li><a href="#">JoengEunmi</a></li>
+                                    <li><a href="#">JeongDonghwa</a></li>
+                                </ul>
+                            </div>
+                      
+
+                       </div>
+                    </div>
+                    <div class="col-xl-3 col-lg-3 col-md-4 col-sm-5">
+                        <div class="single-footer-caption mb-50">
+                            <div class="footer-tittle">
+                                <h4>Contact Info</h4>
+                                <ul>
+                                    <li>
+                                    <p style="font-size: 15px;font-weight: 400;">Address : 금천구 가산동 371-28</p>
+                                    </li>
+                                    <li style="font-size: 15px;font-weight: 800;"><a href="#">Phone : 010-2906-2942</a></li>
+                                    <li style="font-size: 15px;font-weight: 800;"><a href="#">Email : saelly1@naver.com</a></li>
+                                </ul>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="col-xl-3 col-lg-3 col-md-4 col-sm-5">
+                        <div class="single-footer-caption mb-50">
+                            <div class="footer-tittle">
+                                <h4>Important Link</h4>
+                                <ul>
+                                    <li style="font-size: 15px;font-weight: 800;"><a href="http://192.168.0.112:5000">Home</a></li>
+                                    <li style="font-size: 15px;font-weight: 800;"><a href="http://192.168.0.112:5000/recruit">Find Jobs</a></li>
+                                    <li style="font-size: 15px;font-weight: 800;"><a href="#">Help</a></li>
+                                    <li style="font-size: 15px;font-weight: 800;"><a href="#">QnA</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-3 col-lg-3 col-md-4 col-sm-5">
+                        <div class="single-footer-caption mb-50">
+                            <div class="footer-tittle">
+                                <h4>Newsletter</h4>
+                                <div class="footer-pera footer-pera2">
+                                 <p style="font-size: 15px;font-weight: 400;">Contact to 'Bridge'</p>
+                             </div>
+                             <!-- Form -->
+                             
+                            </div>
+                        </div>
+                    </div>
+                </div>
+               <!--  -->
+               <div class="row footer-wejed justify-content-between">
+                    <div class="col-xl-3 col-lg-3 col-md-4 col-sm-6">
+                        <!-- logo -->
+                        <div class="footer-logo mb-20">
+                        <a href="/"><img src="../static/bridgefoot.png" alt=""></a>
+                        </div>
+                    </div>
+                    <div class="col-xl-3 col-lg-3 col-md-4 col-sm-5">
+                    <div class="footer-tittle-bottom" style="margin-top:10px;">
+                        <span>5000+</span>
+                        <p style="font-size: 15px;font-weight: 500;">Talented Enterprises</p>
+                    </div>
+                    </div>
+                    <div class="col-xl-3 col-lg-3 col-md-4 col-sm-5">
+                        <div class="footer-tittle-bottom" style="margin-top:10px;">
+                            <span>451</span>
+                            <p style="font-size: 15px;font-weight: 500;">Talented Enterprises</p>
+                        </div>
+                    </div>
+                    <div class="col-xl-3 col-lg-3 col-md-4 col-sm-5">
+                        <!-- Footer Bottom Tittle -->
+                        <div class="footer-tittle-bottom" style="margin-top:10px;">
+                            <span>568</span>
+                            <p style="font-size: 15px;font-weight: 500;">Talented Enterprises</p>
+                        </div>
+                    </div>
+               </div>
+            </div>
+        </div>
+        <!-- footer-bottom area -->
+        <div class="footer-bottom-area footer-bg">
+            <div class="container">
+                <div class="footer-border">
+                     <div class="row d-flex justify-content-between align-items-center">
+                         <div class="col-xl-10 col-lg-10 ">
+                             
+                         </div>
+                         <div class="col-xl-2 col-lg-2">
+                             <div class="footer-social f-right">
+                                 <a href="#"><i class="fab fa-facebook-f"></i></a>
+                                 <a href="#"><i class="fab fa-twitter"></i></a>
+                                 <a href="#"><i class="fas fa-globe"></i></a>
+                                 <a href="#"><i class="fab fa-behance"></i></a>
+                             </div>
+                         </div>
+                     </div>
+                </div>
+            </div>
+        </div>
+        <!-- Footer End-->
+    </footer>
+
+  <!-- JS here -->
+	
+		<!-- All JS Custom Plugins Link Here here -->
+        <script src="../static/assets/js/vendor/modernizr-3.5.0.min.js"></script>
+		<!-- Jquery, Popper, Bootstrap -->
+		<script src="../static/assets/js/vendor/jquery-1.12.4.min.js"></script>
+        <script src="../static/assets/js/popper.min.js"></script>
+        <script src="../static/assets/js/bootstrap.min.js"></script>
+	    <!-- Jquery Mobile Menu -->
+        <script src="../static/assets/js/jquery.slicknav.min.js"></script>
+
+		<!-- Jquery Slick , Owl-Carousel Plugins -->
+        <script src="../static/assets/js/owl.carousel.min.js"></script>
+        <script src="../static/assets/js/slick.min.js"></script>
+        <script src="../static/assets/js/price_rangs.js"></script>
+        
+		<!-- One Page, Animated-HeadLin -->
+        <script src="../static/assets/js/wow.min.js"></script>
+		<script src="../static/assets/js/animated.headline.js"></script>
+        <script src="../static/assets/js/jquery.magnific-popup.js"></script>
+
+		<!-- Scrollup, nice-select, sticky -->
+        <script src="../static/assets/js/jquery.scrollUp.min.js"></script>
+        <script src="../static/assets/js/jquery.nice-select.min.js"></script>
+		<script src="../static/assets/js/jquery.sticky.js"></script>
+        
+        <!-- contact js -->
+        <script src="../static/assets/js/contact.js"></script>
+        <script src="../static/assets/js/jquery.form.js"></script>
+        <script src="../static/assets/js/jquery.validate.min.js"></script>
+        <script src="../static/assets/js/mail-script.js"></script>
+        <script src="../static/assets/js/jquery.ajaxchimp.min.js"></script>
+        
+		<!-- Jquery Plugins, main Jquery -->	
+        <script src="../static/assets/js/plugins.js"></script>
+        <script src="../static/assets/js/main.js"></script>
+        
+    </body>
+</html>

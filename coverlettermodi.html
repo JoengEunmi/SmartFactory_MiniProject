@@ -1,0 +1,968 @@
+<!Doctype html>
+<html lang="ko">
+<head>
+<link rel="shortcut icon" type="image/x-icon" href="../static/favicon.ico" />
+    <title>Broker</title>
+<meta charset="utf-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta http-equiv="expires" content="0">
+<meta http-equiv="pragma" content="no-cache">
+<meta http-equiv="cache-control" content="no-cache">
+<script src="../static/cov/jquery-2.1.1.min.js"></script>
+
+<script src="../static/cov/jquery.form.js" charset="utf-8"></script>
+<script src="../static/cov/jquery.fileDownload.js"></script>
+<link rel="stylesheet" href="../static/cov/notosanskr.css"/>
+<link rel="stylesheet" href="../static/cov/font-awesome.min.css"/>
+<link rel="stylesheet" href="../static/cov/applicant.css"/>
+<link rel="stylesheet" href="../static/cov/skin.css"/>
+<link rel="stylesheet" href="../static/cov/infographic.css"/>
+<script src="../static/cov/jquery.midas.linkedForm.js"></script>
+<script src="../static/cov/midas.customUI.js"></script>
+<script src="../static/cov/D.js"></script>
+<script src="../static/cov/Form.min.js"></script>
+<script src="../static/cov/fileUploadValidater.js"></script>
+<script src="../static/cov/applicantCommon.js"></script>
+<script src="../static/cov/loginValidator.min.js"></script>
+<link rel="../static/cov/stylesheet" href="jquery.mCustomScrollbar.css"/>
+<script src="../static/cov/jquery.mCustomScrollbar.concat.min.js"></script>
+<script src="../static/cov/Dates.min.js"></script>
+<link rel="stylesheet" href="../static/cov/Dates.min.css"/>
+
+<script src="../static/cov/postcodify-3.3.0.js"></script>
+<script src="../static/cov/midas.address.js"></script>
+<!-- 코드 -->
+<script src="../static/cov/MRS2CodeDefinition.js"></script>
+<link rel="stylesheet" href="../static/cov/noticePopup.css"/>
+<script>
+function changephoto(event){
+	var reader = new FileReader();
+	reader.onload = function(event){
+		var target = document.getElementById("photo");
+		target.setAttribute("src", event.target.result);
+	};
+	reader.readAsDataURL(event.target.files[0]);
+}
+
+</script>
+</head>
+<body class="type-11">
+<div id="wrap">
+	
+	<form id="frm" action="/coverlettermodi/{{coverletter.id}}" method="post" data-step="2" data-type="save" enctype="multipart/form-data">
+		<header id="header">
+		<h1 class="recruitNoticeTitle">{{recruit.rtitle}}</h1>
+		</header>
+		<input type="hidden" name="rid" value="{{recruit.rid}}">
+		<input type="hidden" name="pid" value="{{user.pid}}"/>
+		<input type="hidden" name="rtitle" value="{{recruit.rtitle}}"/>
+		
+		<div id="wrapResume">
+			<section class="writeResume" data-code="11">
+			<header>
+			<h1 class="h1">기본정보 </h1>
+			</header>
+			<div class="subject">
+				<h2 class="h2 required">지원자</h2>
+				<div class="row in-span no-margin">
+					<div class="span per100">
+						<!--span class="text">정은미</span-->
+						<input type="text" class="text" value="{{user.pname}}" style="width:100px" disabled>
+						<input type="text" class="hidden" name="username"value="{{user.pname}}">
+					</div>
+				</div>
+				<div class="row in-span half-margin">
+					<label class="span per15 title" for="englishName">영문이름</label>
+					<label class="span per30">
+					<input type="text" class="text" maxlength="64" name="englishName" id="englishName" value="{{coverletter.englishname}}" required>
+					</label>
+				</div>
+				<div class="row in-span half-margin">
+					<label class="span per15 title" for="genderFlag">성별</label>
+					<div class="span per30 radio">
+						{% if coverletter.genderFlag == "M" %}
+						<label>
+						<input type="radio" name="genderFlag" value="M" required id="genderFlag" checked>
+						<span class="label">남</span>
+						</label>
+						<label>
+						<input type="radio" name="genderFlag" value="F" required>
+						<span class="label">여</span>
+						</label>
+						{% else %}
+						<label>
+						<input type="radio" name="genderFlag" value="M" required id="genderFlag">
+						<span class="label">남</span>
+						</label>
+						<label>
+						<input type="radio" name="genderFlag" value="F" required checked>
+						<span class="label">여</span>
+						</label>
+						{% endif %}
+					</div>
+					<label class="span per20 devider title" for="birthday">생년월일 </label>
+					<label class="span per20">
+					<input type="date" data-dates="birthday:YMD" class="text date" name="birthday" id="birthday" value="{{coverletter.birthday|datetimeformat}}" required>
+					</label>
+				</div>
+			</div>
+			<div class="subject">
+				<h2 class="h2 required"> 지원분야 </h2>
+				<input type="text" class="text" value="{{recruit.rfield}}" disabled>
+				<input type="text" class="hidden" value="{{recruit.rfield}}" name="field">
+			</div>
+			</section>
+			<section class="writeResume" data-code="13">
+			<header>
+			<h1 class="h1">인적사항</h1>
+			</header>
+			<div class="subject photo">
+                <h2 class="h2 ">지원서 사진등록 (권장사이즈 : 가로 160px X 세로 200px 혹은 가로 4 : 세로 5 비율)</h2>
+                <div id="wrapPhoto" class="wrapPhoto F">
+                    <label>
+                        <input type="file" name="profilepic" value="" data-type="etcFile" onchange="changephoto(event)" id="profilep">
+                        <img src="{{coverletter.profilepic}}" width="160" height="200" alt="" id="photo">
+                        
+                    </label>
+                </div>
+                <div class="row">
+                    <div class="wrapGuide photo">
+                        <div class="guide">
+                        </div>
+                    </div>
+                    <div class="btn-group">
+                        <input type="text" class="hidden" name="pictureFile" value="">
+						<button type="button" class="btn" data-button="addPhoto">사진등록</button>
+						<button type="button" class="btn btn-ng" data-button="removePhoto">삭제</button>
+                    </div>
+                </div>
+            </div>
+			<div class="subject">
+				<h2 class="h2 required">주소</h2>
+				<div class="row in-span no-margin">
+                    <label class="span per15 title" for="postNumber">우편번호</label>
+                    <label class="span per30">
+                    <input type="text" class="text" maxlength="64" name="postNumber" id="postNumber" value="{{coverletter.postNumber}}" required>
+                    </label>
+                </div>
+                <div class="row in-span half-margin">
+                    <label class="span per15 title" for="addressName">주소명</label>
+                    <label class="span per80">
+                    <input type="text" class="text" maxlength="64" name="addressName" id="addressName" value="{{coverletter.addressName}}" required>
+                    </label>
+                </div>
+			</div>
+			<div class="subject">
+				<h2 class="h2 required">연락처</h2>
+				<div class="row in-span no-margin">
+					<label class="span per15 title" for="">이메일주소</label>
+					<div class="span per85">
+						<span class="text">{{user.pemail}}</span>
+						<input type="text" name="email" class="hidden" value="{{user.pemail}}">
+					</div>
+				</div>
+				<div class="row in-span half-margin">
+					<label class="span per15 title" for="">핸드폰번호</label>
+					<div class="span per85">
+						<span class="text">{{user.pphone}}</span>
+						<input type="text" name="phone" class="hidden" value="{{user.pphone}}">
+					</div>
+				</div>
+			</div>
+			
+			
+			
+			</section>
+		</div>
+		<section class="writeResume" data-code="140">
+		<header>
+		<h1 class="h1">고등학교</h1>
+		</header>
+		<div class="subject">
+			<h2 class="h2 ">졸업구분</h2>
+			<div class="row in-span no-margin">
+				<div class="span per100 radio" data-rel-id="highschool">
+					{% if coverletter.highschoolGraduationTypeCode == "졸업" %}
+					<label>
+					<input type="radio" name="highschool.graduationTypeCode" value="졸업" checked>
+					<span class="label">졸업</span>
+					</label>
+					<label>
+					<input type="radio" name="highschool.graduationTypeCode" value="졸업예정">
+					<span class="label">졸업예정</span>
+					</label>
+					<label>
+					<input type="radio" name="highschool.graduationTypeCode" value="중퇴">
+					<span class="label">중퇴</span>
+					</label>
+					<label>
+					<input type="radio" name="highschool.graduationTypeCode" value="휴학">
+					<span class="label">휴학</span>
+					</label>
+					<label>
+					<input type="radio" name="highschool.graduationTypeCode" value="재학">
+					<span class="label">재학</span>
+					</label>
+					{% elif coverletter.highschoolGraduationTypeCode == "졸업예정" %}
+					<label>
+					<input type="radio" name="highschool.graduationTypeCode" value="졸업">
+					<span class="label">졸업</span>
+					</label>
+					<label>
+					<input type="radio" name="highschool.graduationTypeCode" value="졸업예정" checked>
+					<span class="label">졸업예정</span>
+					</label>
+					<label>
+					<input type="radio" name="highschool.graduationTypeCode" value="중퇴">
+					<span class="label">중퇴</span>
+					</label>
+					<label>
+					<input type="radio" name="highschool.graduationTypeCode" value="휴학">
+					<span class="label">휴학</span>
+					</label>
+					<label>
+					<input type="radio" name="highschool.graduationTypeCode" value="재학">
+					<span class="label">재학</span>
+					</label>
+					{% elif coverletter.highschoolGraduationTypeCode == "중퇴" %}
+					<label>
+					<input type="radio" name="highschool.graduationTypeCode" value="졸업" >
+					<span class="label">졸업</span>
+					</label>
+					<label>
+					<input type="radio" name="highschool.graduationTypeCode" value="졸업예정">
+					<span class="label">졸업예정</span>
+					</label>
+					<label>
+					<input type="radio" name="highschool.graduationTypeCode" value="중퇴"checked>
+					<span class="label">중퇴</span>
+					</label>
+					<label>
+					<input type="radio" name="highschool.graduationTypeCode" value="휴학">
+					<span class="label">휴학</span>
+					</label>
+					<label>
+					<input type="radio" name="highschool.graduationTypeCode" value="재학">
+					<span class="label">재학</span>
+					</label>
+					{% elif coverletter.highschoolGraduationTypeCode == "휴학" %}
+					<label>
+					<input type="radio" name="highschool.graduationTypeCode" value="졸업" >
+					<span class="label">졸업</span>
+					</label>
+					<label>
+					<input type="radio" name="highschool.graduationTypeCode" value="졸업예정">
+					<span class="label">졸업예정</span>
+					</label>
+					<label>
+					<input type="radio" name="highschool.graduationTypeCode" value="중퇴">
+					<span class="label">중퇴</span>
+					</label>
+					<label>
+					<input type="radio" name="highschool.graduationTypeCode" value="휴학"checked>
+					<span class="label">휴학</span>
+					</label>
+					<label>
+					<input type="radio" name="highschool.graduationTypeCode" value="재학">
+					<span class="label">재학</span>
+					</label>
+					{% else %}
+					<label>
+					<input type="radio" name="highschool.graduationTypeCode" value="졸업" >
+					<span class="label">졸업</span>
+					</label>
+					<label>
+					<input type="radio" name="highschool.graduationTypeCode" value="졸업예정">
+					<span class="label">졸업예정</span>
+					</label>
+					<label>
+					<input type="radio" name="highschool.graduationTypeCode" value="중퇴">
+					<span class="label">중퇴</span>
+					</label>
+					<label>
+					<input type="radio" name="highschool.graduationTypeCode" value="휴학">
+					<span class="label">휴학</span>
+					</label>
+					<label>
+					<input type="radio" name="highschool.graduationTypeCode" value="재학" checked>
+					<span class="label">재학</span>
+					</label>
+					{% endif %}
+				</div>
+			</div>
+		</div>
+		<div class="subject">
+			<h2 class="h2 ">학교관련</h2>
+			<div class="row in-span no-margin">
+				<label class="span per15 title" for="highName">학교명</label>
+				<label class="span per30">
+				<input type="text" class="text" maxlength="64" name="highName" id="highName" value="{{coverletter.highName}}" required>
+				</label>
+			</div>
+			<div class="row in-span half-margin">
+				<label class="span per15 title ">학교소재지</label>
+				<label class="span per15 select">
+				<select name="highschool.locationCode" data-rel-target="highschool">
+					<option value="{{coverletter.highschoolLocationCode}}">{{coverletter.highschoolLocationCode}}</option>
+					<option value="서울특별시">서울특별시</option>
+                    <option value="경기도">경기도</option>
+                    <option value="강원도">강원도</option>
+                    <option value="충청북도">충청북도</option>
+                    <option value="충청남도">충청남도</option>
+                    <option value="전라북도">전라북도</option>
+                    <option value="전라남도">전라남도</option>
+                    <option value="경상북도">경상북도</option>
+                    <option value="경상남도">경상남도</option>
+                    <option value="부산광역시">부산광역시</option>
+                    <option value="대구광역시">대구광역시</option>
+                    <option value="인천광역시">인천광역시</option>
+                    <option value="광주광역시">광주광역시</option>
+                    <option value="대전광역시">대전광역시</option>
+                    <option value="울산광역시">울산광역시</option>
+                    <option value="세종특별자치시">세종특별자치시</option>
+                    <option value="제주도특별자치도">제주도특별자치도</option>
+				</select>
+				</label>
+				<label class="span per15 title devider">계열</label>
+				<label class="span per15 select">
+				<select name="highschool.highschoolCategoryCode" data-rel-target="highschool">
+					<option value="{{coverletter.highschoolHighschoolCategoryCode}}">{{coverletter.highschoolHighschoolCategoryCode}}</option>
+					<option value="인문">인문</option>
+					<option value="상업">상업</option>
+					<option value="공업">공업</option>
+					<option value="전산정보">전산정보</option>
+					<option value="예술">예술</option>
+					<option value="농업">농업</option>
+					<option value="과학">과학</option>
+					<option value="외국어">외국어</option>
+					<option value="체육">체육</option>
+					<option value="마이스터">마이스터</option>
+					<option value="특성화">특성화</option>
+					<option value="기타">기타</option>
+				</select>
+				</label>
+				<label class="span per20 title devider">주간/야간</label>
+				<div class="span per20 radio">
+					{% if coverletter.highschoolDayOrNight == "주간" %}
+					<label>
+						<input type="radio" name="highschool.dayOrNight" value="주간" data-rel-target="highschool" checked>
+						<span class="label">주간</span>
+					</label>
+					<label>
+						<input type="radio" name="highschool.dayOrNight" value="야간" data-rel-target="highschool">
+						<span class="label">야간</span>
+					</label>
+					{% elif coverletter.highschoolDayOrNight == "야간" %}
+					<label>
+						<input type="radio" name="highschool.dayOrNight" value="주간" data-rel-target="highschool" >
+						<span class="label">주간</span>
+					</label>
+					<label>
+						<input type="radio" name="highschool.dayOrNight" value="야간" data-rel-target="highschool"checked>
+						<span class="label">야간</span>
+					</label>
+					{% endif %}
+				</div>
+			</div>
+		</div>
+		<div class="subject">
+			<h2 class="h2 required">재학기간</h2>
+			<div class="row in-span no-margin"style="width:1000px">
+				<label class="span per35 date">
+				<input type="date" data-dates="highschoolDate:YM highschool graduationCriteriaDate" name="highschool.entranceDate" title="입학일" value="{{coverletter.highschoolEntranceDate|datetimeformat}}" required class="text date start" placeholder="입학일" data-rel-target="highschool">
+				<input type="date" data-dates="highschoolDate:END" name="highschool.graduationDate" title="졸업일" value="{{coverletter.highschoolGraduationDate|datetimeformat}}" required class="text date end" placeholder="졸업일" data-rel-target="highschool">
+				</label>
+			</div>
+		</div>
+		</section>
+		<section class="writeResume" data-code="141">
+		<header>
+		<h1 class="h1">대학교</h1>
+		</header>
+		<div class="wrapCollege" data-wrap="collegeLoop" data-type="college" data-required="false">
+			<div class="wrapSubject" data-loop="college" data-index="0">
+				<div class="subject" data-code="141">
+					<h2 class="h2 ">학위구분</h2>
+					<div class="row in-span no-margin">
+						<div class="span per100 radio" data-rel-id="college">
+							{% if coverletter.collegeDegreeTypeCode == "전문학사" %}
+							<label>
+							<input type="radio" name="college.degreeTypeCode" value="전문학사" checked>
+							<span class="label">전문학사</span>
+							</label>
+							<label>
+							<input type="radio" name="college.degreeTypeCode" value="학사">
+							<span class="label">학사</span>
+							</label>
+							{% elif coverletter.collegeDegreeTypeCode == "학사" %}
+							<label>
+							<input type="radio" name="college.degreeTypeCode" value="전문학사" >
+							<span class="label">전문학사</span>
+							</label>
+							<label>
+							<input type="radio" name="college.degreeTypeCode" value="학사" checked>
+							<span class="label">학사</span>
+							</label>
+							{% endif %}
+						</div>
+					</div>
+				</div>
+				<div class="subject">
+					<h2 class="h2">학교관련</h2>
+					<div class="row in-span no-margin">
+						<label class="span per15 title" for="universityName">학교명</label>
+						<label class="span per30">
+						<input type="text" class="text" maxlength="64" name="universityName" id="universityName" value="{{coverletter.universityName}}" required>
+						</label>
+					</div>
+					<div class="row in-span half-margin">
+						<label class="span per15 title ">학교소재지</label>
+						<label class="span per25 select">
+						<select name="college.locationCode" data-rel-target="college">
+							<option value="{{coverletter.collegeLocationCode}}">{{coverletter.collegeLocationCode}}</option>
+							<option value="서울특별시">서울특별시</option>
+                    <option value="경기도">경기도</option>
+                    <option value="강원도">강원도</option>
+                    <option value="충청북도">충청북도</option>
+                    <option value="충청남도">충청남도</option>
+                    <option value="전라북도">전라북도</option>
+                    <option value="전라남도">전라남도</option>
+                    <option value="경상북도">경상북도</option>
+                    <option value="경상남도">경상남도</option>
+                    <option value="부산광역시">부산광역시</option>
+                    <option value="대구광역시">대구광역시</option>
+                    <option value="인천광역시">인천광역시</option>
+                    <option value="광주광역시">광주광역시</option>
+                    <option value="대전광역시">대전광역시</option>
+                    <option value="울산광역시">울산광역시</option>
+                    <option value="세종특별자치시">세종특별자치시</option>
+                    <option value="제주도특별자치도">제주도특별자치도</option>
+						</select>
+						</label><label class="span per20 title devider required">본교/분교</label>
+						<div class="span per20 radio">
+							{% if coverletter.collegeHeadOrBranch == "본교"%}
+							<label>
+							<input type="radio" name="college.headOrBranch" value="본교" data-rel-target="college" checked>
+							<span class="label">본교</span>
+							</label>
+							<label>
+							<input type="radio" name="college.headOrBranch" value="분교" data-rel-target="college" >
+							<span class="label">분교</span>
+							</label>
+							{% elif coverletter.collegeHeadOrBranch == "분교"%}
+							<label>
+							<input type="radio" name="college.headOrBranch" value="본교" data-rel-target="college" >
+							<span class="label">본교</span>
+							</label>
+							<label>
+							<input type="radio" name="college.headOrBranch" value="분교" data-rel-target="college" checked>
+							<span class="label">분교</span>
+							</label>
+							{% endif %}
+						</div>
+					</div>
+				</div>
+				<div class="subject">
+					<h2 class="h2 required">재학기간</h2>
+					<div class="row in-span no-margin"style="width:1000px">
+						<label class="span per35 date">
+						<input type="date" data-dates="college.date:YM college graduationCriteriaDate" name="college.entranceDate" value="{{coverletter.collegeEntranceDate|datetimeformat}}" data-rel-target="college" class="text date start" placeholder="입학일" required>
+						<input type="date" data-dates="college.date:END" name="college.graduationDate" value="{{coverletter.collegeGraduationDate|datetimeformat}}" data-rel-target="college" class="text date end" placeholder="졸업일" required>
+						</label>
+					</div>
+				</div>
+				<div class="subject">
+					<h2 class="h2 required">입학구분</h2>
+					<div class="row in-span no-margin">
+						<div class="span per100 radio">
+							{% if coverletter.collegeEntranceTypeCode == "입학" %}
+							<label>
+							<input type="radio" name="college.entranceTypeCode" value="입학" data-rel-target="college" checked>
+							<span class="label">입학</span>
+							</label>
+							<label>
+							<input type="radio" name="college.entranceTypeCode" value="편입" data-rel-target="college" >
+							<span class="label">편입</span>
+							</label>
+							{% elif coverletter.collegeEntranceTypeCode == "편입" %}
+							<label>
+							<input type="radio" name="college.entranceTypeCode" value="입학" data-rel-target="college" >
+							<span class="label">입학</span>
+							</label>
+							<label>
+							<input type="radio" name="college.entranceTypeCode" value="편입" data-rel-target="college" checked>
+							<span class="label">편입</span>
+							</label>
+							{% endif %}
+						</div>
+					</div>
+				</div>
+				<div class="subject">
+					<h2 class="h2 required">졸업구분</h2>
+					<div class="row in-span no-margin">
+						<div class="span per100 radio">
+							{% if coverletter.collegeGraduationTypeCode == "졸업" %}
+							<label>
+							<input type="radio" name="college.graduationTypeCode" value="졸업" data-rel-target="college" checked>
+							<span class="label">졸업</span>
+							</label>
+							<label>
+							<input type="radio" name="college.graduationTypeCode" value="졸업예정" data-rel-target="college" >
+							<span class="label">졸업예정</span>
+							</label>
+							<label>
+							<input type="radio" name="college.graduationTypeCode" value="중퇴" data-rel-target="college" >
+							<span class="label">중퇴</span>
+							</label>
+							<label>
+							<input type="radio" name="college.graduationTypeCode" value="휴학" data-rel-target="college" >
+							<span class="label">휴학</span>
+							</label>
+							<label>
+							<input type="radio" name="college.graduationTypeCode" value="재학" data-rel-target="college" >
+							<span class="label">재학</span>
+							</label>
+							{% elif coverletter.collegeGraduationTypeCode == "졸업예정" %}
+							<label>
+							<input type="radio" name="college.graduationTypeCode" value="졸업" data-rel-target="college" >
+							<span class="label">졸업</span>
+							</label>
+							<label>
+							<input type="radio" name="college.graduationTypeCode" value="졸업예정" data-rel-target="college" checked>
+							<span class="label">졸업예정</span>
+							</label>
+							<label>
+							<input type="radio" name="college.graduationTypeCode" value="중퇴" data-rel-target="college" >
+							<span class="label">중퇴</span>
+							</label>
+							<label>
+							<input type="radio" name="college.graduationTypeCode" value="휴학" data-rel-target="college" >
+							<span class="label">휴학</span>
+							</label>
+							<label>
+							<input type="radio" name="college.graduationTypeCode" value="재학" data-rel-target="college" >
+							<span class="label">재학</span>
+							</label>
+							{% elif coverletter.collegeGraduationTypeCode == "중퇴" %}
+							<label>
+							<input type="radio" name="college.graduationTypeCode" value="졸업" data-rel-target="college" >
+							<span class="label">졸업</span>
+							</label>
+							<label>
+							<input type="radio" name="college.graduationTypeCode" value="졸업예정" data-rel-target="college" >
+							<span class="label">졸업예정</span>
+							</label>
+							<label>
+							<input type="radio" name="college.graduationTypeCode" value="중퇴" data-rel-target="college" checked>
+							<span class="label">중퇴</span>
+							</label>
+							<label>
+							<input type="radio" name="college.graduationTypeCode" value="휴학" data-rel-target="college" >
+							<span class="label">휴학</span>
+							</label>
+							<label>
+							<input type="radio" name="college.graduationTypeCode" value="재학" data-rel-target="college" >
+							<span class="label">재학</span>
+							</label>
+							{% elif coverletter.collegeGraduationTypeCode == "휴학" %}
+							<label>
+							<input type="radio" name="college.graduationTypeCode" value="졸업" data-rel-target="college" >
+							<span class="label">졸업</span>
+							</label>
+							<label>
+							<input type="radio" name="college.graduationTypeCode" value="졸업예정" data-rel-target="college" >
+							<span class="label">졸업예정</span>
+							</label>
+							<label>
+							<input type="radio" name="college.graduationTypeCode" value="중퇴" data-rel-target="college" >
+							<span class="label">중퇴</span>
+							</label>
+							<label>
+							<input type="radio" name="college.graduationTypeCode" value="휴학" data-rel-target="college" checked>
+							<span class="label">휴학</span>
+							</label>
+							<label>
+							<input type="radio" name="college.graduationTypeCode" value="재학" data-rel-target="college" >
+							<span class="label">재학</span>
+							</label>
+							{% else %}
+							<label>
+							<input type="radio" name="college.graduationTypeCode" value="졸업" data-rel-target="college" >
+							<span class="label">졸업</span>
+							</label>
+							<label>
+							<input type="radio" name="college.graduationTypeCode" value="졸업예정" data-rel-target="college" >
+							<span class="label">졸업예정</span>
+							</label>
+							<label>
+							<input type="radio" name="college.graduationTypeCode" value="중퇴" data-rel-target="college" >
+							<span class="label">중퇴</span>
+							</label>
+							<label>
+							<input type="radio" name="college.graduationTypeCode" value="휴학" data-rel-target="college" >
+							<span class="label">휴학</span>
+							</label>
+							<label>
+							<input type="radio" name="college.graduationTypeCode" value="재학" data-rel-target="college" checked>
+							<span class="label">재학</span>
+							</label>
+							{% endif %}
+						</div>
+					</div>
+				</div>
+				<div class="subject">
+					<h2 class="h2">학과/전공</h2>
+					<div class="subject" data-wrap="major">
+						<div class="row in-span no-margin">
+							<label class="span per15 title" for="majorName">전공명</label>
+							<label class="span per30">
+							<input type="text" class="text" maxlength="64" name="majorName" id="majorName" value="{{coverletter.majorName}}" required>
+							</label>
+						</div>
+						<div class="row in-span half-margin">
+							<label class="span per35 select">
+							<select name="college.collegeMajor.majorCategoryCode" data-rel-target="college.collegeMajor" required data-rel-id="college.collegeMajor.majorCategoryCode" data-rel-type="with" data-rel-value="125,126,127,128">
+								<option value="{{coverletter.collegeCollegeMajorMajorCategoryCode}}">{{coverletter.collegeCollegeMajorMajorCategoryCode}}</option>
+								<option value="인문계열_(언어ㆍ문학)">인문계열_(언어ㆍ문학)</option>
+								<option value="인문계열_(인문과학)">인문계열_(인문과학)</option>
+								<option value="사회계열_(경영·경제)">사회계열_(경영·경제)</option>
+								<option value="사회계열_(법률)">사회계열_(법률)</option>
+								<option value="사회계열_(사회과학 )">사회계열_(사회과학 )</option>
+								<option value="사회계열_(회계 · 금융)">사회계열_(회계 · 금융)</option>
+								<option value="교육계열_(교육일반 )">교육계열_(교육일반 )</option>
+								<option value="교육계열_(유아교육 )">교육계열_(유아교육 )</option>
+								<option value="교육계열_(특수교육)">교육계열_(특수교육)</option>
+								<option value="교육계열_(초등교육)">교육계열_(초등교육)</option>
+								<option value="교육계열_(중등교육 )">교육계열_(중등교육 )</option>
+								<option value="공학계열_(건축)">공학계열_(건축)</option>
+								<option value="공학계열_(토목·도시)">공학계열_(토목·도시)</option>
+								<option value="공학계열_(교통·운송)">공학계열_(교통·운송)</option>
+								<option value="공학계열_(기계·금속)">공학계열_(기계·금속)</option>
+								<option value="공학계열_(전기·전자)">공학계열_(전기·전자)</option>
+								<option value="공학계열_(정밀·에너지)">공학계열_(정밀·에너지)</option>
+								<option value="공학계열_(소재·재료)">공학계열_(소재·재료)</option>
+								<option value="공학계열_(컴퓨터·통신)">공학계열_(컴퓨터·통신)</option>
+								<option value="공학계열_(산업 )">공학계열_(산업 )</option>
+								<option value="공학계열_(화공 )">공학계열_(화공 )</option>
+								<option value="자연계열_(농림·수산)">자연계열_(농림·수산)</option>
+								<option value="자연계열_(생물·화학·환경)">자연계열_(생물·화학·환경)</option>
+								<option value="자연계열_(생활과학 )">자연계열_(생활과학 )</option>
+								<option value="자연계열_(수학·물리·천문·지리">자연계열_(수학·물리·천문·지리)</option>
+								<option value="자연계열_(통계)">자연계열_(통계)</option>
+								<option value="의약계열_(의료 )">의약계열_(의료 )</option>
+								<option value="의약계열_(간호 )">의약계열_(간호 )</option>
+								<option value="의약계열_(약학 )">의약계열_(약학 )</option>
+								<option value="의약계열_(치료·보건)">의약계열_(치료·보건)</option>
+								<option value="예체능계열_(디자인)">예체능계열_(디자인)</option>
+								<option value="예체능계열_(응용예술)">예체능계열_(응용예술)</option>
+								<option value="예체능계열_(무용·체육)">예체능계열_(무용·체육)</option>
+								<option value="예체능계열_(미술·조형)">예체능계열_(미술·조형)</option>
+								<option value="예체능계열_(연극·영화)">예체능계열_(연극·영화)</option>
+								<option value="예체능계열_(음악 )">예체능계열_(음악 )</option>
+								<option value="기타">기타</option>
+							</select>
+							</label>
+						</div>
+						<div class="row in-span half-margin">
+							<div class="span per20 radio">
+								{% if coverletter.collegeCollegeMajorDayOrNight == "주간" %}
+								<label>
+								<input type="radio" name="college.collegeMajor.dayOrNight" value="주간" data-rel-target="college.collegeMajor" checked>
+								<span class="label">주간</span>
+								</label>
+								<label>
+								<input type="radio" name="college.collegeMajor.dayOrNight" value="야간" data-rel-target="college.collegeMajor" >
+								<span class="label">야간</span>
+								</label>
+								{% elif coverletter.collegeCollegeMajorDayOrNight == "야간" %}
+								<label>
+								<input type="radio" name="college.collegeMajor.dayOrNight" value="주간" data-rel-target="college.collegeMajor" >
+								<span class="label">주간</span>
+								</label>
+								<label>
+								<input type="radio" name="college.collegeMajor.dayOrNight" value="야간" data-rel-target="college.collegeMajor" checked>
+								<span class="label">야간</span>
+								</label>
+								{% endif %}
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="subject">
+					<h2 class="h2">성적</h2>
+					<div class="row in-span no-margin">
+						<label class="span per10 title required">평점</label>
+						<div class="span per90 middle-set">
+							<input type="number" step="0.01" name="college.score" value="{{coverletter.collegeScore}}" data-rel-id="college.perfectScore" data-rel-target="college" required class="text" title="평점" size="7" placeholder="평점" data-limit="decimal(5,2)">
+							<span style="margin:0px 5px;">/</span>
+							<label class="select">
+							<select name="college.perfectScore" data-rel-target="college.perfectScore" required>
+								<option value="{{coverletter.collegePerfectScore}}">{{coverletter.collegePerfectScore}}</option>
+								<option value="3.0">3.0</option>
+								<option value="3.5">3.5</option>
+								<option value="4.0">4.0</option>
+								<option value="4.3">4.3</option>
+								<option value="4.5">4.5</option>
+								<option value="5.0">5.0</option>
+								<option value="7.0">7.0</option>
+								<option value="100">100</option>
+							</select>
+							</label>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		</section>
+		<section class="writeResume" data-code="18">
+		<header>
+		<h1 class="h1">자격/기타정보</h1>
+		</header>
+		<div class="subject" data-wrap="foreignExam" data-code="165" data-type="languageExam">
+			<h2 class="h2 "> 공인외국어시험</h2>
+			<div class="row in-span no-margin">
+				<label class="span per15 title" for="testName">시험명</label>
+				<label class="span per30">
+				<input type="text" class="text" maxlength="64" name="testName" id="testName" value="{{coverletter.testName}}" required>
+				</label>
+			</div>
+		</div>
+		<div class="subject" data-wrap="foreignAbility" data-code="166" data-type="languageSkill">
+			<h2 class="h2 ">외국어활용능력</h2>
+			<div class="row in-span no-margin">
+				<div class="span per80 middle-set">
+					<div class="row in-span no-margin">
+						<label class="span per40 select">
+						<select name="languageSkill.languageCode" data-rel-id="languageSkill">
+							<option value="">{{coverletter.languageSkillLanguageCode}}</option>
+							<option value="영어">영어</option>
+							<option value="일본어">일본어</option>
+							<option value="중국어">중국어</option>
+							<option value="프랑스어">프랑스어</option>
+							<option value="독일어">독일어</option>
+							<option value="스페인어">스페인어</option>
+							<option value="포르투갈어">포르투갈어</option>
+							<option value="이탈리아어">이탈리아어</option>
+							<option value="네덜란드어">네덜란드어</option>
+							<option value="아랍어">아랍어</option>
+							<option value="말레이시아어">말레이시아어</option>
+							<option value="인도네시아어">인도네시아어</option>
+							<option value="베트남어">베트남어</option>
+							<option value="인도어">인도어</option>
+							<option value="태국어">태국어</option>
+							<option value="러시아어">러시아어</option>
+							<option value="이란어">이란어</option>
+							<option value="터키어">터키어</option>
+							<option value="핀란드어">핀란드어</option>
+							<option value="노르웨이어">노르웨이어</option>
+							<option value="헝가리어">헝가리어</option>
+							<option value="덴마크어">덴마크어</option>
+							<option value="미얀마어">미얀마어</option>
+							<option value="불가리아어">불가리아어</option>
+						</select>
+						</label><label class="span per20 select">
+						<select name="languageSkill.speakingLevelCodeSn" required>
+							<option value="{{coverletter.languageSkillSpeakingLevelCodeSn}}">{{coverletter.languageSkillSpeakingLevelCodeSn}}</option>
+							<option value="Authentic">Authentic</option>
+							<option value="Advanced">Advanced</option>
+							<option value="Intermediate">Intermediate</option>
+							<option value="Basic">Basic</option>
+							<option value="Beginner">Beginner</option>
+						</select>
+						</label><label class="span per20 select">
+						<select name="languageSkill.writingLevelCodeSn" required>
+							<option value="{{coverletter.languageSkillWritingLevelCodeSn}}">{{coverletter.languageSkillWritingLevelCodeSn}}</option>
+							<option value="Authentic">Authentic</option>
+							<option value="Advanced">Advanced</option>
+							<option value="Intermediate">Intermediate</option>
+							<option value="Basic">Basic</option>
+							<option value="Beginner">Beginner</option>
+						</select>
+						</label><label class="span per20 select">
+						<select name="languageSkill.readingLevelCodeSn" required>
+							<option value="{{coverletter.languageSkillReadingLevelCodeSn}}">{{coverletter.languageSkillReadingLevelCodeSn}}</option>
+							<option value="Authentic">Authentic</option>
+							<option value="Advanced">Advanced</option>
+							<option value="Intermediate">Intermediate</option>
+							<option value="Basic">Basic</option>
+							<option value="Beginner">Beginner</option>
+						</select>
+						</label>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="subject" data-wrap="license" data-code="168" data-type="license">
+			<h2 class="h2 ">자격증</h2>
+			<div class="row in-span no-margin">
+				<label class="span per15 title" for="certificateName">자격증명</label>
+				<label class="span per30">
+				<input type="text" class="text" maxlength="64" name="certificateName" id="certificateName" value="{{coverletter.certificateName}}" required>
+				</label>
+			</div>
+			<div class="row in-span half-margin">
+				<label class="span per15 title ">발급기관</label>
+				<div class="span per30">
+					<input type="text" class="text" maxlength="64" name="certificatePlace" id="certificatePlace" value="{{coverletter.certificatePlace}}" required>
+				</div>
+				<label class="span per15 title devider ">등록번호</label>
+				<div class="span per25">
+					<input type="text" maxlength="64" class="text" name="certificateNumber" placeholder="등록번호" value="{{coverletter.certificateNumber}}" required>
+				</div>
+			</div>
+			<div class="row in-span half-margin">
+				<label class="span per15 title ">취득일</label>
+				<div class="span per20">
+					<input type="date" data-dates="license.licenseDate:YMD" class="text date" name="license.acquireDate" value="{{coverletter.licenseAcquireDate|datetimeformat}}" placeholder="취득일" required data-rel-target="license">
+				</div>
+			</div>
+			<!-- </div> -->
+		</div>
+		<!--div class="subject" data-wrap="etcAttach" data-code="174">
+			<h2 class="h2 required">기타서류 첨부</h2>
+			<div class="row loop no-btn file">
+				<div class="row in-span no-margin">
+					<label class="span per70 title " style="line-height:1.5em;padding-top:9px">이력서 파일을 첨부하세요.</label>
+					<div class="span per30 middle-set span-file" data-required="true" data-resumeattachsn="43118" data-type="etcFile" style="text-align:right">
+						<div class="formFileBtnSet">
+							<label class="file"><input type="file" data-type="etcFile" name="etcFile"><span>파일첨부</span></label>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div-->
+		</section>
+
+		<section class="writeResume" data-code="140">
+			<header>
+			<h1 class="h1">자기소개서 작성</h1>
+			</header>
+			<div class="subject">
+				<h2 class="h2 required">&emsp;1번</h2>
+				<div class="row in-span no-margin">
+					<input type="text" class="text" maxlength="200" name="clq1" id="clq1" value="{{recruit.rQ1}}" disabled>
+					<div class="row in-span half-margin">
+						<div class="span per100">
+							<textarea  style="width:100%;height:300px;resize: none;overflow: hidden;font-size:14px;padding:15px 15px;box-sizing:border-box;" class="textarea1" maxlength="1000" name="cla1" id="cla1" placeholder="해당 항목에 대한 내용을 1000자 이내로 기재해주세요." required>{{coverletter.clq1}}</textarea>						
+						</div>
+						<br />
+						<span style="color:#aaa; float:right;" id="counter1" >(0 / 최대 1000자)</span>	
+					</div>
+				</div>
+			</div>
+			<div class="subject">
+				<h2 class="h2 required">&emsp;2번</h2>
+				<div class="row in-span no-margin">
+					<input type="text" class="text" maxlength="200" name="clq2" id="clq2" value="{{recruit.rQ2}}" disabled>
+					<div class="row in-span half-margin">
+						<div class="span per100">
+							<textarea style="width:100%;height:300px;resize: none;overflow: hidden;font-size:14px;padding:15px 15px;box-sizing:border-box;" class="textarea2" maxlength="1000" name="cla2" id="cla2" placeholder="해당 항목에 대한 내용을 1000자 이내로 기재해주세요." required>{{coverletter.clq2}}</textarea>						
+						</div>
+						<br />
+						<span style="color:#aaa; float:right;" id="counter2">(0 / 최대 1000자)</span>	
+					</div>
+				</div>
+			</div>
+			<div class="subject">
+				<h2 class="h2 required">&emsp;3번</h2>
+				<div class="row in-span no-margin">
+					<input type="text" class="text" maxlength="200" name="clq3" id="clq3" value="{{recruit.rQ3}}" disabled>
+					<div class="row in-span half-margin">
+						<div class="span per100">
+							<textarea style="width:100%;height:300px;resize: none;overflow: hidden;font-size:14px;padding:15px 15px;box-sizing:border-box;" class="textarea3" maxlength="1000" name="cla3" id="cla3"  placeholder="해당 항목에 대한 내용을 1000자 이내로 기재해주세요." required>{{coverletter.clq3}}</textarea>						
+						</div>
+						<br />
+						<span style="color:#aaa; float:right" id="counter3">(0 / 최대 1000자)</span>					    
+					</div>
+				</div>
+			</div>
+			<div class="subject">
+				<h2 class="h2 required">&emsp;4번</h2>
+				<div class="row in-span no-margin">
+					<input type="text" class="text" maxlength="200" name="clq4" id="clq4" value="{{recruit.rQ4}}" disabled>
+					<div class="row in-span half-margin">
+						<div class="span per100">
+							<textarea  style="width:100%;height:300px;resize: none;overflow: hidden;font-size:14px;padding:15px 15px;box-sizing:border-box;" class="textarea4" maxlength="1000" name="cla4" id="cla4"  placeholder="해당 항목에 대한 내용을 1000자 이내로 기재해주세요." required>{{coverletter.clq4}}</textarea>						
+						</div>
+						<br />
+						<span style="color:#aaa; float:right" id="counter4">(0 / 최대 1000자)</span>	
+					</div>
+				</div>
+			</div>
+		</section>
+	
+
+
+
+ 
+            
+    	<div id="wrapSessionArea">
+        	<div id="sessionArea" class="sessionArea">
+            
+           		<div class="btnGroup">
+                	<button type="submit" data-step="2" class="btn btn-great" style="display: inline-block;">완료</button>
+            	</div>
+        	</div>
+    	</div>
+ 
+		
+
+
+
+
+
+
+</form>
+
+<script src="popUp.js"></script>
+<script src="timeline.js"></script>
+<script src="modalAgreement.js"></script>
+<script src="writeResume.js"></script>
+<script src="writeResumeTemplate.js"></script>
+<script src="writeResumeTimer.js"></script>
+<script>
+		$('.textarea1').keyup(function (e){
+			var content = $(this).val();
+			$('#counter1').html("&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;("+content.length+" / 최대 1000자)");   
+		
+			if (content.length > 1000){
+				alert("최대 1000자까지 입력 가능합니다.");
+				$(this).val(content.substring(0, 1000));
+				$('#counter1').html("(1000 / 최대 1000자)");
+			}
+		});
+		$('.textarea2').keyup(function (e){
+			var content = $(this).val();
+			$('#counter2').html("&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;("+content.length+" / 최대 1000자)");   
+		
+			if (content.length > 1000){
+				alert("최대 1000자까지 입력 가능합니다.");
+				$(this).val(content.substring(0, 1000));
+				$('#counter2').html("(1000 / 최대 1000자)");
+			}
+		});
+		$('.textarea3').keyup(function (e){
+			var content = $(this).val();
+			$('#counter3').html("&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;("+content.length+" / 최대 1000자)");  
+		
+			if (content.length > 1000){
+				alert("최대 1000자까지 입력 가능합니다.");
+				$(this).val(content.substring(0, 1000));
+				$('#counter3').html("(1000 / 최대 1000자)");
+			}
+		});
+		$('.textarea4').keyup(function (e){
+			var content = $(this).val();
+			$('#counter4').html("&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;("+content.length+" / 최대 1000자)");    
+		
+			if (content.length > 1000){
+				alert("최대 1000자까지 입력 가능합니다.");
+				$(this).val(content.substring(0, 1000));
+				$('#counter4').html("(1000 / 최대 1000자)");
+			}
+		});
+		</script>	
+</div>
+<!--//wrap-->
+</body>
+</html>

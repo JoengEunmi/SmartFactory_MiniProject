@@ -1,0 +1,473 @@
+<!doctype html>
+<html class="no-js" lang="zxx">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+         <link rel="shortcut icon" type="image/x-icon" href="../static/favicon.ico" />
+    <title>Bridge - MY RECRUIT</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="manifest" href="site.webmanifest">
+
+
+		<!-- CSS here -->
+            <link rel="stylesheet" href="../static/assets/css/bootstrap.min2.css">
+            <link rel="stylesheet" href="../static/assets/css/owl.carousel.min.css">
+            <link rel="stylesheet" href="../static/assets/css/flaticon.css">
+            <link rel="stylesheet" href="../static/assets/css/price_rangs.css">
+            <link rel="stylesheet" href="../static/assets/css/slicknav.css">
+            <link rel="stylesheet" href="../static/assets/css/animate.min.css">
+            <link rel="stylesheet" href="../static/assets/css/magnific-popup.css">
+            <link rel="stylesheet" href="../static/assets/css/fontawesome-all.min.css">
+            <link rel="stylesheet" href="../static/assets/css/themify-icons.css">
+            <link rel="stylesheet" href="../static/assets/css/slick.css">
+            <link rel="stylesheet" href="../static/assets/css/nice-select2.css">
+            <link rel="stylesheet" href="../static/assets/css/style2.css">
+            <script>
+            function func1(){
+            	document.getElementById("f").action = "/recruit/field";
+            	document.getElementById("f").submit();
+            }
+            function func2(){
+            	document.getElementById("l").action = "/recruit/location";
+            	document.getElementById("l").submit();
+            }
+            function func3(){
+            	document.getElementById("sortt").action = "/recruit/sort";
+            	document.getElementById("sortt").submit();
+            }
+            </script>
+   </head>
+
+   <body>
+    <!-- Preloader Start -->
+    <div id="preloader-active">
+        <div class="preloader d-flex align-items-center justify-content-center">
+            <div class="preloader-inner position-relative">
+                <div class="preloader-circle"></div>
+                <div class="preloader-img pere-text">
+                    <img src="../static/logoper.png" alt="">
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Preloader Start -->
+    <header>
+        <!-- Header Start -->
+       <div class="header-area header-transparrent">
+           <div class="headder-top header-sticky">
+                <div class="container">
+                    <div class="row align-items-center">
+                        <div class="col-lg-3 col-md-2">
+                            <!-- Logo -->
+                            <div class="logo">
+                                <a href="/"><img src="../static/bridge.png" alt=""></a>
+                            </div>  
+                        </div>
+                        <div class="col-lg-9 col-md-9">
+                            <div class="menu-wrapper">
+                                <!-- Main-menu -->
+                                <div class="main-menu">
+                                    <nav class="d-none d-lg-block">
+                                        <ul id="navigation">
+                                            <li><a href="/">Home</a></li>
+                                            <li><a href="/recruit">Find a Jobs </a></li>
+                                            <li><a href="#">Help</a>
+                                            	<ul class="submenu">
+                                                    <li><a href="/hangulcheck">글자수 세기</a></li>
+                                                    <!--li><a href="/hakjomcount">학점 계산기</a></li-->
+                                                    <li><a href="/salarycalculator">연봉 계산기</a></li>
+                                                    <li><a href="/futureyearcalculate">미래 연봉 계산기</a></li>
+                                                    <li><a href="/changescore">어학 점수 변환기</a></li>
+                                                </ul>
+                                            </li>
+                                           <li><a href="#">MyPage</a>
+                                                <ul class="submenu">
+                                                    {% if session['usertype'] == "person" %}
+                                                    <li><a href="/myprecruit">MY RECRUIT</a></li>
+                                                    <li><a href="/personalinfo">MY PERSONAL INFO</a></li>
+                                                    {% elif session['usertype'] == "company" %}
+                                                    <li><a href="/mycrecruit">MY RECRUIT</a></li>
+                                                    <li><a href="/companyinfo">MY COMPANY'S INFO</a></li>
+                                                    {% endif %}
+                                                </ul>
+                                            </li>
+                                            <li><a href="/qna">QnA</a></li>
+                                        </ul>
+                                    </nav>
+                                </div>          
+                                <!-- Header-btn -->
+                                <div class="header-btn d-none f-right d-lg-block">
+                                    {%  if session['logged_in'] %}
+                                	<a href="/logout" class="btn head-btn2">Log out</a>
+                                    <a href="/unjoin" class="btn head-btn2">Unjoin</a>
+                                	{% else %}
+                                    <a href="/plogin" class="btn head-btn2">Individual</a>
+                                    <a href="/clogin" class="btn head-btn2">Enterprise</a>
+                                    {% endif %}
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Mobile Menu -->
+                        <div class="col-12">
+                            <div class="mobile_menu d-block d-lg-none"></div>
+                        </div>
+                    </div>
+                </div>
+           </div>
+       </div>
+        <!-- Header End -->
+    </header>
+    <main>
+
+        <main>
+
+
+        <!-- Hero Area Start-->
+        <div class="slider-area ">
+            <div class="single-slider section-overly slider-height2 d-flex align-items-center" data-background="../static/assets/img/hero/background3.png">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-xl-12">
+                            <div class="hero-cap text-center">
+                                <h2 >My page</h2>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Hero Area End -->
+
+
+
+        <!-- Job List Area Start -->
+        <div class="job-listing-area pt-120 pb-120">
+            <div class="container">
+                <div class="row">
+
+                    <!-- Left content -->
+                    <div class="col-xl-3 col-lg-3 col-md-4">
+                        <div class="row">
+                            <div class="col-12">
+                                    <div class="small-section-tittle2 mb-45">
+                                    <div class="ion"> <svg 
+                                        xmlns="http://www.w3.org/2000/svg"
+                                        xmlns:xlink="http://www.w3.org/1999/xlink"
+                                        width="20px" height="12px">
+                                    <path fill-rule="evenodd"  fill="rgb(27, 207, 107)"
+                                        d="M7.778,12.000 L12.222,12.000 L12.222,10.000 L7.778,10.000 L7.778,12.000 ZM-0.000,-0.000 L-0.000,2.000 L20.000,2.000 L20.000,-0.000 L-0.000,-0.000 ZM3.333,7.000 L16.667,7.000 L16.667,5.000 L3.333,5.000 L3.333,7.000 Z"/>
+                                    </svg>
+                                    </div>
+                                    <!--h4>Filter Jobs</h4-->
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Job Category Listing start -->
+                        <div class="job-category-listing mb-50">
+                            <!-- single one -->
+                            <div class="single-listing"  style="height:0px">
+                               <!--div class="small-section-tittle2">
+                                     <h4>Job Category</h4>
+                               </div-->
+                                <!-- Select job items start -->
+                                <!--div class="select-job-items2">
+                                <form id = "f" name = "f" action="">
+                                    <select name="field" onChange=func1()>
+                                        <option value="all">All Category</option>
+                                        <option value="it">it</option>
+                                        <option value="제조">제조</option>
+                                        <option value="사무">사무</option>
+                                        <option value="개발">개발</option>
+                                    </select>
+                                </form>
+                                </div-->
+                                <!--  Select job items End-->
+                                <!-- select-Categories start -->
+                                <div class="select-Categories pt-80 pb-50" style="height:0px">
+                                    
+                                </div>
+                                <!-- select-Categories End -->
+                            </div>
+                            <!-- single two -->
+                            <div class="single-listing" style="height:0px">
+                               <!--div class="small-section-tittle2">
+                                     <h4>Job Location</h4>
+                               </div-->
+                                <!-- Select job items start -->
+                                <!--div class="select-job-items2">
+                                <form id = "l" name = "l" action="">
+                                    <select name="location" onChange = func2()>
+                                        <option value="all">무관</option>
+                                        <option value="서울특별시">서울특별시</option>
+                                        <option value="경기도">경기도</option>
+                                        <option value="강원도">강원도</option>
+                                        <option value="충청북도">충청북도</option>
+                                        <option value="충청남도">충청남도</option>
+                                        <option value="전라북도">전라북도</option>
+                                        <option value="전라남도">전라남도</option>
+                                        <option value="경상북도">경상북도</option>
+                                        <option value="경상남도">경상남도</option>
+                                        <option value="부산광역시">부산광역시</option>
+                                        <option value="대구광역시">대구광역시</option>
+                                        <option value="인천광역시">인천광역시</option>
+                                        <option value="광주광역시">광주광역시</option>
+                                        <option value="대전광역시">대전광역시</option>
+                                        <option value="울산광역시">울산광역시</option>
+                                        <option value="세종특별자치시">세종특별자치시</option>
+                                        <option value="제주도특별자치도">제주도특별자치도</option>
+                                    </select>
+                                </form>
+                                </div-->
+                                <!--  Select job items End-->
+                                <!-- select-Categories start -->
+                                <div class="select-Categories pt-80">                                   
+                                </div>
+                                <!-- select-Categories End -->
+                            </div>
+                            <!-- single three -->
+                            <div class="single-listing">
+                                <!-- select-Categories start -->
+                                <div class="select-Categories pb-50">
+                                    
+                                </div>
+                                <!-- select-Categories End -->
+                                {% if session['usertype'] == "company" %}
+                        		<div class="search-form">
+                        			<a href="/recruit/add" class = "btn head-btn2">New Recruit</a>
+                       			</div>    
+								{% endif %}
+                            </div>
+                        </div>
+                        <!-- Job Category Listing End -->
+                    </div>
+                    <!-- Right content -->
+                    <div class="col-xl-9 col-lg-9 col-md-8">
+                        <!-- Featured_job_start -->
+                        <section class="featured-job-area">
+                            <div class="container">
+                                <!-- Count of Job list Start -->
+                                <div class="row">
+                                    <div class="col-lg-12">
+                                        <div class="count-job mb-35">
+                                            <span>{{ recruit|length }} Jobs found</span>
+                                            <!-- Select job items start -->
+                                            <div class="select-job-items">
+                                                <!--span>Sort by</span>
+                                                <form id = "sortt" name = "sortt" action ="">
+                                                <select name="select" onChange=func3()>
+                                                    <option value="">--정렬--</option>
+                                                    <option value="reads">reads</option>
+                                                    <option value="deadline">deadline</option>
+                                                </select>
+                                                </form-->
+                                            </div>
+                                            <!--  Select job items End-->
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Count of Job list End -->
+                                {% for r in recruit %}
+                        		<!-- single-job-content -->
+                     		   	<div class="single-job-items mb-30">
+                            		<div class="job-items">
+                                		<div class="company-img">
+                                    		<a href="/recruit/view/{{r.rid}}"><img src="{{r.rlogo}}" width=85 height=85 alt=""></a>
+                                		</div>
+                                		<div class="job-tittle">
+                                    		<a href="/recruit/view/{{r.rid}}"><h4>{{r.rtitle}}</h4></a>
+                                    		<ul>
+                                        		<li>{{r.rfield}}</li>
+                                        		<li><i class="fas fa-map-marker-alt"></i>{{r.rarea}}</li>
+                                        		<li>{{r.read}}</li>
+                                    		</ul>
+                                		</div>
+                            		</div>
+                            		<div class="items-link f-right">
+                                		<a href="/recruit/view/{{r.rid}}">Full Time</a>
+                                		<span>{{r.rfinaldate|datetimeformat}}</span>
+                            		</div>
+                        		</div>
+                        		{% endfor %}
+                            </div>
+                        </section>
+                        <!-- Featured_job_end -->
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Job List Area End -->
+        <!--Pagination Start  -->
+        <div class="pagination-area pb-115 text-center">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xl-12">
+                        <div class="single-wrap d-flex justify-content-center">
+                            <nav aria-label="Page navigation example">
+                                
+                            </nav>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--Pagination End  -->
+        
+    </main>
+    </main>
+  <footer>
+        <!-- Footer Start-->
+        <div class="footer-area footer-bg footer-padding" style="text-align:center;">
+            <div class="container">
+                <div class="row d-flex justify-content-between">
+                    <div class="col-xl-3 col-lg-3 col-md-4 col-sm-6">
+                       <div class="single-footer-caption mb-50">
+                        
+                            <div class="footer-tittle">
+                                <h4>About Us</h4>
+                                <ul style="font-size: 15px; font-weight: 800;">
+                                    <li><a href="#">LeeDooyoung</a></li>
+                                    <li><a href="#">HanJuhyeon</a></li>
+                                    <li><a href="#">KimHangil</a></li>
+                                    <li><a href="#">JoengEunmi</a></li>
+                                    <li><a href="#">JeongDonghwa</a></li>
+                                </ul>
+                            </div>
+                      
+
+                       </div>
+                    </div>
+                    <div class="col-xl-3 col-lg-3 col-md-4 col-sm-5">
+                        <div class="single-footer-caption mb-50">
+                            <div class="footer-tittle">
+                                <h4>Contact Info</h4>
+                                <ul>
+                                    <li>
+                                    <p style="font-size: 15px;font-weight: 400;">Address : 금천구 가산동 371-28</p>
+                                    </li>
+                                    <li style="font-size: 15px;font-weight: 800;"><a href="#">Phone : 010-2906-2942</a></li>
+                                    <li style="font-size: 15px;font-weight: 800;"><a href="#">Email : saelly1@naver.com</a></li>
+                                </ul>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="col-xl-3 col-lg-3 col-md-4 col-sm-5">
+                        <div class="single-footer-caption mb-50">
+                            <div class="footer-tittle">
+                                <h4>Important Link</h4>
+                                <ul>
+                                    <li style="font-size: 15px;font-weight: 800;"><a href="http://192.168.0.112:5000">Home</a></li>
+                                    <li style="font-size: 15px;font-weight: 800;"><a href="http://192.168.0.112:5000/recruit">Find Jobs</a></li>
+                                    <li style="font-size: 15px;font-weight: 800;"><a href="#">Help</a></li>
+                                    <li style="font-size: 15px;font-weight: 800;"><a href="#">QnA</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-3 col-lg-3 col-md-4 col-sm-5">
+                        <div class="single-footer-caption mb-50">
+                            <div class="footer-tittle">
+                                <h4>Newsletter</h4>
+                                <div class="footer-pera footer-pera2">
+                                 <p style="font-size: 15px;font-weight: 400;">Contact to 'Bridge'</p>
+                             </div>
+                             <!-- Form -->
+                             
+                            </div>
+                        </div>
+                    </div>
+                </div>
+               <!--  -->
+               <div class="row footer-wejed justify-content-between">
+                    <div class="col-xl-3 col-lg-3 col-md-4 col-sm-6">
+                        <!-- logo -->
+                        <div class="footer-logo mb-20">
+                        <a href="/"><img src="../static/bridgefoot.png" alt=""></a>
+                        </div>
+                    </div>
+                    <div class="col-xl-3 col-lg-3 col-md-4 col-sm-5">
+                    <div class="footer-tittle-bottom" style="margin-top:10px;">
+                        <span>5000+</span>
+                        <p style="font-size: 15px;font-weight: 500;">Talented Enterprises</p>
+                    </div>
+                    </div>
+                    <div class="col-xl-3 col-lg-3 col-md-4 col-sm-5">
+                        <div class="footer-tittle-bottom" style="margin-top:10px;">
+                            <span>451</span>
+                            <p style="font-size: 15px;font-weight: 500;">Talented Enterprises</p>
+                        </div>
+                    </div>
+                    <div class="col-xl-3 col-lg-3 col-md-4 col-sm-5">
+                        <!-- Footer Bottom Tittle -->
+                        <div class="footer-tittle-bottom" style="margin-top:10px;">
+                            <span>568</span>
+                            <p style="font-size: 15px;font-weight: 500;">Talented Enterprises</p>
+                        </div>
+                    </div>
+               </div>
+            </div>
+        </div>
+        <!-- footer-bottom area -->
+        <div class="footer-bottom-area footer-bg">
+            <div class="container">
+                <div class="footer-border">
+                     <div class="row d-flex justify-content-between align-items-center">
+                         <div class="col-xl-10 col-lg-10 ">
+                             
+                         </div>
+                         <div class="col-xl-2 col-lg-2">
+                             <div class="footer-social f-right">
+                                 <a href="#"><i class="fab fa-facebook-f"></i></a>
+                                 <a href="#"><i class="fab fa-twitter"></i></a>
+                                 <a href="#"><i class="fas fa-globe"></i></a>
+                                 <a href="#"><i class="fab fa-behance"></i></a>
+                             </div>
+                         </div>
+                     </div>
+                </div>
+            </div>
+        </div>
+        <!-- Footer End-->
+    </footer>
+
+  <!-- JS here -->
+	
+		<!-- All JS Custom Plugins Link Here here -->
+        <script src="../static/assets/js/vendor/modernizr-3.5.0.min.js"></script>
+		<!-- Jquery, Popper, Bootstrap -->
+		<script src="../static/assets/js/vendor/jquery-1.12.4.min.js"></script>
+        <script src="../static/assets/js/popper.min.js"></script>
+        <script src="../static/assets/js/bootstrap.min.js"></script>
+	    <!-- Jquery Mobile Menu -->
+        <script src="../static/assets/js/jquery.slicknav.min.js"></script>
+
+		<!-- Jquery Slick , Owl-Carousel Plugins -->
+        <script src="../static/assets/js/owl.carousel.min.js"></script>
+        <script src="../static/assets/js/slick.min.js"></script>
+        <script src="../static/assets/js/price_rangs.js"></script>
+        
+		<!-- One Page, Animated-HeadLin -->
+        <script src="../static/assets/js/wow.min.js"></script>
+		<script src="../static/assets/js/animated.headline.js"></script>
+        <script src="../static/assets/js/jquery.magnific-popup.js"></script>
+
+		<!-- Scrollup, nice-select, sticky -->
+        <script src="../static/assets/js/jquery.scrollUp.min.js"></script>
+        <script src="../static/assets/js/jquery.nice-select.min.js"></script>
+		<script src="../static/assets/js/jquery.sticky.js"></script>
+        
+        <!-- contact js -->
+        <script src="../static/assets/js/contact.js"></script>
+        <script src="../static/assets/js/jquery.form.js"></script>
+        <script src="../static/assets/js/jquery.validate.min.js"></script>
+        <script src="../static/assets/js/mail-script.js"></script>
+        <script src="../static/assets/js/jquery.ajaxchimp.min.js"></script>
+        
+		<!-- Jquery Plugins, main Jquery -->	
+        <script src="../static/assets/js/plugins.js"></script>
+        <script src="../static/assets/js/main.js"></script>
+        
+    </body>
+</html>

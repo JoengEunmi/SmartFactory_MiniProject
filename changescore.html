@@ -1,0 +1,2316 @@
+<!doctype html>
+<html class="no-js" lang="zxx">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+         <link rel="shortcut icon" type="image/x-icon" href="../static/favicon.ico" />        
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="manifest" href="site.webmanifest">
+        
+        <title>Bridge - 어학 점수 변환</title>
+
+		<!-- CSS here -->
+            <link rel="stylesheet" href="../static/assets/css/bootstrap.min2.css">
+            <link rel="stylesheet" href="../static/assets/css/owl.carousel.min.css">
+            <link rel="stylesheet" href="../static/assets/css/flaticon.css">
+            <link rel="stylesheet" href="../static/assets/css/price_rangs.css">
+            <link rel="stylesheet" href="../static/assets/css/slicknav.css">
+            <link rel="stylesheet" href="../static/assets/css/animate.min.css">
+            <link rel="stylesheet" href="../static/assets/css/magnific-popup.css">
+            <link rel="stylesheet" href="../static/assets/css/fontawesome-all.min.css">
+            <link rel="stylesheet" href="../static/assets/css/themify-icons.css">
+            <link rel="stylesheet" href="../static/assets/css/slick.css">
+            <link rel="stylesheet" href="../static/assets/css/nice-select2.css">
+            <link rel="stylesheet" href="../static/assets/css/style2.css">
+
+        
+            <style>
+            .slide{text-align: center;
+                   height:600px; overflow:hidden;}
+            .slide ul{height:100%;}
+            .slide li{height:100%;}
+            /* .slide li:nth-child(1){background:#faa;} */
+            /* .slide li:nth-child(2){background:#afa;} */
+            /* .slide li:nth-child(3){background:#aaf;} */
+            /* .slide li:nth-child(4){background:#faf;} */
+            </style>
+        </style>
+
+        <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8"><script type="text/javascript" src="https://bam.nr-data.net/1/03a1f7dfe5?a=443261373&amp;v=1169.7b094c0&amp;to=YFJaMkNTDBIFAUJfWVkYeQVFWw0PSwZTUFdCW0xJRV0NDRdNRVVZRVIVBV5cFAQWFlNE&amp;rst=938&amp;ck=1&amp;ref=http://www.saramin.co.kr/zf_user/tools/score-converter&amp;ap=79&amp;be=262&amp;fe=896&amp;dc=762&amp;af=err,xhr,stn,ins&amp;perf=%7B%22timing%22:%7B%22of%22:1593690571287,%22n%22:0,%22f%22:75,%22dn%22:78,%22dne%22:78,%22c%22:78,%22ce%22:85,%22rq%22:85,%22rp%22:195,%22rpe%22:207,%22dl%22:229,%22di%22:761,%22ds%22:761,%22de%22:792,%22dc%22:895,%22l%22:895,%22le%22:896%7D,%22navigation%22:%7B%7D%7D&amp;fp=688&amp;fcp=688&amp;at=TBVZRAtJHxw%3D&amp;jsonp=NREUM.setToken"></script>
+        <script type="text/javascript" async="" src="../static/assets/js/analytics.js"></script>
+        <script src="../static/assets/js/nr-1169.min.js"></script>
+        <script async="" src="../static/assets/js/gtm.js?id=GTM-MK2GBBH"></script>
+        <script type="text/javascript" async="" src="../static/assets/js/gtm/js?id=GTM-KN35GK2&amp;cid=1688019713.1590625179&amp;gac=_gaexp%3DGAX1.3.z7QL_RalQGCf5PaC2LnhpA.18524.x789"></script>
+        <script async="" src="../static/assets/js/analytics.js"></script>
+        <script type="text/javascript">
+            (window.NREUM || (NREUM =
+                {})).loader_config = {
+                xpid: "VgMEUFRbDRAEUFJQAQAEUVc=",
+                licenseKey: "03a1f7dfe5",
+                applicationID: "443261373"
+            };
+            window.NREUM || (NREUM =
+                {}),
+            __nr_require = function (t, n, e) {
+                function r(e) {
+                    if (! n[e]) {
+                        var o = n[e] = {
+                            exports: {}
+                        };
+                        t[e][0].call(o.exports, function (n) {
+                            var o = t[e][1][n];
+                            return r(o || n)
+                        }, o, o.exports)
+                    }
+                    return n[e].exports
+                }
+                if ("function" == typeof __nr_require) 
+                    return __nr_require;
+                
+                for (var o = 0; o < e.length; o++) 
+                    r(e[o]);
+                
+                return r
+            }({
+                1: [
+                    function (t, n, e) {
+                        function r(t) {
+                            try {
+                                s.console && console.log(t)
+                            } catch (n) {}
+                        }
+                        var o,
+                            i = t("ee"),
+                            a = t(21),
+                            s = {};
+                        try {
+                            o = localStorage.getItem("__nr_flags").split(","),
+                            console && "function" == typeof console.log && (s.console =! 0, o.indexOf("dev") !== -1 && (s.dev =! 0), o.indexOf("nr_dev") !== -1 && (s.nrDev =! 0))
+                        } catch (c) {}s.nrDev && i.on("internal-error", function (t) {
+                            r(t.stack)
+                        }),
+                        s.dev && i.on("fn-err", function (t, n, e) {
+                            r(e.stack)
+                        }),
+                        s.dev && (r("NR AGENT IN DEVELOPMENT MODE"), r("flags: " + a(s, function (t, n) {
+                            return t
+                        }).join(", ")))
+                    }, {}
+                ],
+                2: [
+                    function (t, n, e) {
+                        function r(t, n, e, r, s) {
+                            try {
+                                p
+                                    ? p -= 1
+                                    : o(s || new UncaughtException(t, n, e), !0)
+                            } catch (f) {
+                                try {
+                                    i("ierr", [
+                                        f,
+                                        c.now(),
+                                        !0
+                                    ])
+                                } catch (d) {}
+                            }
+                            return "function" == typeof u && u.apply(this, a(arguments))
+                        }
+                        function UncaughtException(t, n, e) {
+                            this.message = t || "Uncaught error with no additional information",
+                            this.sourceURL = n,
+                            this.line = e
+                        }
+                        function o(t, n) {
+                            var e = n
+                                ? null
+                                : c.now();
+                            i("err", [t, e])
+                        }
+                        var i = t("handle"),
+                            a = t(22),
+                            s = t("ee"),
+                            c = t("loader"),
+                            f = t("gos"),
+                            u = window.onerror,
+                            d = !1,
+                            l = "nr@seenError",
+                            p = 0;
+                        c.features.err = !0,
+                        t(1),
+                        window.onerror = r;
+                        try {
+                            throw new Error
+                        } catch (h) {
+                            "stack" in h && (t(9), t(8), "addEventListener" in window && t(5), c.xhrWrappable && t(10), d =! 0)
+                        }
+                        s.on("fn-start", function (t, n, e) {
+                            d && (p += 1)
+                        }),
+                        s.on("fn-err", function (t, n, e) {
+                            d && ! e[l] && (f(e, l, function () {
+                                return !0
+                            }), this.thrown =! 0, o(e))
+                        }),
+                        s.on("fn-end", function () {
+                            d && !this.thrown && p > 0 && (p -= 1)
+                        }),
+                        s.on("internal-error", function (t) {
+                            i("ierr", [
+                                t,
+                                c.now(),
+                                !0
+                            ])
+                        })
+                    }, {}
+                ],
+                3: [
+                    function (t, n, e) {
+                        t("loader").features.ins = !0
+                    }, {}
+                ],
+                4: [
+                    function (t, n, e) {
+                        function r(t) {}
+                        if (window.performance && window.performance.timing && window.performance.getEntriesByType) {
+                            var o = t("ee"),
+                                i = t("handle"),
+                                a = t(9),
+                                s = t(8),
+                                c = "learResourceTimings",
+                                f = "addEventListener",
+                                u = "resourcetimingbufferfull",
+                                d = "bstResource",
+                                l = "resource",
+                                p = "-start",
+                                h = "-end",
+                                m = "fn" + p,
+                                w = "fn" + h,
+                                v = "bstTimer",
+                                g = "pushState",
+                                y = t("loader");
+                            y.features.stn = !0,
+                            t(7),
+                            "addEventListener" in window && t(5);
+                            var x = NREUM.o.EV;
+                            o.on(m, function (t, n) {
+                                var e = t[0];
+                                e instanceof x && (this.bstStart = y.now())
+                            }),
+                            o.on(w, function (t, n) {
+                                var e = t[0];
+                                e instanceof x && i("bst", [e, n, this.bstStart, y.now()])
+                            }),
+                            a.on(m, function (t, n, e) {
+                                this.bstStart = y.now(),
+                                this.bstType = e
+                            }),
+                            a.on(w, function (t, n) {
+                                i(v, [n, this.bstStart, y.now(), this.bstType])
+                            }),
+                            s.on(m, function () {
+                                this.bstStart = y.now()
+                            }),
+                            s.on(w, function (t, n) {
+                                i(v, [n, this.bstStart, y.now(), "requestAnimationFrame"])
+                            }),
+                            o.on(g + p, function (t) {
+                                this.time = y.now(),
+                                this.startPath = location.pathname + location.hash
+                            }),
+                            o.on(g + h, function (t) {
+                                i("bstHist", [
+                                    location.pathname + location.hash,
+                                    this.startPath,
+                                    this.time
+                                ])
+                            }),
+                            f in window.performance && (
+                                window.performance["c" + c]
+                                    ? window.performance[f](u, function (t) {
+                                        i(d, [window.performance.getEntriesByType(l)]),
+                                        window.performance["c" + c]()
+                                    }, !1)
+                                    : window.performance[f]("webkit" + u, function (t) {
+                                        i(d, [window.performance.getEntriesByType(l)]),
+                                        window.performance["webkitC" + c]()
+                                    }, !1)
+                            ),
+                            document[f]("scroll", r, {
+                                passive: !0
+                            }),
+                            document[f]("keypress", r, !1),
+                            document[f]("click", r, !1)
+                        }
+                    }, {}
+                ],
+                5: [
+                    function (t, n, e) {
+                        function r(t) {
+                            for (var n = t; n && ! n.hasOwnProperty(u);) 
+                                n = Object.getPrototypeOf(n);
+                            
+                            n && o(n)
+                        }
+                        function o(t) {
+                            s.inPlace(t, [
+                                u, d
+                            ], "-", i)
+                        }
+                        function i(t, n) {
+                            return t[1]
+                        }
+                        var a = t("ee").get("events"),
+                            s = t("wrap-function")(a, !0),
+                            c = t("gos"),
+                            f = XMLHttpRequest,
+                            u = "addEventListener",
+                            d = "removeEventListener";
+                        n.exports = a,
+                        "getPrototypeOf" in Object
+                            ? (r(document), r(window), r(f.prototype))
+                            : f.prototype.hasOwnProperty(u) && (o(window), o(f.prototype)),
+                        a.on(u + "-start", function (t, n) {
+                            var e = t[1],
+                                r = c(e, "nr@wrapped", function () {
+                                    function t() {
+                                        if ("function" == typeof e.handleEvent) 
+                                            return e.handleEvent.apply(e, arguments)
+                                        
+                                    }
+                                    var n = {
+                                        object: t,
+                                        "function": e
+                                    }[typeof e];
+                                    return n
+                                        ? s(n, "fn-", null, n.name || "anonymous")
+                                        : e
+                                });
+                            this.wrapped = t[1] = r
+                        }),
+                        a.on(d + "-start", function (t) {
+                            t[1] = this.wrapped || t[1]
+                        })
+                    }, {}
+                ],
+                6: [
+                    function (t, n, e) {
+                        function r(t, n, e) {
+                            var r = t[n];
+                            "function" == typeof r && (t[n] = function () {
+                                var t = i(arguments),
+                                    n = {};
+                                o.emit(e + "before-start", [t], n);
+                                var a;
+                                n[m] && n[m].dt && (a = n[m].dt);
+                                var s = r.apply(this, t);
+                                return o.emit(e + "start", [
+                                    t, a
+                                ], s),
+                                s.then(function (t) {
+                                    return o.emit(e + "end", [
+                                        null, t
+                                    ], s),
+                                    t
+                                }, function (t) {
+                                    throw o.emit(e + "end", [t], s),
+                                    t
+                                })
+                            })
+                        }
+                        var o = t("ee").get("fetch"),
+                            i = t(22),
+                            a = t(21);
+                        n.exports = o;
+                        var s = window,
+                            c = "fetch-",
+                            f = c + "body-",
+                            u = [
+                                "arrayBuffer",
+                                "blob",
+                                "json",
+                                "text",
+                                "formData"
+                            ],
+                            d = s.Request,
+                            l = s.Response,
+                            p = s.fetch,
+                            h = "prototype",
+                            m = "nr@context";
+                        d && l && p && (a(u, function (t, n) {
+                            r(d[h], n, f),
+                            r(l[h], n, f)
+                        }), r(s, "fetch", c), o.on(c + "end", function (t, n) {
+                            var e = this;
+                            if (n) {
+                                var r = n.headers.get("content-length");
+                                null !== r && (e.rxSize = r),
+                                o.emit(c + "done", [
+                                    null, n
+                                ], e)
+                            } else 
+                                o.emit(c + "done", [t], e)
+                            
+                        }))
+                    }, {}
+                ],
+                7: [
+                    function (t, n, e) {
+                        var r = t("ee").get("history"),
+                            o = t("wrap-function")(r);
+                        n.exports = r;
+                        var i = window.history && window.history.constructor && window
+                                .history
+                                .constructor
+                                .prototype,
+                            a = window.history;
+                        i && i.pushState && i.replaceState && (a = i),
+                        o.inPlace(a, [
+                            "pushState", "replaceState"
+                        ], "-")
+                    }, {}
+                ],
+                8: [
+                    function (t, n, e) {
+                        var r = t("ee").get("raf"),
+                            o = t("wrap-function")(r),
+                            i = "equestAnimationFrame";
+                        n.exports = r,
+                        o.inPlace(window, [
+                            "r" + i,
+                            "mozR" + i,
+                            "webkitR" + i,
+                            "msR" + i
+                        ], "raf-"),
+                        r.on("raf-start", function (t) {
+                            t[0] = o(t[0], "fn-")
+                        })
+                    }, {}
+                ],
+                9: [
+                    function (t, n, e) {
+                        function r(t, n, e) {
+                            t[0] = a(t[0], "fn-", null, e)
+                        }
+                        function o(t, n, e) {
+                            this.method = e,
+                            this.timerDuration = isNaN(t[1])
+                                ? 0
+                                : + t[1],
+                            t[0] = a(t[0], "fn-", this, e)
+                        }
+                        var i = t("ee").get("timer"),
+                            a = t("wrap-function")(i),
+                            s = "setTimeout",
+                            c = "setInterval",
+                            f = "clearTimeout",
+                            u = "-start",
+                            d = "-";
+                        n.exports = i,
+                        a.inPlace(window, [
+                            s, "setImmediate"
+                        ], s + d),
+                        a.inPlace(window, [c], c + d),
+                        a.inPlace(window, [
+                            f, "clearImmediate"
+                        ], f + d),
+                        i.on(c + u, r),
+                        i.on(s + u, o)
+                    }, {}
+                ],
+                10: [
+                    function (t, n, e) {
+                        function r(t, n) {
+                            d.inPlace(n, ["onreadystatechange"], "fn-", s)
+                        }
+                        function o() {
+                            var t = this,
+                                n = u.context(t);
+                            t.readyState > 3 && ! n.resolved && (n.resolved =! 0, u.emit("xhr-resolved", [], t)),
+                            d.inPlace(t, g, "fn-", s)
+                        }
+                        function i(t) {
+                            y.push(t),
+                            h && (
+                                b
+                                    ? b.then(a)
+                                    : w
+                                        ? w(a)
+                                        : (E = -E, O.data = E)
+                            )
+                        }
+                        function a() {
+                            for (var t = 0; t < y.length; t++) 
+                                r([], y[t]);
+                            
+                            y.length && (y =[])
+                        }
+                        function s(t, n) {
+                            return n
+                        }
+                        function c(t, n) {
+                            for (var e in t) 
+                                n[e] = t[e];
+                            
+                            return n
+                        }
+                        t(5);
+                        var f = t("ee"),
+                            u = f.get("xhr"),
+                            d = t("wrap-function")(u),
+                            l = NREUM.o,
+                            p = l.XHR,
+                            h = l.MO,
+                            m = l.PR,
+                            w = l.SI,
+                            v = "readystatechange",
+                            g = [
+                                "onload",
+                                "onerror",
+                                "onabort",
+                                "onloadstart",
+                                "onloadend",
+                                "onprogress",
+                                "ontimeout"
+                            ],
+                            y = [];
+                        n.exports = u;
+                        var x = window.XMLHttpRequest = function (t) {
+                            var n = new p(t);
+                            try {
+                                u.emit("new-xhr", [n], n),
+                                n.addEventListener(v, o, !1)
+                            } catch (e) {
+                                try {
+                                    u.emit("internal-error", [e])
+                                } catch (r) {}
+                            }
+                            return n
+                        };
+                        if (c(p, x), x.prototype = p.prototype, d.inPlace(x.prototype, [
+                            "open", "send"
+                        ], "-xhr-", s), u.on("send-xhr-start", function (t, n) {
+                            r(t, n),
+                            i(n)
+                        }), u.on("open-xhr-start", r), h) {
+                            var b = m && m.resolve();
+                            if (! w && ! m) {
+                                var E = 1,
+                                    O = document.createTextNode(E);
+                                new h(a).observe(O, {
+                                    characterData: !0
+                                })
+                            }
+                        } else 
+                            f.on("fn-end", function (t) {
+                                t[0] && t[0].type === v || a()
+                            })
+                        
+                    }, {}
+                ],
+                11: [
+                    function (t, n, e) {
+                        function r(t) {
+                            if (!i(t)) 
+                                return null;
+                            
+                            var n = window.NREUM;
+                            if (! n.loader_config) 
+                                return null;
+                            
+                            var e = (n.loader_config.accountID || "").toString() || null,
+                                r = (n.loader_config.agentID || "").toString() || null,
+                                s = (n.loader_config.trustKey || "").toString() || null;
+                            if (! e || ! r) 
+                                return null;
+                            
+                            var c = a.generateCatId(),
+                                f = a.generateCatId(),
+                                u = Date.now(),
+                                d = o(c, f, u, e, r, s);
+                            return {header: d, guid: c, traceId: f, timestamp: u}
+                        }
+                        function o(t, n, e, r, o, i) {
+                            var a = "btoa" in window && "function" == typeof window.btoa;
+                            if (! a) 
+                                return null;
+                            
+                            var s = {
+                                v: [
+                                    0, 1
+                                ],
+                                d: {
+                                    ty: "Browser",
+                                    ac: r,
+                                    ap: o,
+                                    id: t,
+                                    tr: n,
+                                    ti: e
+                                }
+                            };
+                            return i && r !== i && (s.d.tk = i),
+                            btoa(JSON.stringify(s))
+                        }
+                        function i(t) {
+                            var n = !1,
+                                e = !1,
+                                r = {};
+                            if ("init" in NREUM && "distributed_tracing" in NREUM.init && (r = NREUM.init.distributed_tracing, e =!! r.enabled), e) 
+                                if (t.sameOrigin) 
+                                    n = !0;
+                                
+                             else if (r.allowed_origins instanceof Array) 
+                                for (var o = 0; o < r.allowed_origins.length; o++) {
+                                    var i = s(r.allowed_origins[o]);
+                                    if (t.hostname === i.hostname && t.protocol === i.protocol && t.port === i.port) {
+                                        n = !0;
+                                        break
+                                    }
+                                }
+                            
+                            return e && n
+                        }
+                        var a = t(19),
+                            s = t(13);
+                        n.exports = {
+                            generateTracePayload: r,
+                            shouldGenerateTrace: i
+                        }
+                    }, {}
+                ],
+                12: [
+                    function (t, n, e) {
+                        function r(t) {
+                            var n = this.params,
+                                e = this.metrics;
+                            if (!this.ended) {
+                                this.ended = !0;
+                                for (var r = 0; r < l; r++) 
+                                    t.removeEventListener(d[r], this.listener, !1);
+                                
+                                n.aborted || (
+                                    e.duration = a.now() - this.startTime,
+                                    this.loadCaptureCalled || 4 !== t.readyState
+                                        ? null == n.status && (n.status = 0)
+                                        : i(this, t),
+                                    e.cbTime = this.cbTime,
+                                    u.emit("xhr-done", [t], t),
+                                    s("xhr", [n, e, this.startTime])
+                                )
+                            }
+                        }
+                        function o(t, n) {
+                            var e = c(n),
+                                r = t.params;
+                            r.host = e.hostname + ":" + e.port,
+                            r.pathname = e.pathname,
+                            t.parsedOrigin = c(n),
+                            t.sameOrigin = t.parsedOrigin.sameOrigin
+                        }
+                        function i(t, n) {
+                            t.params.status = n.status;
+                            var e = w(n, t.lastSize);
+                            if (e && (t.metrics.rxSize = e), t.sameOrigin) {
+                                var r = n.getResponseHeader("X-NewRelic-App-Data");
+                                r && (t.params.cat = r.split(", ").pop())
+                            }
+                            t.loadCaptureCalled = !0
+                        }
+                        var a = t("loader");
+                        if (a.xhrWrappable) {
+                            var s = t("handle"),
+                                c = t(13),
+                                f = t(11).generateTracePayload,
+                                u = t("ee"),
+                                d = [
+                                    "load", "error", "abort", "timeout"
+                                ],
+                                l = d.length,
+                                p = t("id"),
+                                h = t(17),
+                                m = t(16),
+                                w = t(14),
+                                v = window.XMLHttpRequest;
+                            a.features.xhr = !0,
+                            t(10),
+                            t(6),
+                            u.on("new-xhr", function (t) {
+                                var n = this;
+                                n.totalCbs = 0,
+                                n.called = 0,
+                                n.cbTime = 0,
+                                n.end = r,
+                                n.ended = !1,
+                                n.xhrGuids = {},
+                                n.lastSize = null,
+                                n.loadCaptureCalled = !1,
+                                t.addEventListener("load", function (e) {
+                                    i(n, t)
+                                }, !1),
+                                h && (h > 34 || h < 10) || window.opera || t.addEventListener("progress", function (t) {
+                                    n.lastSize = t.loaded
+                                }, !1)
+                            }),
+                            u.on("open-xhr-start", function (t) {
+                                this.params = {
+                                    method: t[0]
+                                },
+                                o(this, t[1]),
+                                this.metrics = {}
+                            }),
+                            u.on("open-xhr-end", function (t, n) {
+                                "loader_config" in NREUM && "xpid" in NREUM.loader_config && this.sameOrigin && n.setRequestHeader("X-NewRelic-ID", NREUM.loader_config.xpid);
+                                var e = f(this.parsedOrigin);
+                                e && e.header && (n.setRequestHeader("newrelic", e.header), this.dt = e)
+                            }),
+                            u.on("send-xhr-start", function (t, n) {
+                                var e = this.metrics,
+                                    r = t[0],
+                                    o = this;
+                                if (e && r) {
+                                    var i = m(r);
+                                    i && (e.txSize = i)
+                                }
+                                this.startTime = a.now(),
+                                this.listener = function (t) {
+                                    try {
+                                        "abort" !== t.type || o.loadCaptureCalled || (o.params.aborted =! 0),
+                                        ("load" !== t.type || o.called === o.totalCbs && (o.onloadCalled || "function" != typeof n.onload)) && o.end(n)
+                                    } catch (e) {
+                                        try {
+                                            u.emit("internal-error", [e])
+                                        } catch (r) {}
+                                    }
+                                };
+                                for (var s = 0; s < l; s++) 
+                                    n.addEventListener(d[s], this.listener, !1)
+                                
+                            }),
+                            u.on("xhr-cb-time", function (t, n, e) {
+                                this.cbTime += t,
+                                n
+                                    ? this.onloadCalled = !0
+                                    : this.called += 1,
+                                this.called !== this.totalCbs || !this.onloadCalled && "function" == typeof e.onload || this.end(e)
+                            }),
+                            u.on("xhr-load-added", function (t, n) {
+                                var e = "" + p(t) + !! n;
+                                this.xhrGuids && !this.xhrGuids[e] && (this.xhrGuids[e] =! 0, this.totalCbs += 1)
+                            }),
+                            u.on("xhr-load-removed", function (t, n) {
+                                var e = "" + p(t) + !! n;
+                                this.xhrGuids && this.xhrGuids[e] && (delete this.xhrGuids[e], this.totalCbs -= 1)
+                            }),
+                            u.on("addEventListener-end", function (t, n) {
+                                n instanceof v && "load" === t[0] && u.emit("xhr-load-added", [
+                                    t[1], t[2]
+                                ], n)
+                            }),
+                            u.on("removeEventListener-end", function (t, n) {
+                                n instanceof v && "load" === t[0] && u.emit("xhr-load-removed", [
+                                    t[1], t[2]
+                                ], n)
+                            }),
+                            u.on("fn-start", function (t, n, e) {
+                                n instanceof v && ("onload" === e && (this.onload =! 0), ("load" === (t[0] && t[0].type) || this.onload) && (this.xhrCbStart = a.now()))
+                            }),
+                            u.on("fn-end", function (t, n) {
+                                this.xhrCbStart && u.emit("xhr-cb-time", [
+                                    a.now() - this.xhrCbStart,
+                                    this.onload,
+                                    n
+                                ], n)
+                            }),
+                            u.on("fetch-before-start", function (t) {
+                                var n,
+                                    e = t[1] || {};
+                                "string" == typeof t[0]
+                                    ? n = t[0]
+                                    : t[0] && t[0].url && (n = t[0].url),
+                                n && (this.parsedOrigin = c(n), this.sameOrigin = this.parsedOrigin.sameOrigin);
+                                var r = f(this.parsedOrigin);
+                                if (r && r.header) {
+                                    var o = r.header;
+                                    if ("string" == typeof t[0]) {
+                                        var i = {};
+                                        for (var a in e) 
+                                            i[a] = e[a];
+                                        
+                                        i.headers = new Headers(e.headers || {}),
+                                        i.headers.set("newrelic", o),
+                                        this.dt = r,
+                                        t.length > 1
+                                            ? t[1] = i
+                                            : t.push(i)
+                                    } else 
+                                        t[0] && t[0].headers && (t[0].headers.append("newrelic", o), this.dt = r)
+                                    
+                                }
+                            })
+                        }
+                    }, {}
+                ],
+                13: [
+                    function (t, n, e) {
+                        var r = {};
+                        n.exports = function (t) {
+                            if (t in r) 
+                                return r[t];
+                            
+                            var n = document.createElement("a"),
+                                e = window.location,
+                                o = {};
+                            n.href = t,
+                            o.port = n.port;
+                            var i = n.href.split("://");
+                            ! o.port && i[1] && (o.port = i[1]
+                                .split("/")[0]
+                                .split("@")
+                                .pop()
+                                .split(":")[1]),
+                            o.port && "0" !== o.port || (
+                                o.port = "https" === i[0]
+                                    ? "443"
+                                    : "80"
+                            ),
+                            o.hostname = n.hostname || e.hostname,
+                            o.pathname = n.pathname,
+                            o.protocol = i[0],
+                            "/" !== o.pathname.charAt(0) && (o.pathname = "/" + o.pathname);
+                            var a = ! n.protocol || ":" === n.protocol || n.protocol === e.protocol,
+                                s = n.hostname === document.domain && n.port === e.port;
+                            return o.sameOrigin = a && (! n.hostname || s),
+                            "/" === o.pathname && (r[t] = o),
+                            o
+                        }
+                    }, {}
+                ],
+                14: [
+                    function (t, n, e) {
+                        function r(t, n) {
+                            var e = t.responseType;
+                            return "json" === e && null !== n
+                                ? n
+                                : "arraybuffer" === e || "blob" === e || "json" === e
+                                    ? o(t.response)
+                                    : "text" === e || "" === e || void 0 === e
+                                        ? o(t.responseText)
+                                        : void 0
+                        }
+                        var o = t(16);
+                        n.exports = r
+                    }, {}
+                ],
+                15: [
+                    function (t, n, e) {
+                        function r() {}
+                        function o(t, n, e) {
+                            return function () {
+                                return i(
+                                    t,
+                                    [f.now()].concat(s(arguments)),
+                                    n
+                                        ? null
+                                        : this,
+                                    e
+                                ),
+                                n
+                                    ? void 0
+                                    : this
+                            }
+                        }
+                        var i = t("handle"),
+                            a = t(21),
+                            s = t(22),
+                            c = t("ee").get("tracer"),
+                            f = t("loader"),
+                            u = NREUM;
+                        "undefined" == typeof window.newrelic && (newrelic = u);
+                        var d = [
+                                "setPageViewName",
+                                "setCustomAttribute",
+                                "setErrorHandler",
+                                "finished",
+                                "addToTrace",
+                                "inlineHit",
+                                "addRelease"
+                            ],
+                            l = "api-",
+                            p = l + "ixn-";
+                        a(d, function (t, n) {
+                            u[n] = o(l + n, !0, "api")
+                        }),
+                        u.addPageAction = o(l + "addPageAction", !0),
+                        u.setCurrentRouteName = o(l + "routeName", !0),
+                        n.exports = newrelic,
+                        u.interaction = function () {
+                            return(new r).get()
+                        };
+                        var h = r.prototype = {
+                            createTracer: function (t, n) {
+                                var e = {},
+                                    r = this,
+                                    o = "function" == typeof n;
+                                return i(p + "tracer", [
+                                    f.now(), t, e
+                                ], r),
+                                function () {
+                                    if (c.emit((
+                                        o
+                                            ? ""
+                                            : "no-"
+                                    ) + "fn-start", [
+                                        f.now(), r, o
+                                    ], e), o) 
+                                        try {
+                                            return n.apply(this, arguments)
+                                        }
+                                     catch (t) {
+                                        throw c.emit("fn-err", [
+                                            arguments, this, t
+                                        ], e),
+                                        t
+                                    } finally {
+                                        c.emit("fn-end", [f.now()], e)
+                                    }
+                                }
+                            }
+                        };
+                        a("actionText,setName,setAttribute,save,ignore,onEnd,getContext,end,get".split(","), function (t, n) {
+                            h[n] = o(p + n)
+                        }),
+                        newrelic.noticeError = function (t, n) {
+                            "string" == typeof t && (t = new Error(t)),
+                            i("err", [
+                                t,
+                                f.now(),
+                                !1,
+                                n
+                            ])
+                        }
+                    }, {}
+                ],
+                16: [
+                    function (t, n, e) {
+                        n.exports = function (t) {
+                            if ("string" == typeof t && t.length) 
+                                return t.length;
+                            
+                            if ("object" == typeof t) {
+                                if ("undefined" != typeof ArrayBuffer && t instanceof ArrayBuffer && t.byteLength) 
+                                    return t.byteLength;
+                                
+                                if ("undefined" != typeof Blob && t instanceof Blob && t.size) 
+                                    return t.size;
+                                
+                                if (!("undefined" != typeof FormData && t instanceof FormData)) 
+                                    try {
+                                        return JSON.stringify(t).length
+                                    }
+                                 catch (n) {
+                                    return
+                                }
+                            }
+                        }
+                    }, {}
+                ],
+                17: [
+                    function (t, n, e) {
+                        var r = 0,
+                            o = navigator.userAgent.match(/Firefox[\/\s](\d+\.\d+)/);
+                        o && (r = + o[1]),
+                        n.exports = r
+                    }, {}
+                ],
+                18: [
+                    function (t, n, e) {
+                        function r(t, n) {
+                            var e = t.getEntries();
+                            e.forEach(function (t) {
+                                "first-paint" === t.name
+                                    ? c("timing", [
+                                        "fp", Math.floor(t.startTime)
+                                    ])
+                                    : "first-contentful-paint" === t.name && c("timing", [
+                                        "fcp", Math.floor(t.startTime)
+                                    ])
+                            })
+                        }
+                        function o(t, n) {
+                            var e = t.getEntries();
+                            e.length > 0 && c("lcp", [e[e.length - 1]])
+                        }
+                        function i(t) {
+                            if (t instanceof u && !l) {
+                                var n,
+                                    e = Math.round(t.timeStamp);
+                                n = e > 1e12
+                                    ? Date.now() - e
+                                    : f.now() - e,
+                                l = !0,
+                                c("timing", [
+                                    "fi", e, {
+                                        type: t.type,
+                                        fid: n
+                                    }
+                                ])
+                            }
+                        }
+                        if (!("init" in NREUM && "page_view_timing" in NREUM.init && "enabled" in NREUM.init.page_view_timing && NREUM
+                            .init
+                            .page_view_timing
+                            .enabled === !1)) {
+                            var a,
+                                s,
+                                c = t("handle"),
+                                f = t("loader"),
+                                u = NREUM.o.EV;
+                            if ("PerformanceObserver" in window && "function" == typeof window.PerformanceObserver) {
+                                a = new PerformanceObserver(r),
+                                s = new PerformanceObserver(o);
+                                try {
+                                    a.observe({entryTypes: ["paint"]}),
+                                    s.observe({entryTypes: ["largest-contentful-paint"]})
+                                } catch (d) {}
+                            }
+                            if ("addEventListener" in document) {
+                                var l = !1,
+                                    p = [
+                                        "click",
+                                        "keydown",
+                                        "mousedown",
+                                        "pointerdown",
+                                        "touchstart"
+                                    ];
+                                p.forEach(function (t) {
+                                    document.addEventListener(t, i, !1)
+                                })
+                            }
+                        }
+                    }, {}
+                ],
+                19: [
+                    function (t, n, e) {
+                        function r() {
+                            function t() {
+                                return n
+                                    ? 15 & n[e++]
+                                    : 16 * Math.random() | 0
+                            }
+                            var n = null,
+                                e = 0,
+                                r = window.crypto || window.msCrypto;
+                            r && r.getRandomValues && (n = r.getRandomValues(new Uint8Array(31)));
+                            for (var o, i = "xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx", a = "", s = 0; s < i.length; s++) 
+                                o = i[s],
+                                "x" === o
+                                    ? a += t().toString(16)
+                                    : "y" === o
+                                        ? (o = 3 & t() | 8, a += o.toString(16))
+                                        : a += o;
+                            
+                            return a
+                        }
+                        function o() {
+                            function t() {
+                                return n
+                                    ? 15 & n[e++]
+                                    : 16 * Math.random() | 0
+                            }
+                            var n = null,
+                                e = 0,
+                                r = window.crypto || window.msCrypto;
+                            r && r.getRandomValues && Uint8Array && (n = r.getRandomValues(new Uint8Array(31)));
+                            for (var o =[], i = 0; i < 16; i++) 
+                                o.push(t().toString(16));
+                            
+                            return o.join("")
+                        }
+                        n.exports = {
+                            generateUuid: r,
+                            generateCatId: o
+                        }
+                    }, {}
+                ],
+                20: [
+                    function (t, n, e) {
+                        function r(t, n) {
+                            if (!o) 
+                                return !1;
+                            
+                            if (t !== o) 
+                                return !1;
+                            
+                            if (! n) 
+                                return !0;
+                            
+                            if (!i) 
+                                return !1;
+                            
+                            for (var e = i.split("."), r = n.split("."), a = 0; a < r.length; a++) 
+                                if (r[a] !== e[a]) 
+                                    return !1;
+                                
+                            
+                            return !0
+                        }
+                        var o = null,
+                            i = null,
+                            a = /Version\/(\S+)\s+Safari/;
+                        if (navigator.userAgent) {
+                            var s = navigator.userAgent,
+                                c = s.match(a);
+                            c && s.indexOf("Chrome") === -1 && s.indexOf("Chromium") === -1 && (o = "Safari", i = c[1])
+                        }
+                        n.exports = {
+                            agent: o,
+                            version: i,
+                            match: r
+                        }
+                    }, {}
+                ],
+                21: [
+                    function (t, n, e) {
+                        function r(t, n) {
+                            var e = [],
+                                r = "",
+                                i = 0;
+                            for (r in t) 
+                                o.call(t, r) && (e[i] = n(r, t[r]), i += 1);
+                            
+                            return e
+                        }
+                        var o = Object.prototype.hasOwnProperty;
+                        n.exports = r
+                    }, {}
+                ],
+                22: [
+                    function (t, n, e) {
+                        function r(t, n, e) {
+                            n || (n = 0),
+                            "undefined" == typeof e && (
+                                e = t
+                                    ? t.length
+                                    : 0
+                            );
+                            for (var r = -1, o = e - n || 0, i = Array(
+                                o < 0
+                                    ? 0
+                                    : o
+                            ); ++ r < o;) 
+                                i[r] = t[n + r];
+                            
+                            return i
+                        }
+                        n.exports = r
+                    }, {}
+                ],
+                23: [
+                    function (t, n, e) {
+                        n.exports = {
+                            exists: "undefined" != typeof window.performance && window.performance.timing && "undefined" != typeof window
+                                .performance
+                                .timing
+                                .navigationStart
+                        }
+                    }, {}
+                ],
+                ee: [
+                    function (t, n, e) {
+                        function r() {}
+                        function o(t) {
+                            function n(t) {
+                                return t && t instanceof r
+                                    ? t
+                                    : t
+                                        ? c(t, s, i)
+                                        : i()
+                            }
+                            function e(e, r, o, i) {
+                                if (!l.aborted || i) {
+                                    t && t(e, r, o);
+                                    for (var a = n(o), s = m(e), c = s.length, f = 0; f < c; f++) 
+                                        s[f].apply(a, r);
+                                    
+                                    var d = u[y[e]];
+                                    return d && d.push([x, e, r, a]),
+                                    a
+                                }
+                            }
+                            function p(t, n) {
+                                g[t] = m(t).concat(n)
+                            }
+                            function h(t, n) {
+                                var e = g[t];
+                                if (e) 
+                                    for (var r = 0; r < e.length; r++) 
+                                        e[r] === n && e.splice(r, 1)
+                                    
+                                
+                            }
+                            function m(t) {
+                                return g[t] || []
+                            }
+                            function w(t) {
+                                return d[t] = d[t] || o(e)
+                            }
+                            function v(t, n) {
+                                f(t, function (t, e) {
+                                    n = n || "feature",
+                                    y[e] = n,
+                                    n in u || (u[n] =[])
+                                })
+                            }
+                            var g = {},
+                                y = {},
+                                x = {
+                                    on: p,
+                                    addEventListener: p,
+                                    removeEventListener: h,
+                                    emit: e,
+                                    get: w,
+                                    listeners: m,
+                                    context: n,
+                                    buffer: v,
+                                    abort: a,
+                                    aborted: !1
+                                };
+                            return x
+                        }
+                        function i() {
+                            return new r
+                        }
+                        function a() {
+                            (u.api || u.feature) && (l.aborted =! 0, u = l.backlog =
+                                {})
+                        }
+                        var s = "nr@context",
+                            c = t("gos"),
+                            f = t(21),
+                            u = {},
+                            d = {},
+                            l = n.exports = o();
+                        l.backlog = u
+                    }, {}
+                ],
+                gos: [
+                    function (t, n, e) {
+                        function r(t, n, e) {
+                            if (o.call(t, n)) 
+                                return t[n];
+                            
+                            var r = e();
+                            if (Object.defineProperty && Object.keys) 
+                                try {
+                                    return Object.defineProperty(t, n, {
+                                        value: r,
+                                        writable: !0,
+                                        enumerable: !1
+                                    }),
+                                    r
+                                }
+                             catch (i) {}
+                            return t[n] = r,
+                            r
+                        }
+                        var o = Object.prototype.hasOwnProperty;
+                        n.exports = r
+                    }, {}
+                ],
+                handle: [
+                    function (t, n, e) {
+                        function r(t, n, e, r) {
+                            o.buffer([t], r),
+                            o.emit(t, n, e)
+                        }
+                        var o = t("ee").get("handle");
+                        n.exports = r,
+                        r.ee = o
+                    }, {}
+                ],
+                id: [
+                    function (t, n, e) {
+                        function r(t) {
+                            var n = typeof t;
+                            return ! t || "object" !== n && "function" !== n
+                                ? -1
+                                : t === window
+                                    ? 0
+                                    : a(t, i, function () {
+                                        return o++
+                                    })
+                        }
+                        var o = 1,
+                            i = "nr@id",
+                            a = t("gos");
+                        n.exports = r
+                    }, {}
+                ],
+                loader: [
+                    function (t, n, e) {
+                        function r() {
+                            if (!E ++) {
+                                var t = b.info = NREUM.info,
+                                    n = p.getElementsByTagName("script")[0];
+                                if (setTimeout(u.abort, 3e4), !(t && t.licenseKey && t.applicationID && n)) 
+                                    return u.abort();
+                                
+                                f(y, function (n, e) {
+                                    t[n] || (t[n] = e)
+                                }),
+                                c("mark", [
+                                    "onload",
+                                    a() + b.offset
+                                ], null, "api");
+                                var e = p.createElement("script");
+                                e.src = "https://" + t.agent,
+                                n.parentNode.insertBefore(e, n)
+                            }
+                        }
+                        function o() {
+                            "complete" === p.readyState && i()
+                        }
+                        function i() {
+                            c("mark", [
+                                "domContent",
+                                a() + b.offset
+                            ], null, "api")
+                        }
+                        function a() {
+                            return O.exists && performance.now
+                                ? Math.round(performance.now())
+                                : (s = Math.max((new Date).getTime(), s)) - b.offset
+                        }
+                        var s = (new Date).getTime(),
+                            c = t("handle"),
+                            f = t(21),
+                            u = t("ee"),
+                            d = t(20),
+                            l = window,
+                            p = l.document,
+                            h = "addEventListener",
+                            m = "attachEvent",
+                            w = l.XMLHttpRequest,
+                            v = w && w.prototype;
+                        NREUM.o = {
+                            ST: setTimeout,
+                            SI: l.setImmediate,
+                            CT: clearTimeout,
+                            XHR: w,
+                            REQ: l.Request,
+                            EV: l.Event,
+                            PR: l.Promise,
+                            MO: l.MutationObserver
+                        };
+                        var g = "" + location,
+                            y = {
+                                beacon: "bam.nr-data.net",
+                                errorBeacon: "bam.nr-data.net",
+                                agent: "js-agent.newrelic.com/nr-1169.min.js"
+                            },
+                            x = w && v && v[h] && !/CriOS/.test(navigator.userAgent),
+                            b = n.exports = {
+                                offset: s,
+                                now: a,
+                                origin: g,
+                                features: {},
+                                xhrWrappable: x,
+                                userAgent: d
+                            };
+                        t(15),
+                        t(18),
+                        p[h]
+                            ? (p[h]("DOMContentLoaded", i, !1), l[h]("load", r, !1))
+                            : (p[m]("onreadystatechange", o), l[m]("onload", r)),
+                        c("mark", [
+                            "firstbyte", s
+                        ], null, "api");
+                        var E = 0,
+                            O = t(23)
+                    }, {}
+                ],
+                "wrap-function": [
+                    function (t, n, e) {
+                        function r(t) {
+                            return !(t && t instanceof Function && t.apply && ! t[a])
+                        }
+                        var o = t("ee"),
+                            i = t(22),
+                            a = "nr@original",
+                            s = Object.prototype.hasOwnProperty,
+                            c = !1;
+                        n.exports = function (t, n) {
+                            function e(t, n, e, o) {
+                                function nrWrapper() {
+                                    var r,
+                                        a,
+                                        s,
+                                        c;
+                                    try {
+                                        a = this,
+                                        r = i(arguments),
+                                        s = "function" == typeof e
+                                            ? e(r, a)
+                                            : e || {}
+                                    } catch (f) {
+                                        l([
+                                            f,
+                                            "",
+                                            [
+                                                r, a, o
+                                            ],
+                                            s
+                                        ])
+                                    }
+                                    u(n + "start", [
+                                        r, a, o
+                                    ], s);
+                                    try {
+                                        return c = t.apply(a, r)
+                                    } catch (d) {
+                                        throw u(n + "err", [
+                                            r, a, d
+                                        ], s),
+                                        d
+                                    } finally {
+                                        u(n + "end", [
+                                            r, a, c
+                                        ], s)
+                                    }
+                                }
+                                return r(t)
+                                    ? t
+                                    : (n || (n = ""), nrWrapper[a] = t, d(t, nrWrapper), nrWrapper)
+                            }
+                            function f(t, n, o, i) {
+                                o || (o = "");
+                                var a,
+                                    s,
+                                    c,
+                                    f = "-" === o.charAt(0);
+                                for (c = 0; c < n.length; c++) 
+                                    s = n[c],
+                                    a = t[s],
+                                    r(a) || (t[s] = e(
+                                        a,
+                                        f
+                                            ? s + o
+                                            : o,
+                                        i,
+                                        s
+                                    ))
+                                
+                            }
+                            function u(e, r, o) {
+                                if (! c || n) {
+                                    var i = c;
+                                    c = !0;
+                                    try {
+                                        t.emit(e, r, o, n)
+                                    } catch (a) {
+                                        l([a, e, r, o])
+                                    }
+                                    c = i
+                                }
+                            }
+                            function d(t, n) {
+                                if (Object.defineProperty && Object.keys) 
+                                    try {
+                                        var e = Object.keys(t);
+                                        return e.forEach(function (e) {
+                                            Object.defineProperty(n, e, {
+                                                get: function () {
+                                                    return t[e]
+                                                },
+                                                set: function (n) {
+                                                    return t[e] = n,
+                                                    n
+                                                }
+                                            })
+                                        }),
+                                        n
+                                    }
+                                 catch (r) {
+                                    l([r])
+                                }
+                                for (var o in t) 
+                                    s.call(t, o) && (n[o] = t[o]);
+                                
+                                return n
+                            }
+                            function l(n) {
+                                try {
+                                    t.emit("internal-error", n)
+                                } catch (e) {}
+                            }
+                            return t || (t = o),
+                            e.inPlace = f,
+                            e.flag = a,
+                            e
+                        }
+                    }, {}
+                ]
+            }, {}, [
+                "loader",
+                2,
+                12,
+                4,
+                3
+            ]);
+    
+        </script>
+        
+        <meta http-equiv="Content-Language" content="ko-KR">
+        <meta name="Description" content="어학 점수 변환기 | 토익/텝스/토플 등 어학점수를 다른 시험의 점수로 변환 할 수 있는 서비스 - 사람인">
+        <meta name="writer" content="사람인">
+        <meta name="keywords" content="어학 점수 변환기, 오픽 토익환산, 토익 토플환산, 토익 텝스 환산, 텝스 토플 환산, 토익 700점 환산, 토익 800점 환산, 토익 900점 환산, 취업, 채용, 구인, 구직, 일자리, 고용, 구인정보, 취업사이트, 채용포털, 사람인, saramin">
+        <meta property="og:url" content="http://www.saramin.co.kr/zf_user/tools/score-converter">
+        <meta property="og:title" content="어학 점수 변환기 - 사람인">
+        <meta property="og:description" content="어학 점수 변환기 | 토익/텝스/토플 등 어학점수를 다른 시험의 점수로 변환 할 수 있는 서비스 - 사람인">
+        <meta property="og:image" content="//www.saraminimage.co.kr/logo/saraminsnslogo.png">
+        <meta property="og:site_name" content="사람인">
+        <meta property="og:type" content="website">
+        <meta property="og:locale" content="ko_KR">
+        <meta property="fb:app_id" content="1593727887570039">
+        <meta property="og:image:width" content="200">
+        <meta property="og:image:height" content="200">
+        <link href="../static/assets/css/sticky_assist.css?v=20200702103024" media="all" rel="stylesheet" type="text/css">
+        <link href="score-converter" rel="canonical">
+        <link href="../static/assets/css/layout.css?v=20200702103024" media="all" rel="stylesheet" type="text/css">
+        <link href="../static/assets/css/common_ui_keeping.css?v=20200702103024" media="all" rel="stylesheet" type="text/css">
+        <link href="../static/assets/css/components.css?v=20200702103024" media="all" rel="stylesheet" type="text/css">
+        <link href="../static/assets/css/company_info.css?v=20200702103024" media="all" rel="stylesheet" type="text/css">
+        <link href="/favicon.ico?ver=2" rel="favicon">
+        <link href="/favicon.ico?ver=2" rel="icon" type="image/x-icon">
+        <link href="/favicon.ico?ver=2" rel="shortcut icon" type="image/x-icon">
+        <script type="text/javascript" src="../static/assets/js/jquery-1.11.1.min.js"></script>
+        <script type="text/javascript">
+            var $j = jQuery.noConflict();
+        </script>
+        <script type="text/javascript" src="../static/assets/js/common.js?v=20200702103024"></script>
+        <!--[if lt IE 9]> <script type="text/javascript" src="//www.saramin.co.kr/js/html5shiv.min.js"></script><![endif]-->
+        <script type="text/javascript" src="../static/assets/js/jquery.tinyscrollbar.min.js"></script>
+        <script type="text/javascript" src="../static/assets/js/ui-component.js?v=20200702103024"></script>
+        <script type="text/javascript" src="../static/assets/js/default-layout.js?v=20200702103024"></script>
+        <script type="text/javascript">
+            var googleSlotList = {};
+            var googletag = googletag || {};
+            googletag.cmd = googletag.cmd || [];
+            (function () {
+                var useSSL = 'https:' == document.location.protocol;
+                var src = (
+                    useSSL
+                        ? 'https:'
+                        : 'http:'
+                ) + '../static/assets/js/gpt.js';
+                document.write('<scr' + 'ipt src="' + src + '"></scr' + 'ipt>');
+            })();
+        </script>
+        <script src="../static/assets/js/gpt.js"></script>
+        <script src="../static/assets/js/pubads_impl_2020062201.js" id="gpt-impl-0.92406510831617" nonce=""></script><link rel="preload" href="../static/assets/js/integrator.sync.js?domain=www.saramin.co.kr" as="script"><script src="../static/assets/js/integrator.sync.js?domain=www.saramin.co.kr"></script>
+        <script>
+            processGoogleTokenSync({
+                "newToken": "FBS"
+            }, 5);
+        </script>
+        <script type="text/javascript">
+            googletag.cmd.push(function () {
+                googleSlotList['div-gpt-ad-1511847708022-0'] = googletag.defineSlot('/61280259/1000-list_120x240', [
+                    120, 240
+                ], 'div-gpt-ad-1511847708022-0').addService(googletag.pubads());
+                googleSlotList['div-gpt-ad-1400664864294-0'] = googletag.defineSlot('/61280259/1000-list_120x600', [
+                    120, 600
+                ], 'div-gpt-ad-1400664864294-0').addService(googletag.pubads());
+                googleSlotList['div-gpt-ad-1511846653839-0'] = googletag.defineSlot('/61280259/area-list_120x240', [
+                    120, 240
+                ], 'div-gpt-ad-1511846653839-0').addService(googletag.pubads());
+                googleSlotList['div-gpt-ad-1400664864294-2'] = googletag.defineSlot('/61280259/area-list_120x600', [
+                    120, 600
+                ], 'div-gpt-ad-1400664864294-2').addService(googletag.pubads());
+                googleSlotList['div-gpt-ad-1400664864294-3'] = googletag.defineSlot('/61280259/area-list_728x90', [
+                    728, 90
+                ], 'div-gpt-ad-1400664864294-3').addService(googletag.pubads());
+                googleSlotList['div-gpt-ad-1511845706684-0'] = googletag.defineSlot('/61280259/category-list_120x240', [
+                    120, 240
+                ], 'div-gpt-ad-1511845706684-0').addService(googletag.pubads());
+                googleSlotList['div-gpt-ad-1400664864294-4'] = googletag.defineSlot('/61280259/category-list_120x600', [
+                    120, 600
+                ], 'div-gpt-ad-1400664864294-4').addService(googletag.pubads());
+                googleSlotList['div-gpt-ad-1400664864294-5'] = googletag.defineSlot('/61280259/category-list_728x90', [
+                    728, 90
+                ], 'div-gpt-ad-1400664864294-5').addService(googletag.pubads());
+                googleSlotList['div-gpt-ad-1426214085634-0'] = googletag.defineSlot('/61280259/Contest-box_left_307x281', [
+                    307, 281
+                ], 'div-gpt-ad-1426214085634-0').addService(googletag.pubads());
+                googleSlotList['div-gpt-ad-1426214150723-0'] = googletag.defineSlot('/61280259/Contest-box_middle_307x281', [
+                    307, 281
+                ], 'div-gpt-ad-1426214150723-0').addService(googletag.pubads());
+                googleSlotList['div-gpt-ad-1426214197444-0'] = googletag.defineSlot('/61280259/Contest-box_right_307x281', [
+                    307, 281
+                ], 'div-gpt-ad-1426214197444-0').addService(googletag.pubads());
+                googleSlotList['div-gpt-ad-1511845587070-0'] = googletag.defineSlot('/61280259/CS_120x240', [
+                    120, 240
+                ], 'div-gpt-ad-1511845587070-0').addService(googletag.pubads());
+                googleSlotList['div-gpt-ad-1400664864294-6'] = googletag.defineSlot('/61280259/CS_120x600', [
+                    120, 600
+                ], 'div-gpt-ad-1400664864294-6').addService(googletag.pubads());
+                googleSlotList['div-gpt-ad-1400664864294-7'] = googletag.defineSlot('/61280259/CS_728x90', [
+                    728, 90
+                ], 'div-gpt-ad-1400664864294-7').addService(googletag.pubads());
+                googleSlotList['div-gpt-ad-1511846339912-0'] = googletag.defineSlot('/61280259/etc_120x240', [
+                    120, 240
+                ], 'div-gpt-ad-1511846339912-0').addService(googletag.pubads());
+                googleSlotList['div-gpt-ad-1400664864294-10'] = googletag.defineSlot('/61280259/etc_120x600', [
+                    120, 600
+                ], 'div-gpt-ad-1400664864294-10').addService(googletag.pubads());
+                googleSlotList['div-gpt-ad-1400664864294-11'] = googletag.defineSlot('/61280259/etc_728x90', [
+                    728, 90
+                ], 'div-gpt-ad-1400664864294-11').addService(googletag.pubads());
+                googleSlotList['div-gpt-ad-1580945710799-0'] = googletag.defineSlot('/61280259/etc_office_worker_in_120x600', [
+                    120, 600
+                ], 'div-gpt-ad-1580945710799-0').addService(googletag.pubads());
+                googleSlotList['div-gpt-ad-1550638948072-0'] = googletag.defineSlot('/61280259/Login_728x90', [
+                    728, 90
+                ], 'div-gpt-ad-1550638948072-0').addService(googletag.pubads());
+                googleSlotList['div-gpt-ad-1400664864294-12'] = googletag.defineSlot('/61280259/logout_120x600', [
+                    120, 600
+                ], 'div-gpt-ad-1400664864294-12').addService(googletag.pubads());
+                googleSlotList['div-gpt-ad-1400664864294-13'] = googletag.defineSlot('/61280259/logout_728x90', [
+                    728, 90
+                ], 'div-gpt-ad-1400664864294-13').addService(googletag.pubads());
+                googleSlotList['div-gpt-ad-1533172458701-0'] = googletag.defineSlot('/61280259/Main-Big_108x360', [
+                    108, 360
+                ], 'div-gpt-ad-1533172458701-0').addService(googletag.pubads());
+                googleSlotList['div-gpt-ad-1425521803564-0'] = googletag.defineSlot('/61280259/Main-Big_543x113', [
+                    543, 113
+                ], 'div-gpt-ad-1425521803564-0').addService(googletag.pubads());
+                googleSlotList['div-gpt-ad-1426837722822-0'] = googletag.defineSlot('/61280259/Main-image_230x142', [
+                    230, 142
+                ], 'div-gpt-ad-1426837722822-0').addService(googletag.pubads());
+                googleSlotList['div-gpt-ad-1553056482914-0'] = googletag.defineSlot('/61280259/member_120x240', [
+                    120, 240
+                ], 'div-gpt-ad-1553056482914-0').addService(googletag.pubads());
+                googleSlotList['div-gpt-ad-1400664864294-14'] = googletag.defineSlot('/61280259/member_120x600', [
+                    120, 600
+                ], 'div-gpt-ad-1400664864294-14').addService(googletag.pubads());
+                googleSlotList['div-gpt-ad-1400664864294-15'] = googletag.defineSlot('/61280259/member_728x90', [
+                    728, 90
+                ], 'div-gpt-ad-1400664864294-15').addService(googletag.pubads());
+                googleSlotList['div-gpt-ad-1550543155169-0'] = googletag.defineSlot('/61280259/memcom_120x240', [
+                    120, 240
+                ], 'div-gpt-ad-1550543155169-0').addService(googletag.pubads());
+                googleSlotList['div-gpt-ad-1400664864294-16'] = googletag.defineSlot('/61280259/memcom_120x600', [
+                    120, 600
+                ], 'div-gpt-ad-1400664864294-16').addService(googletag.pubads());
+                googleSlotList['div-gpt-ad-1571807667744-0'] = googletag.defineSlot('/61280259/memcom_264x264', [
+                    264, 264
+                ], 'div-gpt-ad-1571807667744-0').addService(googletag.pubads());
+                googleSlotList['div-gpt-ad-1400664864294-17'] = googletag.defineSlot('/61280259/memcom_728x90', [
+                    728, 90
+                ], 'div-gpt-ad-1400664864294-17').addService(googletag.pubads());
+                googleSlotList['div-gpt-ad-1511846020570-0'] = googletag.defineSlot('/61280259/profession-list_120x240', [
+                    120, 240
+                ], 'div-gpt-ad-1511846020570-0').addService(googletag.pubads());
+                googleSlotList['div-gpt-ad-1400664864294-18'] = googletag.defineSlot('/61280259/profession-list_120x600', [
+                    120, 600
+                ], 'div-gpt-ad-1400664864294-18').addService(googletag.pubads());
+                googleSlotList['div-gpt-ad-1400664864294-19'] = googletag.defineSlot('/61280259/profession-list_728x90', [
+                    728, 90
+                ], 'div-gpt-ad-1400664864294-19').addService(googletag.pubads());
+                googleSlotList['div-gpt-ad-1400664864294-20'] = googletag.defineSlot('/61280259/rapid-view_120x600', [
+                    120, 600
+                ], 'div-gpt-ad-1400664864294-20').addService(googletag.pubads());
+                googleSlotList['div-gpt-ad-1511933728215-0'] = googletag.defineSlot('/61280259/recruit-view_120x240', [
+                    120, 240
+                ], 'div-gpt-ad-1511933728215-0').addService(googletag.pubads());
+                googleSlotList['div-gpt-ad-1400664864294-22'] = googletag.defineSlot('/61280259/recruit-view_120x600', [
+                    120, 600
+                ], 'div-gpt-ad-1400664864294-22').addService(googletag.pubads());
+                googleSlotList['div-gpt-ad-1547596188605-0'] = googletag.defineSlot('/61280259/recruit-view_250x250', [
+                    250, 250
+                ], 'div-gpt-ad-1547596188605-0').addService(googletag.pubads());
+                googleSlotList['div-gpt-ad-1400664864294-23'] = googletag.defineSlot('/61280259/recruit-view_728x90', [
+                    728, 90
+                ], 'div-gpt-ad-1400664864294-23').addService(googletag.pubads());
+                googleSlotList['div-gpt-ad-1374566074903-2'] = googletag.defineSlot('/61280259/SearchLeft120x600', [
+                    120, 600
+                ], 'div-gpt-ad-1374566074903-2').addService(googletag.pubads());
+                googleSlotList['div-gpt-ad-1384850668630-1'] = googletag.defineSlot('/61280259/SearchTop_468x60', [
+                    468, 60
+                ], 'div-gpt-ad-1384850668630-1').addService(googletag.pubads());
+                googleSlotList['div-gpt-ad-1550638841234-0'] = googletag.defineSlot('/61280259/successHelper_728x90', [
+                    728, 90
+                ], 'div-gpt-ad-1550638841234-0').addService(googletag.pubads());
+                googleSlotList['div-gpt-ad-1553056822382-0'] = googletag.defineSlot('/61280259/talent_120x240', [
+                    120, 240
+                ], 'div-gpt-ad-1553056822382-0').addService(googletag.pubads());
+                googleSlotList['div-gpt-ad-1400664864294-24'] = googletag.defineSlot('/61280259/talent_120x600', [
+                    120, 600
+                ], 'div-gpt-ad-1400664864294-24').addService(googletag.pubads());
+                googleSlotList['div-gpt-ad-1400664864294-25'] = googletag.defineSlot('/61280259/talent_728x90', [
+                    728, 90
+                ], 'div-gpt-ad-1400664864294-25').addService(googletag.pubads());
+                googletag.enableServices();
+                googletag.pubads().addEventListener('slotRenderEnded', function (event) {
+                    if (! event.isEmpty) {
+                        var domId = event
+                            .slot
+                            .getSlotId()
+                            .getDomId();
+                        if (!!document.getElementById(domId + '-wrapper')) {
+                            document
+                                .getElementById(domId + '-wrapper')
+                                .querySelector('.google-standby-banner')
+                                .style
+                                .display = 'none';
+                            document
+                                .getElementById(domId + '-inner')
+                                .style
+                                .display = '';
+                        }
+                    }
+                });
+            });
+        </script>
+        <script>
+            (function (i, s, o, g, r, a, m) {
+                i['GoogleAnalyticsObject'] = r;
+                i[r] = i[r] || function () {
+                    (i[r].q = i[r].q || []).push(arguments)
+                },
+                i[r].l = 1 * new Date();
+                a = s.createElement(o),
+                m = s.getElementsByTagName(o)[0];
+                a.async = 1;
+                a.src = g;
+                m.parentNode.insertBefore(a, m)
+            })(window, document, 'script', '../static/assets/js/analytics.js', 'ga');
+            ga('create', 'UA-12546634-1', 'saramin.co.kr');
+            ga('require', 'GTM-KN35GK2');
+            ga('require', 'displayfeatures');
+            ga('require', 'linkid');
+            ga('send', 'pageview');
+        </script><link rel="prefetch" href="container.html"><link rel="prefetch" href="container.html">
+   </head>
+
+   <body>
+    <!-- Preloader Start -->
+    <div id="preloader-active">
+        <div class="preloader d-flex align-items-center justify-content-center">
+            <div class="preloader-inner position-relative">
+                <div class="preloader-circle"></div>
+                <div class="preloader-img pere-text">
+                    <img src="../static/logoper.png" alt="">
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Preloader Start -->
+    <header>
+        <!-- Header Start -->
+       <div class="header-area header-transparrent" >
+           <div class="headder-top header-sticky">
+                <div class="container">
+                    <div class="row align-items-center">
+                        <div class="col-lg-3 col-md-2">
+                            <!-- Logo -->
+                            <div class="logo">
+                                <a href="/"><img src="../static/bridge.png" alt=""></a>
+                            </div>  
+                        </div>
+                        <div class="col-lg-9 col-md-9">
+                            <div class="menu-wrapper">
+                                <!-- Main-menu -->
+                                <div class="main-menu">
+                                    <nav class="d-none d-lg-block">
+                                        <ul id="navigation">
+                                            <li><a href="/">Home</a></li>
+                                            <li><a href="/recruit">Find Jobs </a></li>
+                                            <li><a href="#">Help</a>
+                                            	<ul class="submenu">
+                                                    <li><a href="/hangulcheck">글자수 세기</a></li>
+                                                    <!--li><a href="/hakjomcount">학점 계산기</a></li-->
+                                                    <li><a href="/salarycalculator">연봉 계산기</a></li>
+                                                    <li><a href="/futureyearcalculate">미래 연봉 계산기</a></li>
+                                                    <li><a href="/changescore">어학 점수 변환기</a></li>
+                                                </ul>
+                                            </li>
+                                            <li><a href="#">MyPage</a>
+                                                <ul class="submenu">
+                                                    {% if session['usertype'] == "person" %}
+                                                    <li><a href="/myprecruit">MY RECRUIT</a></li>
+                                                    <li><a href="/personalinfo">MY PERSONAL INFO</a></li>
+                                                    {% elif session['usertype'] == "company" %}
+                                                    <li><a href="/mycrecruit">MY RECRUIT</a></li>
+                                                    <li><a href="/companyinfo">MY COMPANY'S INFO</a></li>
+                                                    {% endif %}
+                                                </ul>
+                                            </li>
+                                            <li><a href="/qna">QnA</a></li>
+                                        </ul>
+                                    </nav>
+                                </div>          
+                                <!-- Header-btn -->
+                                <div class="header-btn d-none f-right d-lg-block">
+                                    {%  if session['logged_in'] %}
+                                	<a href="/logout" class="btn head-btn2">Log out</a>
+                                    <a href="/unjoin" class="btn head-btn2">Unjoin</a>
+                                	{% else %}
+                                    <a href="/plogin" class="btn head-btn2">Individual</a>
+                                    <a href="/clogin" class="btn head-btn2">Enterprise</a>
+                                    {% endif %}
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Mobile Menu -->
+                        <div class="col-12">
+                            <div class="mobile_menu d-block d-lg-none"></div>
+                        </div>
+                    </div>
+                </div>
+           </div>
+       </div>
+        <!-- Header End -->
+    </header>
+
+
+    <main>
+    
+     <div class="slider-area ">
+            <div class="single-slider section-overly slider-height2 d-flex align-items-center" data-background="../static/assets/img/hero/background3.png">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-xl-12">
+                            <div  class="hero-cap text-center">
+                                <h2>어학점수 변환기</h2>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="sri_section" class="has_banner">
+            <div id="sri_wrap">
+                <div id="content">
+                    <script></script>
+                    <div class="wrap_title_recruit">
+                    <br><br>
+                        <h1 class="title_common">어학점수 변환기</h1>
+                    </div>
+                    <div class="wrap_tool">
+                        <div class="content_tool">
+                            <section class="wrap_enquiry">
+                                <h2 class="blind">어학점수 관련 정보 입력</h2>
+                                <div class="enquiry">
+                                    <div class="form_title">어학 시험 종류</div>
+                                    <div class="form_field" id="select">
+                                        <span class="sri_input2"><input type="radio" id="langType01" name="language_type" value="TOEIC" checked=""><label for="langType01">토익 (TOEIC)</label>
+                                        </span>
+                                        <span class="sri_input2"><input type="radio" id="langType02" name="language_type" value="TEPS"><label for="langType02">텝스 (TEPS)</label>
+                                        </span>
+                                        <span class="sri_input2"><input type="radio" id="langType03" name="language_type" value="IBT"><label for="langType03">토플 (TOEFL)</label>
+                                        </span>
+                                    </div>
+                                    <div class="form_title">
+                                        <label for="myScore">나의 어학 점수</label>
+                                    </div>
+                                    <div class="form_field">
+                                        <span class="sri_input2 digit4 right"><input type="text" placeholder="0" id="input_field"></span>
+                                        <span class="sri_input2_text">점</span>
+                                    </div>
+                                </div>
+                            </section>
+                            <section class="wrap_result">
+                                <h2 class="blind">어학점수 변환기 결과</h2>
+                                <div class="title">
+                                    <span class="text">변환 결과
+                                    </span>
+                                </div>
+                                <!-- 결과 산출 전-->
+                                <div class="result_pre" style="display: none;">
+                                    두 자리 이상 점수를 입력해주세요
+                                </div>
+                                <div class="result_list" style="display: block;">
+                                    <dl>
+                                        <dt>토익 (TOEIC)</dt>
+                                        <dd>
+                                            <span id="toeic_input"></span>점</dd>
+                                    </dl>
+                                    <dl>
+                                        <dt>텝스 (TEPS)</dt>
+                                        <dd>
+                                            <span id="teps_input"></span>점</dd>
+                                    </dl>
+                                    <dl>
+                                        <dt>토플 (TOEFL)</dt>
+                                        <dd>
+                                            <span id="ibt_input"></span>점</dd>
+                                    </dl>
+                                    <dl>
+                                        <dt>토익 스피킹 (TOEIC Speaking)</dt>
+                                        <dd>
+                                            <span id="toeic_speaking_input"></span>점</dd></dd>
+                                    </dl>
+                                    <dl>
+                                        <dt>텝스 스피킹 (TEPS Speaking)</dt>
+                                        <dd>
+                                            <span id="teps_speaking_input"></span>점</dd>
+                                    </dl>
+                                    <dl>
+                                        <dt>오픽 (OPIC)</dt>
+                                        <dd>
+                                            <span id="opic_input">IM2</span>
+                                        </dd>
+                                    </dl>
+                                </div>
+    
+                            </section>
+                        </div>
+                    </div>
+                </div>
+            </div>        
+        </div>
+        <div id="dimmed" class="sri_dimmed" style="display:none"></div>
+        <script type="text/javascript">
+            var isPersonLogin = false;
+            var isCompanyLogin = false;
+        </script>
+        <div id="iframe_layer" class="iframe_layer" style="display: none;">
+            <div id="quick_apply_layer" class="once_layer" reload="n">
+                <div id="quick_apply_layer_loading" class="layer_loading" style="display:none"><img src="loading.gif"></div>
+                <a href="#close" onclick="closeQuickApplyLayer(); return false;" class="once_ly_close">
+                    <img src="btn_layer_close.png" alt="닫기">
+                </a>
+            </div>
+        </div>
+        <div id="pop_login_layer_dimmed" style="display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:url(//www.saraminimage.co.kr/event_2014/0708_rank1/bg_dimmed.png) repeat 0 0;z-index:9998;"></div>
+        <div id="pop_login_layer" class="pop_login_layer" style="display: none; position: absolute; top: 280px;">
+        </div>
+        <script type="text/javascript" src="../static/assets/js/share_contents.js?v=20200702103024"></script>
+        <script type="text/javascript" src="../static/assets/js/score_array.js?v=20200702103024"></script>
+        <script type="text/javascript" src="../static/assets/js/score_converter.js?v=20200702103024"></script>
+        <script type="text/javascript">
+            // <!--
+            (function (window, $) {
+                $(document).ready(function () {
+                    var typingTimer;
+                    var doneTypingInterval = 500;
+                    var input_field = $('#input_field');
+                    var result_pre_class = $(".result_pre");
+                    var result_list_class = $(".result_list");
+                    if (input_field.val() === '') {
+                        result_pre_class.css("display", "block");
+                        result_list_class.css("display", "none");
+                    }
+                    input_field.keyup(function () {
+                        if (input_field.val() === '') {
+                            result_pre_class.css("display", "block");
+                            result_list_class.css("display", "none");
+                        } else {
+                            var limit = 2;
+                            if ($(":radio[name='language_type']:checked").val() === 'IBT') {
+                                limit = 1;
+                            }
+                            if (input_field.val().length > limit) {
+                                window.clearTimeout(typingTimer);
+                                typingTimer = window.setTimeout(scoreConvert, doneTypingInterval);
+                            }
+                        }
+                    }).on('keydown', function (e) {
+                        if (e.keyCode == 13) {
+                            e.preventDefault();
+                        }
+                    });
+                    // 라디오 버튼을 교체 될시 초기화
+                    $("input[name=language_type]").change(function () {
+                        reset();
+                    });
+                });
+            })(window, jQuery)
+            // -->
+        </script>
+        <script type="text/javascript">
+            // <!--
+            var searchWordInputId = "combineSearchWord", // 검색어 input ID
+                searchAutoCompleteResultWrapId = "wrapAutoComplete", // 검색결과 자동완성 Wrap ID
+                searchRecruitmentKey = 0, // key
+                urlBanner = "//www.saraminbanner.co.kr/", // 로고 url
+                urlPds = "//pds.saramin.co.kr/", // 로고원본 url
+                urlWebPds = "//webpds.saramin.co.kr/pds/", // 로고원본 webpds url
+                inlineCss = "", // 특정 css
+                pageType = "";
+            // -->
+        </script>
+        <script type="text/javascript" src="../static/assets/js/search-auto-complete.js?v=20200702103024"></script>
+        <script type="text/javascript" src="../static/assets/js/right-wing.js?v=20200702103024"></script>
+        <script type="text/javascript">
+            (function () {
+                var pszProto = (
+                    ("https:" == document.location.protocol)
+                        ? "https://www.saramin.co.kr/js/"
+                        : "//www.saraminimage.co.kr/js/"
+                );
+                document.write(unescape("%3Cscript src='" + pszProto + "wl6.js' type='text/javascript'%3E%3C/script%3E"));
+            })();
+        </script>
+        <script src="../static/assets/js/wl6.js" type="text/javascript"></script>
+        <script type="text/javascript">
+            // 1.
+            _n_sid = "saramin";
+            _n_uid_cookie = "UID";
+            _n_info1_cookie = "Mtype";
+            n_logging();
+        </script>
+        <script type="text/javascript">
+            function n_trackEvent(category, action, opt_label, opt_value, opt_noninteraction) {
+                var l = document.location;
+                var url = l.protocol + '//' + l.host + '/trackEvent?category=' + category + '&action=' + action;
+                var label = opt_label || '';
+                var value = opt_value || '';
+                url = url + '&opt_label=' + label + '&opt_value=' + value;
+                n_click_logging(url, l.href);
+                try {
+                    _gaq.push([
+                        '_trackEvent',
+                        category,
+                        action,
+                        opt_label,
+                        opt_value,
+                        opt_noninteraction
+                    ]);
+                    ga('send', 'event', category, action, opt_label, opt_value, opt_noninteraction);
+                } catch (_e) {}
+            }
+            function pushDataLayer(event, category, event_flow, event_label) {
+                try {
+                    dataLayer.push({
+                        'event': event || 'ga_lead',
+                        'category': category || '',
+                        'event-flow': event_flow || '',
+                        'event-label': event_label || ''
+                    });
+                } catch (e) {}
+            }
+            // 클릭 이벤트 + 구글 태그매니져 로깅
+            function loggingEventAndTagManager(trackEventAttr, tagManagerAttr) {
+                n_trackEvent(trackEventAttr[0], trackEventAttr[1], trackEventAttr[2], trackEventAttr[3]);
+                pushDataLayer(tagManagerAttr[0], tagManagerAttr[1], tagManagerAttr[2], tagManagerAttr[3]);
+            }
+            function promotionPushDataLayer(log_event, log_id, log_name, log_creative, log_position) {
+                try {
+                    var ecommerce_type = log_event === 'promotionClick'
+                        ? 'promoClick'
+                        : 'promoView';
+                    var promotion_log = {};
+                    promotion_log[ecommerce_type] = {
+                        'promotions': [
+                            {
+                                'id': log_id,
+                                'name': log_name,
+                                'creative': log_creative,
+                                'position': log_position
+                            }
+                        ]
+                    };
+                    var log_data = {
+                        'event': log_event,
+                        'ecommerce': promotion_log
+                    };
+                    dataLayer.push(log_data);
+                } catch (e) {}
+            }
+            function _hwaClick(cc) {
+                n_trackEvent('ADs', 'Click-' + cc);
+            }
+            function applyTrackEvent(el, opt_category, opt_content, opt_ref, opt_ref_content) {
+                try {
+                    var url = el.href;
+                    var category = opt_category || '';
+                    var content = opt_content || '';
+                    var ref = opt_ref || '';
+                    var ref_content = opt_ref_content || '';
+                    var anchor = '';
+                    if (url.indexOf('#') != -1) {
+                        var splitUrl = url.split('#');
+                        url = splitUrl[0];
+                        anchor = splitUrl[1];
+                    }
+                    if (url.indexOf('?') < 0) {
+                        url = url + '?t_category=' + category + '&t_content=' + content + '&t_ref=' + ref + '&t_ref_content=' + ref_content;
+                    } else {
+                        url = url + '&t_category=' + category + '&t_content=' + content + '&t_ref=' + ref + '&t_ref_content=' + ref_content;
+                    }
+                    if (anchor != '') {
+                        url += '#' + anchor;
+                    }
+                    el.href = url;
+                } catch (e) {}
+            }
+            function s_trackApply(el, opt_ref, opt_ref_content, opt_ref_scnid, opt_ref_area, opt_etc) {
+                try {
+                    var url = el.href;
+                    var ref = opt_ref || '';
+                    var ref_content = opt_ref_content || '';
+                    var ref_scnid = opt_ref_scnid || '';
+                    var ref_area = opt_ref_area || '';
+                    var anchor = '';
+                    var opt = opt_etc || {};
+                    if (url.indexOf('t_ref') > 0) 
+                        return;
+                    
+                    if (url.indexOf('#') != -1) {
+                        var splitUrl = url.split('#');
+                        url = splitUrl[0];
+                        anchor = splitUrl[1];
+                    }
+                    if (url.indexOf('?') < 0) {
+                        url = url + '?t_ref=' + ref + '&t_ref_content=' + ref_content;
+                    } else {
+                        url = url + '&t_ref=' + ref + '&t_ref_content=' + ref_content;
+                    }
+                    if (!! ref_scnid) {
+                        url += '&t_ref_scnid=' + ref_scnid;
+                    }
+                    if (!! ref_area) {
+                        url += '&t_ref_area=' + ref_area;
+                    }
+                    if (anchor != '') {
+                        url += '#' + anchor;
+                    }
+                    if (opt.constructor === Object) {
+                        for (k in opt) {
+                            if (opt.hasOwnProperty(k)) {
+                                url += '&' + k + '=' + opt[k];
+                            }
+                        }
+                    }
+                    el.href = url;
+                } catch (e) {}
+            }
+        </script>
+        <script type="text/javascript" src="../static/assets/js/wcslog.js"></script>
+        <script type="text/javascript">
+            if (!wcs_add) 
+                var wcs_add = {};
+            
+            wcs_add["wa"] = "s_1d3a45fb0bfe";
+            if (!_nasa) 
+                var _nasa = {};
+            
+            wcs.inflow();
+            wcs_do(_nasa);
+        </script>
+        <!-- Google Tag Manager -->
+        <script>
+            (function (w, d, s, l, i) {
+                w[l] = w[l] || [];
+                w[l].push({'gtm.start': new Date().getTime(), event: 'gtm.js'});
+                var f = d.getElementsByTagName(s)[0],
+                    j = d.createElement(s),
+                    dl = l != 'dataLayer'
+                        ? '&l=' + l
+                        : '';
+                j.async = true;
+                j.src = '../static/assets/js/gtm.js?id=' + i + dl;
+                f.parentNode.insertBefore(j, f);
+            })(window, document, 'script', 'dataLayer', 'GTM-MK2GBBH');
+        </script>
+        <!-- End Google Tag Manager -->
+        <!-- Google Tag Manager (noscript) -->
+        <noscript>
+            <iframe src="ns.html?id=GTM-MK2GBBH" height="0" width="0" style="display:none;visibility:hidden"></iframe>
+        </noscript>
+        <!-- End Google Tag Manager (noscript) -->
+        <div id="_sticky_warp"></div>
+        <script type="text/javascript">
+            window.NREUM || (NREUM =
+                {});
+            NREUM.info = {
+                "beacon": "bam.nr-data.net",
+                "licenseKey": "03a1f7dfe5",
+                "applicationID": "443261373",
+                "transactionName": "YFJaMkNTDBIFAUJfWVkYeQVFWw0PSwZTUFdCW0xJRV0NDRdNRVVZRVIVBV5cFAQWFlNE",
+                "queueTime": 0,
+                "applicationTime": 79,
+                "atts": "TBVZRAtJHxw=",
+                "errorBeacon": "bam.nr-data.net",
+                "agent": ""
+            }
+        </script>
+        <script type="text/javascript" id="">
+            window.dataLayer = window.dataLayer || [];
+            dataLayer.push({event: "Event_Sampling", random_page: "915041825"});
+        </script>
+        <div style="display: none; visibility: hidden;">
+            <script>
+                var cookie = "\/zf_user\/tools\/score-converter",
+                    cookieName = "mkt_ecommerce_pagepath",
+                    cookieValue = cookie,
+                    expirationTime = 1800;
+                expirationTime *= 1E3;
+                var date = new Date,
+                    dateTimeNow = date.getTime();
+                date.setTime(dateTimeNow + expirationTime);
+                date = date.toUTCString();
+                document.cookie = cookieName + "\x3d" + cookieValue + "; expires\x3d" + date + "; path\x3d/; domain\x3d." + location.hostname.replace(/^www\./i, "");
+            </script>
+        </div>
+
+    </main>
+   <footer>
+        <!-- Footer Start-->
+        <div class="footer-area footer-bg footer-padding" style="text-align:center;">
+            <div class="container">
+                <div class="row d-flex justify-content-between">
+                    <div class="col-xl-3 col-lg-3 col-md-4 col-sm-6">
+                       <div class="single-footer-caption mb-50">
+                        
+                            <div class="footer-tittle">
+                                <h4>About Us</h4>
+                                <ul style="font-size: 15px; font-weight: 800;">
+                                    <li><a href="#">LeeDooyoung</a></li>
+                                    <li><a href="#">HanJuhyeon</a></li>
+                                    <li><a href="#">KimHangil</a></li>
+                                    <li><a href="#">JoengEunmi</a></li>
+                                    <li><a href="#">JeongDonghwa</a></li>
+                                </ul>
+                            </div>
+                      
+
+                       </div>
+                    </div>
+                    <div class="col-xl-3 col-lg-3 col-md-4 col-sm-5">
+                        <div class="single-footer-caption mb-50">
+                            <div class="footer-tittle">
+                                <h4>Contact Info</h4>
+                                <ul>
+                                    <li>
+                                    <p style="font-size: 15px;font-weight: 400;">Address : 금천구 가산동 371-28</p>
+                                    </li>
+                                    <li style="font-size: 15px;font-weight: 800;"><a href="#">Phone : 010-2906-2942</a></li>
+                                    <li style="font-size: 15px;font-weight: 800;"><a href="#">Email : saelly1@naver.com</a></li>
+                                </ul>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="col-xl-3 col-lg-3 col-md-4 col-sm-5">
+                        <div class="single-footer-caption mb-50">
+                            <div class="footer-tittle">
+                                <h4>Important Link</h4>
+                                <ul>
+                                    <li style="font-size: 15px;font-weight: 800;"><a href="http://192.168.0.112:5000">Home</a></li>
+                                    <li style="font-size: 15px;font-weight: 800;"><a href="http://192.168.0.112:5000/recruit">Find Jobs</a></li>
+                                    <li style="font-size: 15px;font-weight: 800;"><a href="#">Help</a></li>
+                                    <li style="font-size: 15px;font-weight: 800;"><a href="#">QnA</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-3 col-lg-3 col-md-4 col-sm-5">
+                        <div class="single-footer-caption mb-50">
+                            <div class="footer-tittle">
+                                <h4>Newsletter</h4>
+                                <div class="footer-pera footer-pera2">
+                                 <p style="font-size: 15px;font-weight: 400;">Contact to 'Bridge'</p>
+                             </div>
+                             <!-- Form -->
+                             
+                            </div>
+                        </div>
+                    </div>
+                </div>
+               <!--  -->
+               <div class="row footer-wejed justify-content-between">
+                    <div class="col-xl-3 col-lg-3 col-md-4 col-sm-6">
+                        <!-- logo -->
+                        <div class="footer-logo mb-20">
+                        <a href="/"><img src="../static/bridgefoot.png" alt=""></a>
+                        </div>
+                    </div>
+                    <div class="col-xl-3 col-lg-3 col-md-4 col-sm-5">
+                    <div class="footer-tittle-bottom" style="margin-top:10px;">
+                        <span>5000+</span>
+                        <p style="font-size: 15px;font-weight: 500;">Talented Enterprises</p>
+                    </div>
+                    </div>
+                    <div class="col-xl-3 col-lg-3 col-md-4 col-sm-5">
+                        <div class="footer-tittle-bottom" style="margin-top:10px;">
+                            <span>451</span>
+                            <p style="font-size: 15px;font-weight: 500;">Talented Enterprises</p>
+                        </div>
+                    </div>
+                    <div class="col-xl-3 col-lg-3 col-md-4 col-sm-5">
+                        <!-- Footer Bottom Tittle -->
+                        <div class="footer-tittle-bottom" style="margin-top:10px;">
+                            <span>568</span>
+                            <p style="font-size: 15px;font-weight: 500;">Talented Enterprises</p>
+                        </div>
+                    </div>
+               </div>
+            </div>
+        </div>
+        <!-- footer-bottom area -->
+        <div class="footer-bottom-area footer-bg">
+            <div class="container">
+                <div class="footer-border">
+                     <div class="row d-flex justify-content-between align-items-center">
+                         <div class="col-xl-10 col-lg-10 ">
+                             
+                         </div>
+                         <div class="col-xl-2 col-lg-2">
+                             <div class="footer-social f-right">
+                                 <a href="#"><i class="fab fa-facebook-f"></i></a>
+                                 <a href="#"><i class="fab fa-twitter"></i></a>
+                                 <a href="#"><i class="fas fa-globe"></i></a>
+                                 <a href="#"><i class="fab fa-behance"></i></a>
+                             </div>
+                         </div>
+                     </div>
+                </div>
+            </div>
+        </div>
+        <!-- Footer End-->
+    </footer>
+
+
+  <!-- JS here -->
+	
+		<!-- All JS Custom Plugins Link Here here -->
+        <script src="../static/assets/js/vendor/modernizr-3.5.0.min.js"></script>
+		<!-- Jquery, Popper, Bootstrap -->
+		<script src="../static/assets/js/vendor/jquery-1.12.4.min.js"></script>
+        <script src="../static/assets/js/popper.min.js"></script>
+        <script src="../static/assets/js/bootstrap.min.js"></script>
+	    <!-- Jquery Mobile Menu -->
+        <script src="../static/assets/js/jquery.slicknav.min.js"></script>
+
+		<!-- Jquery Slick , Owl-Carousel Plugins -->
+        <script src="../static/assets/js/owl.carousel.min.js"></script>
+        <script src="../static/assets/js/slick.min.js"></script>
+        <script src="../static/assets/js/price_rangs.js"></script>
+        
+		<!-- One Page, Animated-HeadLin -->
+        <script src="../static/assets/js/wow.min.js"></script>
+		<script src="../static/assets/js/animated.headline.js"></script>
+        <script src="../static/assets/js/jquery.magnific-popup.js"></script>
+
+		<!-- Scrollup, nice-select, sticky -->
+        <script src="../static/assets/js/jquery.scrollUp.min.js"></script>
+        <script src="../static/assets/js/jquery.nice-select.min.js"></script>
+		<script src="../static/assets/js/jquery.sticky.js"></script>
+        
+        <!-- contact js -->
+        <script src="../static/assets/js/contact.js"></script>
+        <script src="../static/assets/js/jquery.form.js"></script>
+        <script src="../static/assets/js/jquery.validate.min.js"></script>
+        <script src="../static/assets/js/mail-script.js"></script>
+        <script src="../static/assets/js/jquery.ajaxchimp.min.js"></script>
+        
+		<!-- Jquery Plugins, main Jquery -->	
+        <script src="../static/assets/js/plugins.js"></script>
+        <script src="../static/assets/js/main.js"></script>
+        
+    </body>
+</html>
